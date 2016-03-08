@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\AyresGJ\workspace\android studio\Android app\eduroamCAT app\libs\android-support-v4.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5896b0a4e377ac4242eb2bc785220c1c4fc052f4">
+        <dex dex="C:\Users\AyresGJ\workspace\android studio\Android app\eduroamCAT app\build\intermediates\pre-dexed\release\android-support-v4-fb9eb33aa6c1f9e518533b0051694f7773803dca.jar" />
+    </item>
+
+</items>

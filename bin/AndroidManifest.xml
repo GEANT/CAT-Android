@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="uk.ac.swansea.eduroamcat"
+    android:versionCode="7"
+    android:versionName="1.1.7">
+
+    <uses-sdk
+        android:minSdkVersion="18"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" android:logo="@drawable/ic_launcher">
+        <activity
+            android:name="uk.ac.swansea.eduroamcat.eduroamCAT"
+            android:label="@string/app_name"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:parentActivityName="eduroamCAT" 
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="uk.ac.swansea.eduroamcat.EAPMetadata"
+            android:label="@string/title_activity_eapmetadata"
+            android:parentActivityName="uk.ac.swansea.eduroamcat.eduroamCAT" >
+            <!--<meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="uk.ac.swansea.eduroamcat.eduroamCAT" /> -->
+             <!-- MIME Type registration -->
+             <intent-filter>
+                <data android:scheme="content" />
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />              
+                <data android:host="*" />
+                <data android:pathPattern=".*\\.eap-config" />
+                <data android:mimeType="application/eap-config" />
+            </intent-filter>       
+            <intent-filter>
+                <data android:scheme="file" />
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:host="*" />
+                <data android:pathPattern=".*\\.eap-config" />
+                <data android:mimeType="application/eap-config" />
+            </intent-filter> 
+            <intent-filter>
+                <data android:scheme="http" />
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:host="*" />
+                <data android:pathPattern=".*\\.eap-config" />
+                <data android:mimeType="application/eap-config" />
+            </intent-filter>         
+ <!--       <intent-filter>
+                <data android:scheme="https" />
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:host="*" />
+                <data android:pathPattern=".*\\.eap-config" />
+                <data android:mimeType="application/eap-config" />
+            </intent-filter> 
+            -->
+            <intent-filter>
+                <data android:scheme="https" />
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:host="*" />
+                <data android:mimeType="application/eap-config" />
+            </intent-filter> 
+			 <intent-filter>
+                <data android:scheme="content" android:mimeType="application/eap-config" />
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+</manifest>
