@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/AyresGJ/workspace/android%20studio/Android%20app/eduroamCAT%20app/res/values-el/strings.xml -->
+    <!-- From: file:/C:/Users/AyresGJ/workspace/android%20studio/trunk6/res/values-el/strings.xml -->
     <eat-comment/>
     <string name="about_menu">Για την εφαρμογή</string>
     <string name="about_text">Αυτή η εφαρμογή δημιουργήθηκε ως μέρος του GN3+ OpenCall Project, SENSE. Οποιαδήποτε προβλήματα/bugs ή σχόλια, σχετικά με την εφαρμογή (όχι για τη συνδεσιμότητα του eduroam), μπορούν να υποβληθούν στο playstore@eduroam.org</string>

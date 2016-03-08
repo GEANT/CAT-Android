@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/AyresGJ/workspace/android%20studio/Android%20app/eduroamCAT%20app/res/values-sw720dp-land/dimens.xml -->
+    <!-- From: file:/C:/Users/AyresGJ/workspace/android%20studio/trunk6/res/values-sw720dp-land/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">128dp</dimen>
 </resources>

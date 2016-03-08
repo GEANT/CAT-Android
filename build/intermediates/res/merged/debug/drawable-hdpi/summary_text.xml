@@ -1,4 +1,4 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle" >
    <solid android:color="#ffffff" />
    <stroke android:width="1dip" android:color="#4fa5d5"/>
-</shape><!-- From: file:/C:/Users/AyresGJ/workspace/android%20studio/Android%20app/eduroamCAT%20app/res/drawable-hdpi/summary_text.xml -->
+</shape><!-- From: file:/C:/Users/AyresGJ/workspace/android%20studio/trunk6/res/drawable-hdpi/summary_text.xml -->

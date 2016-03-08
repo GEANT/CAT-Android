@@ -51,14 +51,6 @@
             </SvnBranchConfiguration>
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/out">
-          <value>
-            <SvnBranchConfiguration>
-              <option name="trunkUrl" value="svn+ssh://svn.geant.net/GEANT/sense/Android%20app/SENSEapp/out" />
-              <option name="userinfoInUrl" value="true" />
-            </SvnBranchConfiguration>
-          </value>
-        </entry>
       </map>
     </option>
     <option name="mySupportsUserInfoFilter" value="true" />
