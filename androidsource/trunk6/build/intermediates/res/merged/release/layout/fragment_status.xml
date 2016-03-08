@@ -1,0 +1,115 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/status_fragment"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="start"
+    android:orientation="vertical"
+    android:scrollbarStyle="insideOverlay"
+    android:scrollbars="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+       
+        <ToggleButton
+            android:id="@+id/toggleWifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:maxWidth="100dp"
+            android:textOff="@string/wifi_toggle_off"
+            android:textOn="@string/wifi_toggle_on" />
+
+        <ToggleButton
+            android:id="@+id/toggleVerbose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:maxWidth="100dp"
+            android:textOff="@string/debug_toggle_off"
+            android:textOn="@string/debug_toggle_on" />
+
+        <Button
+            android:id="@+id/quickConnect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:maxWidth="200dp"
+            android:text="@string/reconnect_button" />
+
+    </LinearLayout>
+    
+       <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+           
+        <Button
+            android:id="@+id/duplicateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/duplicate_button" />
+
+    </LinearLayout>
+    
+    <TableLayout
+        android:id="@+id/tableLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center" >
+
+
+  <TableRow
+      android:id="@+id/tableRow1"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent" >
+
+      <TextView
+          android:id="@+id/statusInfo"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="TextView" />
+
+  </TableRow>
+
+  <TableRow
+      android:id="@+id/tableRow2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content" >
+
+      <TextView
+          android:id="@+id/debugHeading"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/wifilog_text"
+          android:textAppearance="?android:attr/textAppearanceMedium" />
+
+      <ScrollView
+          android:id="@+id/ScrollView01"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content" >
+      </ScrollView>
+  </TableRow>
+
+  <TextView
+      android:id="@+id/textStatus"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:background="#000000"
+      android:fadeScrollbars="false"
+      android:freezesText="false"
+      android:paddingTop="10dp"
+      android:scrollbarStyle="insideOverlay"
+      android:scrollbars="vertical"
+      android:text="@string/advanced_text"
+      android:textColor="#ffffff" />
+  
+        <ScrollView
+          android:id="@+id/ScrollView02"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content" >
+      </ScrollView>
+  
+</TableLayout>
+</LinearLayout><!-- From: file:/C:/Users/AyresGJ/workspace/android%20studio/Android%20app/eduroamCAT%20app/res/layout/fragment_status.xml -->

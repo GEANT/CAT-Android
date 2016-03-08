@@ -1,0 +1,401 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/connect_fragment"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="top"
+    android:layout_margin="0dp"
+    android:layout_weight="1"
+    android:fillViewport="false"
+    android:fitsSystemWindows="true"
+    android:focusableInTouchMode="true"
+    android:minHeight="40dp"
+    android:scrollbarStyle="insideOverlay" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="0dp"
+        android:fitsSystemWindows="true"
+        android:gravity="fill"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/aLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="0dp"
+            android:layout_weight="0"
+            android:clickable="false"
+            android:padding="0px"
+            android:scaleType="centerInside"
+            android:src="@drawable/eduroam" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="top"
+            android:gravity="bottom"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/feedback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="11"
+                android:gravity="left"
+                android:minHeight="100dp"
+                android:orientation="vertical"
+                android:scrollbarStyle="insideInset"
+                android:scrollbars="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="23dp"
+                    android:layout_weight="1"
+                    android:gravity="fill_horizontal" 
+                    android:scrollbarAlwaysDrawVerticalTrack="false"
+                    android:scrollbars="none" >
+
+                    <TextView
+                        android:id="@+id/stateText0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:gravity="center"
+                        android:text="@string/currentConfig_label"
+                        android:textSize="21dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_weight="1"
+                    android:gravity="fill_horizontal" 
+                    android:scrollbarAlwaysDrawVerticalTrack="false"
+                    android:scrollbars="none" >
+
+                    <ImageView
+                        android:id="@+id/imageView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="40dp"
+                        android:minWidth="40dp"
+                        android:src="@drawable/tick" />
+
+                    <TextView
+                        android:id="@+id/stateText1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fadeScrollbars="false"
+                        android:gravity="center"
+                        android:isScrollContainer="true"
+                        android:overScrollMode="always"
+                        android:scrollbarAlwaysDrawVerticalTrack="true"
+                        android:scrollbarStyle="outsideInset"
+                        android:scrollbars="none"
+                        android:text="state1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_weight="0.95"
+                    android:gravity="fill_horizontal" 
+                    android:scrollbarAlwaysDrawVerticalTrack="false"
+                    android:scrollbars="none" >
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="40dp"
+                        android:minWidth="40dp"
+                        android:src="@drawable/tick" />
+
+                    <TextView
+                        android:id="@+id/stateText2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fadeScrollbars="false"
+                        android:gravity="center"
+                        android:isScrollContainer="true"
+                        android:overScrollMode="always"
+                        android:scrollbarAlwaysDrawVerticalTrack="true"
+                        android:scrollbarStyle="outsideInset"
+                        android:scrollbars="none"
+                        android:text="state2" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_weight="0.95"
+                    android:gravity="fill_horizontal"
+                    android:scrollbarAlwaysDrawVerticalTrack="false"
+                    android:scrollbars="none" >
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="40dp"
+                        android:minWidth="40dp"
+                        android:src="@drawable/tick" />
+
+                    <TextView
+                        android:id="@+id/stateText3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fadeScrollbars="false"
+                        android:gravity="center"
+                        android:isScrollContainer="true"
+                        android:overScrollMode="always"
+                        android:scrollbarAlwaysDrawVerticalTrack="true"
+                        android:scrollbarStyle="outsideInset"
+                        android:scrollbars="none"
+                        android:text="state3" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_weight="0.95"
+                    android:gravity="fill_horizontal" 
+                    android:scrollbarAlwaysDrawVerticalTrack="false"
+                    android:scrollbars="none" >
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="40dp"
+                        android:minWidth="40dp"
+                        android:src="@drawable/tick" />
+
+                    <TextView
+                        android:id="@+id/stateText4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fadeScrollbars="false"
+                        android:gravity="center"
+                        android:isScrollContainer="true"
+                        android:overScrollMode="always"
+                        android:scrollbarAlwaysDrawVerticalTrack="true"
+                        android:scrollbarStyle="outsideInset"
+                        android:scrollbars="none"
+                        android:text="state4" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_weight="0.95"
+                    android:gravity="fill_horizontal" 
+                    android:scrollbarAlwaysDrawVerticalTrack="false"
+                    android:scrollbars="none" >
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="40dp"
+                        android:minWidth="40dp"
+                        android:src="@drawable/tick" />
+
+                    <TextView
+                        android:id="@+id/stateText5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fadeScrollbars="false"
+                        android:gravity="center"
+                        android:isScrollContainer="true"
+                        android:overScrollMode="always"
+                        android:scrollbarAlwaysDrawVerticalTrack="true"
+                        android:scrollbarStyle="outsideInset"
+                        android:scrollbars="none"
+                        android:text="state5" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_weight="0.95"
+                    android:gravity="fill_horizontal"
+                    android:scrollbarAlwaysDrawVerticalTrack="false"
+                    android:scrollbars="none" >
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="40dp"
+                        android:minWidth="40dp"
+                        android:src="@drawable/tick" />
+
+                    <TextView
+                        android:id="@+id/stateText6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fadeScrollbars="false"
+                        android:gravity="center"
+                        android:isScrollContainer="true"
+                        android:overScrollMode="always"
+                        android:scrollbarAlwaysDrawVerticalTrack="true"
+                        android:scrollbarStyle="outsideInset"
+                        android:scrollbars="none"
+                        android:text="state6" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            android:orientation="vertical" >
+
+            <Spinner
+                android:id="@+id/ssids"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_weight="1" />
+            <Spinner
+                android:id="@+id/ssids2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_weight="1" />
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:minHeight="40dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/username_label" />
+
+                <EditText
+                    android:id="@+id/username"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:ems="10"
+                    android:enabled="true"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:nextFocusDown="@+id/password"
+                    android:nextFocusForward="@+id/password" >
+
+                    <requestFocus />
+                </EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:minHeight="40dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/password_label" />
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:ems="10"
+                    android:enabled="true"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:nextFocusDown="@+id/connect"
+                    android:nextFocusForward="@+id/connect" />
+
+            </LinearLayout>
+
+            <TableLayout
+                android:id="@+id/tableLayout1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" >
+
+                <TableRow android:gravity="bottom|center_horizontal" >
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="0dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:paddingTop="0dp"
+                        android:text="@string/profile_warning"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#0000ff" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_gravity="bottom"
+                    android:gravity="bottom|center_horizontal" >
+
+                    <Button
+                        android:id="@+id/connect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:enabled="false"
+                        android:focusable="true"
+                        android:text="@string/install_button" />
+
+<!--                     <Button
+                        android:id="@+id/rescan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:text="ReScan"
+                        android:visibility="invisible" />
+-->
+                    
+                </TableRow>
+
+                <TableRow
+                    android:layout_gravity="bottom"
+                    android:gravity="bottom|center_horizontal" >
+
+                    <TextView
+                        android:id="@+id/progressText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0"
+                        android:text="@string/status_info"
+                        android:textColor="#0000ff"
+                        android:textSize="16sp" />
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
