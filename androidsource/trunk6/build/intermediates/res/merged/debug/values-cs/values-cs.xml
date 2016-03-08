@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/AyresGJ/workspace/android%20studio/Android%20app/eduroamCAT%20app/res/values-cs/strings.xml -->
+    <!-- From: file:/C:/Users/AyresGJ/workspace/android%20studio/trunk6/res/values-cs/strings.xml -->
     <eat-comment/>
     <string name="about_menu">O aplikaci</string>
     <string name="about_text">Tato aplikace byla vytvořena jako součást projektu GN3+ OpenCall, SENSE. Připomínky a problémy s aplikací jako takovou (nikoliv však problémy s připojením k síti) nám popište na playstore@eduroam.org .</string>
