@@ -1,5 +1,6 @@
 package uk.ac.swansea.eduroamcat;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -9,6 +10,8 @@ import android.net.NetworkInfo;
 import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.widget.Toast;
+
 import uk.ac.swansea.eduroamcat.eduroamCAT;
 
 public class WifiStatus extends BroadcastReceiver
@@ -21,6 +24,7 @@ public class WifiStatus extends BroadcastReceiver
 	private WifiManager wifim;
 	WifiInfo info;
 	public SupplicantState state;
+	Boolean installedOK;
 
 	public WifiStatus(Object connect)
 	{
@@ -37,11 +41,23 @@ public class WifiStatus extends BroadcastReceiver
 		String str = intent.getAction();
 		wifiStatus = connectivity.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 		status = wifiStatus.getState();
-		eduroamCAT.debug("Broadcast="+status.toString());
-		if (status.toString().contains("DIS"))
-				ConnectFragment.setStatus(status.toString()+" from SSID:"+wifim.getConnectionInfo().getSSID());
-		else ConnectFragment.setStatus(status.toString()+" to SSID:"+wifim.getConnectionInfo().getSSID());
-		
+		eduroamCAT.debug("Broadcast=" + status.toString());
+
+		if (status.toString().equals("DISCONNECTED"))
+		{
+			ConnectFragment.setStatus(status.toString()+" from SSID "+wifim.getConnectionInfo().getSSID());
+		}
+		else
+		{
+			String tempSSID=wifim.getConnectionInfo().getSSID();
+			tempSSID=tempSSID.replace("\"","");
+			if (tempSSID.equals(eduroamCAT.appSSID) && ConnectFragment.getProfileInstalled()) {
+				eduroamCAT.debug("************************Installed and CONNECTED");
+				Activity activity = (Activity) context;
+				eduroamCAT.notifyConnected(activity,context);
+			}
+			ConnectFragment.setStatus(status.toString()+" to SSID "+wifim.getConnectionInfo().getSSID());
+		}
 		eduroamCAT.setSummary();
 
 		advancedStatus = wifiStatus.getDetailedState();
@@ -67,7 +83,11 @@ public class WifiStatus extends BroadcastReceiver
 		{
 			//StatusFragment.setDebug("Wifi Connected to:"+wifim.getConnectionInfo().getSSID());
 		}
-		
+		eduroamCAT.debug("detailed="+detailed.toString());
+		eduroamCAT.debug("state="+state.toString());
+		if (detailed.toString().contains("SCANNING") || detailed.toString().contains("CONNECTING"))
+			ConnectFragment.setStatus("Trying SSID "+wifim.getConnectionInfo().getSSID());
+
 	}
 
 }
