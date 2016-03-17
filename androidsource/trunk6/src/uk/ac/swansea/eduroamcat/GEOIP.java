@@ -41,6 +41,7 @@ public class GEOIP extends AsyncTask<String, Integer, String> {
     //deal with result
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
+        eduroamCAT.debug("GeoIP result:"+result);
         if (result.length() > 0) {
             try {
                 if (ConfigureFragment.idptext != null)

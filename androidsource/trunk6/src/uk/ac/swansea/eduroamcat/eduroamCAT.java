@@ -21,6 +21,8 @@ import java.util.List;
 import uk.ac.swansea.eduroamcat.WifiConfigAPI18;
 import uk.ac.swansea.eduroamcat.WifiController;
 import uk.ac.swansea.eduroamcat.WifiStatus;
+
+import android.app.NotificationManager;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.net.wifi.WifiConfiguration;
@@ -42,6 +44,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.database.Cursor;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -179,8 +182,12 @@ public class eduroamCAT extends FragmentActivity implements ActionBar.TabListene
   		 intentFilter.addAction(WifiManager.WIFI_STATE_CHANGED_ACTION);
   		 intentFilter.addAction(WifiManager.SUPPLICANT_STATE_CHANGED_ACTION);
   		 intentFilter.addAction(WifiManager.SUPPLICANT_CONNECTION_CHANGE_ACTION);
-  		 intentFilter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION); 	
-  		 registerReceiver(wifiStatus, intentFilter);
+  		 intentFilter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
+		intentFilter.addAction(WifiManager.EXTRA_SUPPLICANT_ERROR);
+		intentFilter.addAction(WifiManager.EXTRA_SUPPLICANT_CONNECTED);
+		intentFilter.addAction(WifiManager.EXTRA_WIFI_STATE);
+		intentFilter.addAction(WifiManager.EXTRA_WIFI_INFO);
+		registerReceiver(wifiStatus, intentFilter);
   		//Initial checks
   		 if (wifiCon==null) wifiCon = new WifiController(this,getSystemService(Context.CONNECTIVITY_SERVICE));
   		if (wifiCon.isWifiEnabled() && wifiCon.isSupplicantOK())
@@ -250,6 +257,19 @@ public class eduroamCAT extends FragmentActivity implements ActionBar.TabListene
 	     })
 	     .show();
     }
+
+	public static void notifyConnected(Activity activ,Context context)
+	{
+		debug("Notify");
+		NotificationManager notificationManager = (NotificationManager)context.getSystemService(NOTIFICATION_SERVICE);
+		int mId=1;
+		NotificationCompat.Builder mBuilder =
+				new NotificationCompat.Builder(activ)
+						.setSmallIcon(R.drawable.ic_launcher)
+						.setContentTitle(activ.getString(R.string.notification_title_connected))
+						.setContentText(activ.getString(R.string.notification_message_connected));
+		notificationManager.notify(mId, mBuilder.build());
+	}
 
 	@Override
 	//Menu in top right of app

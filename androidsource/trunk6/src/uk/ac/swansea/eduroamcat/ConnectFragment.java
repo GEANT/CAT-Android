@@ -51,6 +51,7 @@ public class ConnectFragment extends Fragment implements OnClickListener
 	static ImageView state1_image,state2_image,state3_image,state4_image,state5_image,state6_image;
 	static LinearLayout feedback;
 	private static WifiManager wifi = null;
+	static Boolean installedOK = false;
 	
     public static void setStatus(String status)
     {
@@ -68,8 +69,21 @@ public class ConnectFragment extends Fragment implements OnClickListener
 //    		//prog.setVisibility(1);
 //    	}
     }
-   
-    //show state of current eduroam config
+
+	//set installed boolean
+	static public void setProfileInstalled(Boolean installed)
+	{
+		installedOK = installed;
+	}
+
+	//get installed boolean
+	static public Boolean getProfileInstalled()
+	{
+		return installedOK;
+	}
+
+
+	//show state of current eduroam config
     public static void showCurrentState()
     {
     	feedback.setVisibility(View.VISIBLE);
@@ -459,6 +473,7 @@ public class ConnectFragment extends Fragment implements OnClickListener
     {
     	eduroamCAT.debug("Connect Pressed");
     	setStatus("Connecting...");
+		setProfileInstalled(false);
     	//hide keyboard
     	InputMethodManager inputManager = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE); 
     	inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
@@ -512,9 +527,10 @@ public class ConnectFragment extends Fragment implements OnClickListener
 						  db.insertUSER(username.getText().toString());
 						  db.close();
 						  if (theAuthMethod.getOuterEAPType()==13) {
-							  eduroamCAT.alertUser(getString(R.string.profile_tls_message),"TLS",getActivity());
+							  eduroamCAT.alertUser(getString(R.string.profile_tls_message), "TLS", getActivity());
 						  }
 						  showCurrentState();
+						  setProfileInstalled(true);
 						  //SOCIAL MEDIA SUCCESS
 //					  		String tweetUrl = "https://twitter.com/intent/tweet?text=I have successfully connected to #eduroam &url="
 //					                + "https://www.eduroam.org";
@@ -535,6 +551,7 @@ public class ConnectFragment extends Fragment implements OnClickListener
 						  else
 						  {
 							eduroamCAT.debug("Installed FALSE");
+							  setProfileInstalled(false);
 							  int currentapiVersion = android.os.Build.VERSION.SDK_INT;
 							  if (currentapiVersion > 22) eduroamCAT.alertUser(getString(R.string.profile_failed_marshmallow), getString(R.string.profile_failed), this.getActivity());
 						  	eduroamCAT.alertUser(getString(R.string.profile_failed_message),getString(R.string.profile_failed),this.getActivity());

@@ -236,7 +236,7 @@ public class SCAD  extends AsyncTask<String, Integer, String> {
 					    	latnow=geo_multi.getDouble("lat");
 					    	lonnow=geo_multi.getDouble("lon");
 					    	Location.distanceBetween(lat, longx, latnow, lonnow, distance);
-					    	addIdP(latnow, lonnow, title, id, distance);
+							addIdP(latnow, lonnow, title, id, distance);
 				    	}
 
 				    }
