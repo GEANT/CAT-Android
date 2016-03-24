@@ -17,7 +17,9 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.location.Location;
 import android.location.LocationListener;
@@ -28,29 +30,32 @@ import android.text.Html;
 import android.text.Spanned;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.ListView;
 
 //Supplicant Configuration Discovery Process
 public class SCAD  extends AsyncTask<String, Integer, String> {
 	
-	private static final float MAX_DISTANCE = 30000;
+	public static final float MAX_DISTANCE = 30000;
 	String locationProvider = LocationManager.NETWORK_PROVIDER;
 	LocationManager locationManager;
 	public double lat,longx=0;
 	JSONObject json = null;
 	String jsonString = "";
-	ArrayList <IdP> IdPs = new ArrayList<IdP>();
+	static public ArrayList <IdP> IdPs = new ArrayList<IdP>();
 	Location lastKnownLocation;
 	Boolean hasAccuracy=true;
 	String lang= Locale.getDefault().getLanguage();
     LocationListener locationListener;
     boolean network_enabled = false;
 	GEOIP geoip = new GEOIP();
+	Activity activity;
 		
-	public SCAD(Context context)
+	public SCAD(Activity activity)
 	{
 		//set location
+		this.activity=activity;
 		eduroamCAT.debug("Location Service setup....");
-		locationManager = (LocationManager) context.getSystemService(context.LOCATION_SERVICE);
+		locationManager = (LocationManager) activity.getSystemService(activity.LOCATION_SERVICE);
         // Define a listener that responds to location updates
         locationListener = new LocationListener() {
             public void onLocationChanged(Location location) {
@@ -83,11 +88,11 @@ public class SCAD  extends AsyncTask<String, Integer, String> {
         }
         else {
 			geoip.execute();
-            lat=0;
-            longx=0;
-			hasAccuracy=false;
+			lat = 0;
+			longx = 0;
+			hasAccuracy = false;
 			eduroamCAT.debug("Location Service failed....");
-        }
+		}
 	}
 	
 	public void stopLocationLookups()
@@ -104,8 +109,8 @@ public class SCAD  extends AsyncTask<String, Integer, String> {
 	public String getAllProviders()
 	{
 		String result="";
-		eduroamCAT.debug("size on get all="+IdPs.size());
-		
+		eduroamCAT.debug("size on get all=" + IdPs.size());
+
 		//sort profiles by distance
 		Collections.sort(IdPs, new Comparator<IdP>(){
 		    public int compare(IdP s1, IdP s2) {
@@ -174,17 +179,6 @@ public class SCAD  extends AsyncTask<String, Integer, String> {
 		return false;
 	}
 	
-//	public void getJSON(String ajsonString)
-//	{
-//        try{
-//        	JSONArray jArray = new JSONArray(ajsonString);
-//            json = jArray.getJSONObject(0);
-//            eduroamCAT.debug("JSON="+json.getString("id"));
-//        } catch ( JSONException e) {
-//            e.printStackTrace();                
-//        }
-//	}
-//	
 	@Override
     protected void onPreExecute() {
         super.onPreExecute();
@@ -197,7 +191,10 @@ public class SCAD  extends AsyncTask<String, Integer, String> {
 	{
 	    if (distance[0]>0 && id>0 && title.length()>0 && distance[0]<MAX_DISTANCE)
     	{
-    		IdP aidp = new IdP(title,id,distance[0]); IdPs.add(aidp); aidp.execute();
+    		IdP aidp = new IdP(title,id,distance[0]);
+			//IdPs.add(aidp);
+			ViewProfiles.adapter.add(aidp);
+			aidp.execute();
     		ConfigureFragment.summaryView.setVisibility(View.GONE);
     	}
 	}

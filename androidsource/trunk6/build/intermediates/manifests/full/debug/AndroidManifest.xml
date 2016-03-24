@@ -35,15 +35,22 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="uk.ac.swansea.eduroamcat.ViewProfiles"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
+            android:parentActivityName="uk.ac.swansea.eduroamcat.eduroamCAT"
+            android:windowSoftInputMode="adjustResize" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="uk.ac.swansea.eduroamcat.eduroamCAT" />
+        </activity>
+        <activity
             android:name="uk.ac.swansea.eduroamcat.EAPMetadata"
             android:label="@string/title_activity_eapmetadata"
             android:parentActivityName="uk.ac.swansea.eduroamcat.eduroamCAT" >
-
-            <!--
-                <meta-data
+            <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="uk.ac.swansea.eduroamcat.eduroamCAT" />
-            -->
             <!-- MIME Type registration -->
             <intent-filter>
                 <data android:scheme="content" />
@@ -90,7 +97,7 @@
                 <data android:host="*" />
                 <data android:pathPattern=".*\\.eap-config" />
                 <data android:mimeType="application/eap-config" />
-            </intent-filter> 
+            </intent-filter>
             -->
             <intent-filter>
                 <data android:scheme="https" />
