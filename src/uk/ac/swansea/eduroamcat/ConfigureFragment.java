@@ -139,6 +139,7 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
 					params.height = 1000;
 					summaryView.setLayoutParams(params);
 					removeButton.setVisibility(View.VISIBLE);
+					removeButton.setEnabled(true);
 				}
 				else
 				{
@@ -154,12 +155,10 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
 				authMethods +
 				supportHTML;
 			}
-			else
-			{
-				summary_template = "<h1>"+getString(R.string.profileMissing_title)+"</h1><br/> "+
-						"<p><b>"+getString(R.string.profileMissing_text1)+"</b>" + aProfile.getError() + "<br/>" +"</p>";
+			else {
+				summary_template = "<h1>" + getString(R.string.profileMissing_title) + "</h1><br/> " +
+						"<p><b>" + getString(R.string.profileMissing_text1) + "</b>" + aProfile.getError() + "<br/>" + "</p>";
 			}
-			removeButton.setEnabled(true);
 		}
 		else
 		{
@@ -181,6 +180,9 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
 			//SETUP SCAD
 		  	    scad = new SCAD(getActivity());
 		  	    scad.execute();
+
+				Intent profiles = new Intent(getActivity(), ViewProfiles.class);
+				getActivity().startActivity(profiles);
 				
 		}
 	    Spanned idp_summary = Html.fromHtml(summary_template);
@@ -198,8 +200,7 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
         scadProgress.setVisibility(View.VISIBLE);
     }
     
-    public static void removeSCAD()
-    {
+    public static void removeSCAD() {
 		removeButton.setVisibility(View.VISIBLE);
         idptext.setVisibility(View.GONE);
         scadProgress.setVisibility(View.GONE);
@@ -208,6 +209,7 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
 	//Remove button press
 	public void removeClick()
 	{
+		eduroamCAT.debug("remove button click");
 		new AlertDialog.Builder(getActivity())
 	    .setTitle(getString(R.string.removeProfile_title))
 	    .setMessage(getString(R.string.removeProfile_message))

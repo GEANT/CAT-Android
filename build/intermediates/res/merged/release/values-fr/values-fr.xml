@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/AyresGJ/workspace/android%20studio/Android%20app/eduroamCAT%20app/res/values-fr/strings.xml -->
+    <!-- From: file:/C:/Users/AyresGJ/workspace/android%20studio/trunk6/res/values-fr/strings.xml -->
     <eat-comment/>
     <string name="about_menu">À propos de cette application</string>
     <string name="about_text">Cette application a été créée dans le cadre du projet  GN3+ OpenCall (SENSE). Tout problème/bug ou commentaire spécifique à l\'application (sans rapport avec la connectivité  eduroam) devrait être adressé à l\'adresse playstore@eduroam.org</string>

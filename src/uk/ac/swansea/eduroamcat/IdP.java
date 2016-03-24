@@ -29,16 +29,29 @@ public class IdP extends AsyncTask<String, Integer, String> {
 	public List <Integer> profileID = new ArrayList<Integer>();
 	public List <String> profileDisplay = new ArrayList<String>();
     public List <String> profileRedirected = new ArrayList<String>();
+	public List <Integer> profileHasLogo = new ArrayList<Integer>();
     public String profileRedirect="";
 	public String download;
 	String jsonString = "";
+	String androidID="";
+	String lang="en";
 	
 	
 	public IdP(String title, int id, float distance)
 	{
 		this.title=title;
 		this.id=id;
-		this.distance=distance; 
+		this.distance=distance;
+		int currentapiVersion = android.os.Build.VERSION.SDK_INT;
+		if (currentapiVersion == 23) androidID="android_marshmallow";
+		else if (currentapiVersion == 22) androidID="android_lollipop";
+		else if (currentapiVersion == 21) androidID="android_lollipop";
+		else if (currentapiVersion == 20) androidID="android_kitkat";
+		else if (currentapiVersion == 19) androidID="android_kitkat";
+		else if (currentapiVersion == 18) androidID="android_43";
+		else androidID="android_legacy";
+
+		lang= Locale.getDefault().getLanguage();
 	}
 	
 	public int getDistance()
@@ -49,6 +62,11 @@ public class IdP extends AsyncTask<String, Integer, String> {
 	public void getProfileID()
 	{
 		//https://cat.eduroam.org/user/API.php?action=listProfiles&id=1
+	}
+
+	public String getName()
+	{
+		return title;
 	}
 	
     protected void onPreExecute() {
@@ -79,6 +97,8 @@ public class IdP extends AsyncTask<String, Integer, String> {
                             ProfileAttributes attributes = new ProfileAttributes(profileID.get(profileID.size()-1),this);
                             attributes.execute();
 							profileDisplay.add(iditem.getString("display"));
+							profileHasLogo.add(iditem.getInt("logo"));
+							download="https://cat.eduroam.org/user/API.php?action=downloadInstaller&id="+androidID+"&profile="+iditem.getInt("id")+"&lang="+lang;
 						}
 					}
 					else {
@@ -88,6 +108,9 @@ public class IdP extends AsyncTask<String, Integer, String> {
                         ProfileAttributes attributes = new ProfileAttributes(profileID.get(profileID.size()-1),this);
                         attributes.execute();
 						profileDisplay.add(iditem.getString("display"));
+						profileHasLogo.add(iditem.getInt("logo"));
+						//https://cat.eduroam.org/user/API.php?action=sendLogo&id=12
+						download="https://cat.eduroam.org/user/API.php?action=downloadInstaller&id="+androidID+"&profile="+iditem.getInt("id")+"&lang="+lang;
 					}
 				}
 		} catch (JSONException e) {

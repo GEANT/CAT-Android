@@ -56,6 +56,8 @@
     <string name="no_configs_auto">"No configs were automatically discovered within</string>
     <string name="no_configs_within">No configs found within</string>
     <string name="no_loc_serv">No location service active.</string>
+    <string name="notification_message_connected">Successfully and securely connected!</string>
+    <string name="notification_title_connected">Connected</string>
     <string name="password_label">Password:</string>
     <string name="playstore_long">A tool to allow users to configure their device for eduroam wireless networks. This tool requires a configuration file from your home institution in order acquire the configuration settings needed. Due to limitations in the Android OS, the application needs to set up a screen lock if none is already set. The configuration file is in a standardised file format and can be obtained from eduroam Configuration Assistant Tool deployments (such as https://cat.eduroam.org and others). The tool also provides some status information on the eduroam connection.</string>
     <string name="playstore_short">The official configuration tool for eduroam wireless</string>

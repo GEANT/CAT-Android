@@ -96,7 +96,7 @@ public class eduroamCAT extends FragmentActivity implements ActionBar.TabListene
 		{
 			((StatusFragment) statusFragment).latestSummary();
 		}
-		
+
 		//reconect if profile installed
 		public static void reconnect()
 		{
