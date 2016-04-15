@@ -115,6 +115,7 @@
 	<!-- -New Strings Release for translation-->
 	<string name="distance">Distance Away</string>
 	<string name="click_download">Click here to download</string>
+	<string name="click_download2">Download</string>
 	<string name="nearby">Nearby Configs</string>
 	<string name="loading_profiles">Loading profiles</string>
 	<string name="no_configs_within">No configs found within</string>
@@ -127,4 +128,12 @@
 	<string name="profile_failed_marshmallow">Profile Failed to install! If a manual profile exists, please remove it first.</string>
 	<string name="notification_title_connected">Connected</string>
 	<string name="notification_message_connected">Successfully and securely connected!</string>
+	<string name="list_more">List More</string>
+	<string name="list_all">List All</string>
+	<string name="manual_search">Manual Search</string>
+	<string name="search">Search</string>
+	<string name="scad_title">SCAD Discovery...</string>
+	<string name="scad_geoip_failed">GeoIP Discovery Failed</string>
+	<string name="scad_geoip_title">SCAD Discovery with GeoIP...</string>
+	<string name="scad_geoip_trying">Trying GeoIP lookup...</string>
 </resources>
