@@ -136,4 +136,8 @@
 	<string name="scad_geoip_failed">GeoIP Discovery Failed</string>
 	<string name="scad_geoip_title">SCAD Discovery with GeoIP...</string>
 	<string name="scad_geoip_trying">Trying GeoIP lookup...</string>
-</resources>
+	<string name="scad_geoip_insufficient">Insufficient location accuracy.</string>
+	<string name="scad_geoip_noloc">No location service active. Please turn on Location Services and restart the app for auto discovery to work.</string>
+	<string name="scad_geoip_no_configs_title">No Configs Nearby</string>
+	<string name="scad_geoip_no_configs_message">No configs were automatically discovered within</string>
+	</resources>
