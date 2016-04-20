@@ -57,7 +57,7 @@ public class ProfileAttributes extends AsyncTask<String, Integer, String> {
                             aIdP.profileRedirect=redirect;
                             status = iditem.getInt("status");
                             if (redirect.length()>1) redirected=true;
-                            eduroamCAT.debug("redirect for os=" + os + "="+ redirect);
+                            //eduroamCAT.debug("redirect for os=" + os + "="+ redirect);
                         }
                     }
                 } else {
@@ -68,7 +68,7 @@ public class ProfileAttributes extends AsyncTask<String, Integer, String> {
                         aIdP.profileRedirect=redirect;
                         status = iditem.getInt("status");
                         if (redirect.length()>1) redirected=true;
-                        eduroamCAT.debug("redirect for os=" + os + "="+ redirect);
+                       // eduroamCAT.debug("redirect for os=" + os + "="+ redirect);
                     }
                 }
             }
