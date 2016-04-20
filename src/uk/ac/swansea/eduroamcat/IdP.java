@@ -14,6 +14,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.text.Html;
 import android.text.Spanned;
@@ -29,12 +30,14 @@ public class IdP extends AsyncTask<String, Integer, String> {
 	public List <Integer> profileID = new ArrayList<Integer>();
 	public List <String> profileDisplay = new ArrayList<String>();
     public List <String> profileRedirected = new ArrayList<String>();
-	public List <Integer> profileHasLogo = new ArrayList<Integer>();
+	//public List <Integer> profileHasLogo = new ArrayList<Integer>();
+	public boolean profileHasLogo = false;
     public String profileRedirect="";
 	public String download;
 	String jsonString = "";
 	String androidID="";
 	String lang="en";
+	public Bitmap logo;
 	
 	
 	public IdP(String title, int id, float distance)
@@ -73,10 +76,10 @@ public class IdP extends AsyncTask<String, Integer, String> {
         super.onPreExecute();
         //String loadingProfiles = getString(R.string.loading_profiles);
 		//http://stackoverflow.com/questions/11814060/onpostexecute-getresources-getstring-nullpointerexception
-		String loadingProfiles = "Loading Profiles...";
-        Spanned idp_nearby = Html.fromHtml("<h1>SCAD Discovery...</h1>" + loadingProfiles);
-        if (ConfigureFragment.idptext!=null) ConfigureFragment.idptext.setText(idp_nearby);
-        if (ConfigureFragment.scadProgress!=null) ConfigureFragment.scadProgress.setVisibility(View.VISIBLE);
+//		String loadingProfiles = "Loading Profiles...";
+//        Spanned idp_nearby = Html.fromHtml("<h1>SCAD Discovery...</h1>" + loadingProfiles);
+//        if (ConfigureFragment.idptext!=null) ConfigureFragment.idptext.setText(idp_nearby);
+//        if (ConfigureFragment.scadProgress!=null) ConfigureFragment.scadProgress.setVisibility(View.VISIBLE);
     }	
 	
 	protected void onPostExecute(String result) {
@@ -97,7 +100,11 @@ public class IdP extends AsyncTask<String, Integer, String> {
                             ProfileAttributes attributes = new ProfileAttributes(profileID.get(profileID.size()-1),this);
                             attributes.execute();
 							profileDisplay.add(iditem.getString("display"));
-							profileHasLogo.add(iditem.getInt("logo"));
+							if (iditem.getInt("logo")==1) profileHasLogo=true;
+							if (profileHasLogo) {
+								ProfileLogo aLogo = new ProfileLogo(id, this);
+								aLogo.execute();
+							}
 							download="https://cat.eduroam.org/user/API.php?action=downloadInstaller&id="+androidID+"&profile="+iditem.getInt("id")+"&lang="+lang;
 						}
 					}
@@ -108,8 +115,11 @@ public class IdP extends AsyncTask<String, Integer, String> {
                         ProfileAttributes attributes = new ProfileAttributes(profileID.get(profileID.size()-1),this);
                         attributes.execute();
 						profileDisplay.add(iditem.getString("display"));
-						profileHasLogo.add(iditem.getInt("logo"));
-						//https://cat.eduroam.org/user/API.php?action=sendLogo&id=12
+						if (iditem.getInt("logo")==1) profileHasLogo=true;
+						if (profileHasLogo) {
+							ProfileLogo aLogo = new ProfileLogo(id, this);
+							aLogo.execute();
+						}
 						download="https://cat.eduroam.org/user/API.php?action=downloadInstaller&id="+androidID+"&profile="+iditem.getInt("id")+"&lang="+lang;
 					}
 				}
@@ -122,13 +132,14 @@ public class IdP extends AsyncTask<String, Integer, String> {
         updateDisplay();
 	}
 
+	//historical method.
     public void updateDisplay()
     {
-        String idps="<h1>Nearby Configs</h1>"+ConfigureFragment.scad.getAllProviders();
-        Spanned idp_nearby = Html.fromHtml(idps);
-        ConfigureFragment.idptext.setText(idp_nearby);
-        ConfigureFragment.idptext.setMovementMethod(new ScrollingMovementMethod());
-        ConfigureFragment.idptext.setMovementMethod(LinkMovementMethod.getInstance());
+//        String idps="<h1>Nearby Configs</h1>";
+//        Spanned idp_nearby = Html.fromHtml(idps);
+//        ConfigureFragment.idptext.setText(idp_nearby);
+//        ConfigureFragment.idptext.setMovementMethod(new ScrollingMovementMethod());
+//        ConfigureFragment.idptext.setMovementMethod(LinkMovementMethod.getInstance());
         if (ConfigureFragment.scadProgress!=null) ConfigureFragment.scadProgress.setVisibility(View.GONE);
     }
 	

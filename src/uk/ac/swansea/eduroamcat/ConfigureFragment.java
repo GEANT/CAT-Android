@@ -35,11 +35,12 @@ import android.widget.TextView;
 public class ConfigureFragment extends Fragment implements OnClickListener {
 	
 	static TextView textConfig;
-	static Button removeButton;
+	static Button removeButton,scadButton;
 	static TextView idptext;
 	static ProgressBar scadProgress;
 	static TextView summaryView;
 	static SCAD scad;
+	static int viewdProfiles=0;
             
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) 
@@ -47,12 +48,15 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
         super.onCreate(savedInstanceState);
 		setHasOptionsMenu(true);
     	View v = inflater.inflate(R.layout.fragment_configure, container, false);
-    	 summaryView = (TextView) v.findViewById(R.id.configSummaryText); 
-    	 idptext = (TextView) v.findViewById(R.id.idp_list);
-    	 scadProgress = (ProgressBar) v.findViewById(R.id.scadProgress);
-    	 removeButton = (Button) v.findViewById(R.id.removeButton);
-         idptext.setVisibility(View.INVISIBLE);
-         scadProgress.setVisibility(View.INVISIBLE);
+		summaryView = (TextView) v.findViewById(R.id.configSummaryText);
+		idptext = (TextView) v.findViewById(R.id.idp_list);
+		scadProgress = (ProgressBar) v.findViewById(R.id.scadProgress);
+    	removeButton = (Button) v.findViewById(R.id.removeButton);
+		removeButton.setOnClickListener(this);
+		scadButton = (Button) v.findViewById(R.id.scadButton);
+		scadButton.setOnClickListener(this);
+        idptext.setVisibility(View.INVISIBLE);
+        scadProgress.setVisibility(View.INVISIBLE);
         //Build WiFi Settings Text
         String wifiText = "";
         //get WiFi settings from WiFiProfile
@@ -140,6 +144,7 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
 					summaryView.setLayoutParams(params);
 					removeButton.setVisibility(View.VISIBLE);
 					removeButton.setEnabled(true);
+					scadButton.setVisibility(View.GONE);
 				}
 				else
 				{
@@ -167,6 +172,7 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
 				{
 					summary_template+=getString(R.string.eapprofileMissing_text1)+" "+eduroamCAT.wifiCon.getCurrentSSID();
 					summary_template+="<br/>"+getString(R.string.eapprofileMissing_text2)+"<br> "+getString(R.string.eapprofileMissing_text3)+"<br/> <a href=\"https://cat.eduroam.org\">https://cat.eduroam.org</a> ";
+					summary_template+="<br/>"+getString(R.string.eapprofileMissing_text4);
 					if (eduroamCAT.wifiCon.getCurrentSSID().contains("eduroam")) {
 						summary_template+="<h1>"+getString(R.string.manualChecks_title)+"</h1>";
 						summary_template+=eduroamCAT.wifiCon.checkEduroam();
@@ -177,13 +183,13 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
 					summary_template+=getString(R.string.summary_text1);
 					summary_template+="<br/>"+getString(R.string.summary_text2);
 				}
-			//SETUP SCAD
-		  	    scad = new SCAD(getActivity());
-		  	    scad.execute();
 
+			if (viewdProfiles<1) {
 				Intent profiles = new Intent(getActivity(), ViewProfiles.class);
 				getActivity().startActivity(profiles);
-				
+				viewdProfiles++;
+			}
+
 		}
 	    Spanned idp_summary = Html.fromHtml(summary_template);
 	    summaryView.setText(idp_summary);
@@ -195,9 +201,9 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
     
     public static void setupSCAD()
     {
-		removeButton.setVisibility(View.GONE);
-        idptext.setVisibility(View.VISIBLE);
-        scadProgress.setVisibility(View.VISIBLE);
+		if (removeButton!=null) removeButton.setVisibility(View.GONE);
+		if (idptext!=null) idptext.setVisibility(View.VISIBLE);
+		if (scadProgress!=null) scadProgress.setVisibility(View.VISIBLE);
     }
     
     public static void removeSCAD() {
@@ -247,16 +253,34 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
 	     .show();
 	}
 
+	//Remove button press
+	public void scadClick() {
+		eduroamCAT.debug("SCAD button click");
+//		scad = new SCAD(getActivity());
+//		scad.execute();
+		Intent profiles = new Intent(getActivity(), ViewProfiles.class);
+		getActivity().startActivity(profiles);
+	}
+
 	public void onClick(View view) {
 		switch (view.getId())
 		  {
-		  case R.id.removeButton:
-			  removeClick();
-		   break;
-			  
+			  case R.id.removeButton:
+				  removeClick();
+				  break;
+			  case R.id.scadButton:
+				  scadClick();
+				  break;
 		  default:
 		   break;
 		  }
 	}
-	
+
+	@Override()
+	public void onResume()
+	{
+		scadButton.setOnClickListener(this);
+		removeButton.setOnClickListener(this);
+		super.onResume();
+	}
 }

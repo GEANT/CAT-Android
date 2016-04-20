@@ -140,4 +140,6 @@
 	<string name="scad_geoip_noloc">No location service active. Please turn on Location Services and restart the app for auto discovery to work.</string>
 	<string name="scad_geoip_no_configs_title">No Configs Nearby</string>
 	<string name="scad_geoip_no_configs_message">No configs were automatically discovered within</string>
+	<string name="scad_geoip_success">GeoIP lookup success. Click search button below to list IdPs</string>
+	<string name="eapprofileMissing_text4">You can also search for configs using the Manual Search button below. </string>
 	</resources>

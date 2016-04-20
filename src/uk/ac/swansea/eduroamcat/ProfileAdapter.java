@@ -1,12 +1,19 @@
 package uk.ac.swansea.eduroamcat;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -33,6 +40,12 @@ public class ProfileAdapter extends ArrayAdapter<IdP> {
             // Lookup view for data population
             TextView firstLine = (TextView) convertView.findViewById(R.id.firstLine);
             TextView secondLine = (TextView) convertView.findViewById(R.id.secondLine);
+            ImageView logo = (ImageView)convertView.findViewById(R.id.icon);
+            if (aIdP.profileHasLogo) {
+                eduroamCAT.debug("has logo set");
+                logo.setImageBitmap(aIdP.logo);
+            }
+
             // Populate the data into the template view using the data object
             firstLine.setText(aIdP.getName());
             secondLine.setText(getContext().getString(R.string.distance)+"="+aIdP.getDistance()+"Km");

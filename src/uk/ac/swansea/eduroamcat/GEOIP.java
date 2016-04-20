@@ -1,5 +1,6 @@
 package uk.ac.swansea.eduroamcat;
 
+import android.app.Activity;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.text.Html;
@@ -27,6 +28,13 @@ public class GEOIP extends AsyncTask<String, Integer, String> {
     String region="";
     public Double latx,longx;
     private Boolean hasLocation=false;
+    Activity activity;
+
+
+    public GEOIP(Activity activity)
+    {
+        this.activity=activity;
+    }
 
     //set user facing text to warn GeoIP starting. May incur permissions request.
     protected void onPreExecute() {
@@ -76,11 +84,20 @@ public class GEOIP extends AsyncTask<String, Integer, String> {
                     ConfigureFragment.idptext.setText(idp_nearby);
                 if (ConfigureFragment.scadProgress != null)
                     ConfigureFragment.scadProgress.setVisibility(View.VISIBLE);
+                eduroamCAT.alertUser("GeoIP Failed","GeoIP Failed",activity);
             }
         }
         else
         {
             eduroamCAT.debug("NO result for GEOIP lookup");
+        }
+
+        if (result.length()>0)
+        {
+            String loadingProfiles = "GeoIP lookup success. Click search button below to list IdPs.";
+            Spanned idp_nearby = Html.fromHtml("<h1>SCAD Discovery with GeoIP</h1>" + loadingProfiles);
+            if (ConfigureFragment.idptext!=null) ConfigureFragment.idptext.setText(idp_nearby);
+            if (ConfigureFragment.scadProgress!=null) ConfigureFragment.scadProgress.setVisibility(View.VISIBLE);
         }
     }
 

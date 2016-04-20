@@ -61,12 +61,21 @@
         android:orientation="vertical" >
 
         <Button
+            android:id="@+id/scadButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|left"
+            android:enabled="true"
+            android:text="@string/manual_search" />
+
+        <Button
             android:id="@+id/removeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
             android:enabled="false"
             android:text="@string/removeProfile" />
+
     </LinearLayout>
 
 </LinearLayout>

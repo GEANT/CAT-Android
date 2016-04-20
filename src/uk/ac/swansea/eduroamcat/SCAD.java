@@ -18,9 +18,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.content.res.Resources;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -47,8 +44,8 @@ public class SCAD  extends AsyncTask<String, Integer, String> {
 	String lang= Locale.getDefault().getLanguage();
     LocationListener locationListener;
     boolean network_enabled = false;
-	GEOIP geoip = new GEOIP();
 	Activity activity;
+	GEOIP geoip;
 		
 	public SCAD(Activity activity)
 	{
@@ -68,7 +65,8 @@ public class SCAD  extends AsyncTask<String, Integer, String> {
 
             public void onProviderDisabled(String provider) {}
         };
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
+		if (locationManager.getAllProviders().contains(LocationManager.NETWORK_PROVIDER))
+			locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
 
         try {
             network_enabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
@@ -87,6 +85,7 @@ public class SCAD  extends AsyncTask<String, Integer, String> {
 			hasAccuracy=lastKnownLocation.hasAccuracy();
         }
         else {
+			geoip = new GEOIP(activity);
 			geoip.execute();
 			lat = 0;
 			longx = 0;
@@ -106,65 +105,65 @@ public class SCAD  extends AsyncTask<String, Integer, String> {
 		this.longx=longx;
 	}
 
-	public String getAllProviders()
-	{
-		String result="";
-		eduroamCAT.debug("size on get all=" + IdPs.size());
-
-		//sort profiles by distance
-		Collections.sort(IdPs, new Comparator<IdP>(){
-		    public int compare(IdP s1, IdP s2) {
-		        return (int) ((int) s1.distance - s2.distance);
-		    }
-		});
-
-        int currentapiVersion = android.os.Build.VERSION.SDK_INT;
-        String androidID="";
-        if (currentapiVersion == 23) androidID="android_marshmallow";
-        else if (currentapiVersion == 22) androidID="android_lollipop";
-        else if (currentapiVersion == 21) androidID="android_lollipop";
-        else if (currentapiVersion == 20) androidID="android_kitkat";
-        else if (currentapiVersion == 19) androidID="android_kitkat";
-        else if (currentapiVersion == 18) androidID="android_43";
-        else androidID="android_legacy";
-
-        if (!IdPs.isEmpty())
-		for (int h=0; h<IdPs.size(); h++)
-		{
-            IdP temp = IdPs.get(h);
-            if (temp.distance<MAX_DISTANCE) {
-                result += "<b>" + temp.title + "</b><br/>";
-                float distance1 = temp.getDistance();
-                result += "Distance Away=<b>" + distance1 + "Km</b><br/>";
-                if (temp.profileID.size()>0)
-                {
-                	//for size of profile 
-                	for (int p=0; p<temp.profileID.size(); p++)
-            		{
-                    	String temp_display = temp.profileDisplay.get(p);
-                    	if (temp_display.length()<2) temp_display = "eduroam";
-						//test if redirect in place on profile.
-                        String redirect="";
-                        if (p<=temp.profileRedirected.size()-1 && !temp.profileRedirect.isEmpty()) {
-                            eduroamCAT.debug("MASTER REDIRECTED for =" + temp.profileID.get(p) + " " + temp.profileRedirected.get(p));
-                            redirect =temp.profileRedirected.get(p);
-                        }
-                        if (redirect.length()>1) result+="<a href=\""+temp.profileRedirect+"\">"+temp_display + " : Click Here to Download</a><br/><br/>";
-                        else result += "<a href=\"https://cat.eduroam.org/user/API.php?action=downloadInstaller&id="+androidID+"&profile="+temp.profileID.get(p)+"&lang="+lang+"\">" +
-                		temp_display + " : Click Here to Download</a><br/><br/>";
-						//eduroamCAT.debug("result="+result);
-            		}
-                }
-                else
-                	result+="Getting profile link from cat.eduroam.org...<br/><br/>";
-            }		
-		}
-		 if (IdPs.isEmpty()) {
-			 result+="<h1>No configs found within "+MAX_DISTANCE / 1000 +"KMs</h1>";
-		     ConfigureFragment.removeSCAD();
-		 }
-		 return result;
-	}
+//	public String getAllProviders()
+//	{
+//		String result="";
+//		eduroamCAT.debug("size on get all=" + IdPs.size());
+//
+//		//sort profiles by distance
+//		Collections.sort(IdPs, new Comparator<IdP>(){
+//		    public int compare(IdP s1, IdP s2) {
+//		        return (int) ((int) s1.distance - s2.distance);
+//		    }
+//		});
+//
+//        int currentapiVersion = android.os.Build.VERSION.SDK_INT;
+//        String androidID="";
+//        if (currentapiVersion == 23) androidID="android_marshmallow";
+//        else if (currentapiVersion == 22) androidID="android_lollipop";
+//        else if (currentapiVersion == 21) androidID="android_lollipop";
+//        else if (currentapiVersion == 20) androidID="android_kitkat";
+//        else if (currentapiVersion == 19) androidID="android_kitkat";
+//        else if (currentapiVersion == 18) androidID="android_43";
+//        else androidID="android_legacy";
+//
+//        if (!IdPs.isEmpty())
+//		for (int h=0; h<IdPs.size(); h++)
+//		{
+//            IdP temp = IdPs.get(h);
+//            if (temp.distance<MAX_DISTANCE) {
+//                result += "<b>" + temp.title + "</b><br/>";
+//                float distance1 = temp.getDistance();
+//                result += "Distance Away=<b>" + distance1 + "Km</b><br/>";
+//                if (temp.profileID.size()>0)
+//                {
+//                	//for size of profile
+//                	for (int p=0; p<temp.profileID.size(); p++)
+//            		{
+//                    	String temp_display = temp.profileDisplay.get(p);
+//                    	if (temp_display.length()<2) temp_display = "eduroam";
+//						//test if redirect in place on profile.
+//                        String redirect="";
+//                        if (p<=temp.profileRedirected.size()-1 && !temp.profileRedirect.isEmpty()) {
+//                            eduroamCAT.debug("MASTER REDIRECTED for =" + temp.profileID.get(p) + " " + temp.profileRedirected.get(p));
+//                            redirect =temp.profileRedirected.get(p);
+//                        }
+//                        if (redirect.length()>1) result+="<a href=\""+temp.profileRedirect+"\">"+temp_display + " : Click Here to Download</a><br/><br/>";
+//                        else result += "<a href=\"https://cat.eduroam.org/user/API.php?action=downloadInstaller&id="+androidID+"&profile="+temp.profileID.get(p)+"&lang="+lang+"\">" +
+//                		temp_display + " : Click Here to Download</a><br/><br/>";
+//						//eduroamCAT.debug("result="+result);
+//            		}
+//                }
+//                else
+//                	result+="Getting profile link from cat.eduroam.org...<br/><br/>";
+//            }
+//		}
+//		 if (IdPs.isEmpty()) {
+//			 result+="<h1>No configs found within "+MAX_DISTANCE / 1000 +"KMs</h1>";
+//		     ConfigureFragment.removeSCAD();
+//		 }
+//		 return result;
+//	}
 
 	
 	public List getNearbyInstitutions()
@@ -179,23 +178,21 @@ public class SCAD  extends AsyncTask<String, Integer, String> {
 		return false;
 	}
 	
-	@Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-        Spanned idp_nearby = Html.fromHtml("<h1>SCAD Discovery...</h1>");
-        if (ConfigureFragment.idptext!=null) ConfigureFragment.idptext.setText(idp_nearby);
-        if (ConfigureFragment.scadProgress!=null) ConfigureFragment.scadProgress.setVisibility(View.VISIBLE);
-    }	
+//	@Override
+//    protected void onPreExecute() {
+//        super.onPreExecute();
+//        Spanned idp_nearby = Html.fromHtml("<h1>SCAD Discovery...</h1>");
+//        if (ConfigureFragment.idptext!=null) ConfigureFragment.idptext.setText(idp_nearby);
+//        if (ConfigureFragment.scadProgress!=null) ConfigureFragment.scadProgress.setVisibility(View.VISIBLE);
+//    }
 	
 	private void addIdP(Double latnow, Double lonnow, String title, int id, float [] distance)
 	{
 	    if (distance[0]>0 && id>0 && title.length()>0 && distance[0]<MAX_DISTANCE)
     	{
     		IdP aidp = new IdP(title,id,distance[0]);
-			//IdPs.add(aidp);
 			ViewProfiles.adapter.add(aidp);
 			aidp.execute();
-    		ConfigureFragment.summaryView.setVisibility(View.GONE);
     	}
 	}
 	
@@ -210,7 +207,7 @@ public class SCAD  extends AsyncTask<String, Integer, String> {
 				longx = geoip.getLongitude();
 			}
         	if (ConfigureFragment.idptext!=null) ConfigureFragment.idptext.setVisibility(View.VISIBLE);
-        	//if (ConfigureFragment.scadProgress!=null) ConfigureFragment.scadProgress.setVisibility(View.GONE);
+        	if (ConfigureFragment.scadProgress!=null) ConfigureFragment.scadProgress.setVisibility(View.GONE);
 			JSONArray allJSON = new JSONArray(result);
 			eduroamCAT.debug("JSON Length"+allJSON.length());
 			//JSONArray jArr = jsonObj.getJSONArray("geo");
@@ -247,23 +244,16 @@ public class SCAD  extends AsyncTask<String, Integer, String> {
 				    } 
 				    }
 				}
-				Spanned idp_nearby = Html.fromHtml("<h1>Downloading from cat.eduroam.org ...</h1>");
-		        if (ConfigureFragment.idptext!=null) ConfigureFragment.idptext.setText(idp_nearby);
-		        if (ConfigureFragment.scadProgress!=null) ConfigureFragment.scadProgress.setVisibility(View.VISIBLE);
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			String error_message="";
-			if (result.length()>0) error_message="Error="+result;
-			Spanned idp_nearby = Html.fromHtml("<h1>Config Discovery Failed</h1>"+error_message);
-	        if (ConfigureFragment.idptext!=null) ConfigureFragment.idptext.setText(idp_nearby);
-	        if (ConfigureFragment.scadProgress!=null) ConfigureFragment.scadProgress.setVisibility(View.VISIBLE);
-			LayoutParams params = ConfigureFragment.summaryView.getLayoutParams();
-			params.height = 800;
-			ConfigureFragment.summaryView.setLayoutParams(params);
-			params.height = 100;
-			ConfigureFragment.idptext.setLayoutParams(params);
 			e.printStackTrace();
+			//eduroamCAT.alertUser("Config Discovery Failed","SCAD Failure",activity);
 		}
+		//sort
+		Collections.sort(IdPs, new Comparator<IdP>(){
+			public int compare(IdP s1, IdP s2) {
+				return (int) ((int) s1.distance - s2.distance);
+			}
+		});
         eduroamCAT.debug("Number of IdPs="+IdPs.size());
         if (IdPs.size()<1) {
 			String locationServiceCheck="";
@@ -275,6 +265,7 @@ public class SCAD  extends AsyncTask<String, Integer, String> {
         }
         //stop location service
         locationManager.removeUpdates(locationListener);
+		ViewProfiles.adapter.notifyDataSetChanged();
     }
 	
 	@Override
