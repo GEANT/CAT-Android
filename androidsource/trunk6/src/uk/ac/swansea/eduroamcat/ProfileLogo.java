@@ -35,16 +35,19 @@ public class ProfileLogo extends AsyncTask<String, Integer, Bitmap> {
 
     protected void onPostExecute(Bitmap result) {
         super.onPostExecute(result);
-        aIdP.logo=result;
-        eduroamCAT.debug("got logo for "+idpID+" and got "+result.toString());
+        if (result!=null) {
+            aIdP.logo = result;
+            eduroamCAT.debug("got logo for " + idpID + " and got " + result.toString());
+        }
         ViewProfiles.adapter.notifyDataSetChanged();
-    }
+
+}
 
 
     @Override
     protected Bitmap doInBackground(String... params) {
         Bitmap logo = null;
-        String url = "https://cat.eduroam.org/user/API.php?action=sendLogo&id="+idpID;
+        String url = "https://cat.eduroam.org/user/API.php?action=sendLogo&id="+idpID+"";
         try {
             eduroamCAT.debug("Getting profile logo "+idpID);
             InputStream in = new java.net.URL(url).openStream();
