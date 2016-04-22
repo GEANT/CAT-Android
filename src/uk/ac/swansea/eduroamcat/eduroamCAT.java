@@ -23,6 +23,7 @@ import uk.ac.swansea.eduroamcat.WifiController;
 import uk.ac.swansea.eduroamcat.WifiStatus;
 
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.net.wifi.WifiConfiguration;
@@ -45,6 +46,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.database.Cursor;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.TaskStackBuilder;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -260,7 +262,6 @@ public class eduroamCAT extends FragmentActivity implements ActionBar.TabListene
 
 	public static void notifyConnected(Activity activ,Context context)
 	{
-		debug("Notify");
 		NotificationManager notificationManager = (NotificationManager)context.getSystemService(NOTIFICATION_SERVICE);
 		int mId=1;
 		NotificationCompat.Builder mBuilder =
@@ -268,6 +269,15 @@ public class eduroamCAT extends FragmentActivity implements ActionBar.TabListene
 						.setSmallIcon(R.drawable.ic_launcher)
 						.setContentTitle(activ.getString(R.string.notification_title_connected))
 						.setContentText(activ.getString(R.string.notification_message_connected));
+//		Intent resultIntent = new Intent(activ, eduroamCAT.class);
+//		TaskStackBuilder stackBuilder = TaskStackBuilder.create(activ);
+//		stackBuilder.addParentStack(eduroamCAT.class);
+//		stackBuilder.addNextIntent(resultIntent);
+//		PendingIntent resultPendingIntent =
+//				stackBuilder.getPendingIntent(
+//						0,
+//						PendingIntent.FLAG_UPDATE_CURRENT
+//				);
 		notificationManager.notify(mId, mBuilder.build());
 	}
 

@@ -22,7 +22,8 @@ public class ViewProfiles extends Activity {
 
     SimpleCursorAdapter mAdapter;
     static ProfileAdapter adapter;
-    static SCAD scad;;
+    static SCAD scad = null;
+    static ListView listView = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,7 @@ public class ViewProfiles extends Activity {
         scad.execute();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_profiles);
-        final ListView listView = (ListView) findViewById(R.id.list);
+        listView = (ListView) findViewById(R.id.list);
         adapter = new ProfileAdapter(this, SCAD.IdPs);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -66,7 +67,10 @@ public class ViewProfiles extends Activity {
     @Override
     public void onResume() {
         super.onResume();  // Always call the superclass method first
-        adapter.clear();
+        if (adapter.getCount()>0) {
+            adapter.clear();
+        }
+        adapter.notifyDataSetChanged();
     }
 
 

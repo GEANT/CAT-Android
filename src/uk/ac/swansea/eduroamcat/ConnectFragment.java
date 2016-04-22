@@ -8,6 +8,7 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
@@ -17,6 +18,7 @@ import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiEnterpriseConfig;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.Html;
 import android.text.Spanned;
 import android.view.LayoutInflater;
@@ -318,7 +320,7 @@ public class ConnectFragment extends Fragment implements OnClickListener
         //get wifimanager
         wifim = eduroamCAT.getWifiManager();
         //test key store access, and prompt if needed.
-        testKeystore();
+        //testKeystore();
         View v = inflater.inflate(R.layout.fragment_connect, container, false);
         progressText = (TextView) v.findViewById(R.id.progressText);
         authMethodSpinner = (Spinner) v.findViewById(R.id.ssids);
@@ -424,16 +426,47 @@ public class ConnectFragment extends Fragment implements OnClickListener
 
    }
 
+	public void queryRemoveSSID(String message, String title, Activity activ)
+	{
+		new AlertDialog.Builder(activ)
+				.setTitle(title)
+				.setMessage(message)
+				.setPositiveButton(activ.getString(R.string.button_yes), new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+						startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+					}
+				})
+				.setNegativeButton(activ.getString(R.string.button_no), new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+
+					}
+				})
+				.show();
+	}
+
     //test if keystore locked or not
-    public boolean testKeystore()
+    public void testKeystore(String message, String title, Activity activ)
     {
-    	try {
-    		    startActivityForResult(new Intent("com.android.credentials.UNLOCK"),37);
-    		    return true;
-    		} catch (ActivityNotFoundException e) {
-    		    eduroamCAT.debug("No UNLOCK activity: " + e.getMessage());
-    		    return false;
-    		}
+		new AlertDialog.Builder(activ)
+				.setTitle(title)
+				.setMessage(message)
+				.setPositiveButton(activ.getString(R.string.button_yes), new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+						try {
+							startActivityForResult(new Intent("com.android.credentials.UNLOCK"),37);
+    					} catch (ActivityNotFoundException e) {
+    		    			eduroamCAT.debug("No UNLOCK activity: " + e.getMessage());
+    					}
+						//Intent intent = new Intent("android.app.action.SET_NEW_PASSWORD");
+						//startActivity(intent);
+					}
+				})
+				.setNegativeButton(activ.getString(R.string.button_no), new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+
+					}
+				})
+				.show();
     }
     
     public static boolean duplicate()
@@ -553,9 +586,12 @@ public class ConnectFragment extends Fragment implements OnClickListener
 							eduroamCAT.debug("Installed FALSE");
 							  setProfileInstalled(false);
 							  int currentapiVersion = android.os.Build.VERSION.SDK_INT;
-							  if (currentapiVersion > 22) eduroamCAT.alertUser(getString(R.string.profile_failed_marshmallow), getString(R.string.profile_failed), this.getActivity());
-						  	eduroamCAT.alertUser(getString(R.string.profile_failed_message),getString(R.string.profile_failed),this.getActivity());
-						  	testKeystore();
+							  if (currentapiVersion > 22 && eduroamCAT.wifiCon.checkEduroamSSID().length()>0) {
+								  queryRemoveSSID(getString(R.string.profile_failed_marshmallow), getString(R.string.profile_failed), this.getActivity());
+							  }
+							  else {
+								  testKeystore(getString(R.string.profile_failed_message),getString(R.string.profile_failed),this.getActivity());
+							  }
 						  	setStatus("Profile failed.");
 						  	warning.setText(getString(R.string.profile_install_failed));
 						  	warning.setTextColor(Color.parseColor("#ff0000"));

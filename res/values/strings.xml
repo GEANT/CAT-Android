@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:ignore="MissingTranslation" >
 
     <string name="app_name">eduroamCAT</string>
     <string name="advanced_menu">Advanced Options</string>
@@ -112,7 +114,6 @@
 	<string name="no_ca">No CA certificate found</string>
 	<string name="missing">missing</string>
 	<string name="error">error</string>
-	<!-- -New Strings Release for translation-->
 	<string name="distance">Distance Away</string>
 	<string name="click_download">Click here to download</string>
 	<string name="click_download2">Download</string>
@@ -142,4 +143,7 @@
 	<string name="scad_geoip_no_configs_message">No configs were automatically discovered within</string>
 	<string name="scad_geoip_success">GeoIP lookup success. Click search button below to list IdPs</string>
 	<string name="eapprofileMissing_text4">You can also search for configs using the Manual Search button below. </string>
+    <!-- -New Strings Release for translation-->
+	<string name="scad_success">SCAD lookup success. Click search button below to list IdPs</string>
+
 	</resources>

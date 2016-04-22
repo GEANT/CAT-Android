@@ -40,8 +40,8 @@ public class GEOIP extends AsyncTask<String, Integer, String> {
     protected void onPreExecute() {
         super.onPreExecute();
         eduroamCAT.debug("starting geoip...");
-        String loadingProfiles = "Trying GeoIP lookup...";
-        Spanned idp_nearby = Html.fromHtml("<h1>SCAD Discovery with GeoIP...</h1>" + loadingProfiles);
+        String loadingProfiles = activity.getString(R.string.scad_geoip_trying);
+        Spanned idp_nearby = Html.fromHtml("<h1>"+activity.getString(R.string.scad_geoip_title)+"</h1>" + loadingProfiles);
         if (ConfigureFragment.idptext!=null) ConfigureFragment.idptext.setText(idp_nearby);
         if (ConfigureFragment.scadProgress!=null) ConfigureFragment.scadProgress.setVisibility(View.VISIBLE);
     }
@@ -79,12 +79,12 @@ public class GEOIP extends AsyncTask<String, Integer, String> {
             } catch (JSONException e) {
                 String error_message = "";
                 if (result.length() > 0) error_message = "Error=" + result;
-                Spanned idp_nearby = Html.fromHtml("<h1>GeoIP Discovery Failed</h1>" + error_message);
+                Spanned idp_nearby = Html.fromHtml("<h1>"+activity.getString(R.string.scad_geoip_failed)+"</h1>" + error_message);
                 if (ConfigureFragment.idptext != null)
                     ConfigureFragment.idptext.setText(idp_nearby);
                 if (ConfigureFragment.scadProgress != null)
                     ConfigureFragment.scadProgress.setVisibility(View.VISIBLE);
-                eduroamCAT.alertUser("GeoIP Failed","GeoIP Failed",activity);
+                //eduroamCAT.alertUser("GeoIP Failed","GeoIP Failed",activity);
             }
         }
         else
@@ -94,8 +94,9 @@ public class GEOIP extends AsyncTask<String, Integer, String> {
 
         if (result.length()>0)
         {
-            String loadingProfiles = "GeoIP lookup success. Click search button below to list IdPs.";
-            Spanned idp_nearby = Html.fromHtml("<h1>SCAD Discovery with GeoIP</h1>" + loadingProfiles);
+            ConfigureFragment.setupSCAD();
+            String loadingProfiles = activity.getString(R.string.scad_geoip_success);
+            Spanned idp_nearby = Html.fromHtml("<h1>"+activity.getString(R.string.scad_geoip_title)+"</h1>" + loadingProfiles);
             if (ConfigureFragment.idptext!=null) ConfigureFragment.idptext.setText(idp_nearby);
             if (ConfigureFragment.scadProgress!=null) ConfigureFragment.scadProgress.setVisibility(View.VISIBLE);
         }
