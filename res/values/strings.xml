@@ -121,7 +121,7 @@
 	<string name="loading_profiles">Loading profiles</string>
 	<string name="no_configs_within">No configs found within</string>
 	<string name="no_configs">No configs nearby</string>
-	<string name="no_configs_auto">"No configs were automatically discovered within</string>
+	<string name="no_configs_auto">No configs were automatically discovered within</string>
 	<string name="loc_serv_check">Do you have Location Services turned on?</string>
 	<string name="no_loc_serv">No location service active.</string>
 	<string name="playstore_short">The official configuration tool for eduroam wireless</string>
@@ -133,17 +133,18 @@
 	<string name="list_all">List All</string>
 	<string name="manual_search">Manual Search</string>
 	<string name="search">Search</string>
-	<string name="scad_title">SCAD Discovery...</string>
-	<string name="scad_geoip_failed">GeoIP Discovery Failed</string>
-	<string name="scad_geoip_title">SCAD Discovery with GeoIP...</string>
-	<string name="scad_geoip_trying">Trying GeoIP lookup...</string>
+	<string name="scad_title">Configuration Discovery...</string>
+	<string name="scad_geoip_failed">Configuration Discovery based on network failed</string>
+	<string name="scad_geoip_title">Configuration Discovery with localisation...</string>
+	<string name="scad_geoip_trying">Trying localisation lookup using network...</string>
 	<string name="scad_geoip_insufficient">Insufficient location accuracy.</string>
 	<string name="scad_geoip_noloc">No location service active. Please turn on Location Services and restart the app for auto discovery to work.</string>
 	<string name="scad_geoip_no_configs_title">No Configs Nearby</string>
 	<string name="scad_geoip_no_configs_message">No configs were automatically discovered within</string>
-	<string name="scad_geoip_success">GeoIP lookup success. Click search button below to list IdPs</string>
+	<string name="scad_geoip_success">Configuration lookup success. Click search button below to list IdPs</string>
 	<string name="eapprofileMissing_text4">You can also search for configs using the Manual Search button below. </string>
     <!-- -New Strings Release for translation-->
-	<string name="scad_success">SCAD lookup success. Click search button below to list IdPs</string>
-
+	<string name="scad_success">Configuration lookup success. Click search button below to list IdPs</string>
+    <string name="manual_search_text">Enter institution name to search for</string>
+    <string name="manual_search_more">list more</string>
 	</resources>
