@@ -61,9 +61,9 @@
 	<string name="profileMissing_title">Profile Error</string>
 	<string name="profileMissing_text1">Error with Profile:</string>
 	<string name="eapprofileMissing_title">No EAP/WiFi Profiles Found</string>
-	<string name="eapprofileMissing_text1">Wifi enabled and manually connected to </string>
+	<string name="eapprofileMissing_text1">Wifi enabled and manually connected to %1$s</string>
 	<string name="eapprofileMissing_text2">Please download an appropriate profile. </string>
-	<string name="eapprofileMissing_text3">These can either be found at your home institutions instruction pages or at the eduroamCAT website:</string>
+	<string name="eapprofileMissing_text3">These can either be found at your home institutions instruction pages or at the eduroamCAT website: %1$s</string>
 	<string name="manualChecks_title">Manual Configuration Checks</string>
 	<string name="removeProfile_title">Remove Profile</string>
 	<string name="removeProfile_message">Are you sure you want to remove the profile?</string>
@@ -92,7 +92,7 @@
 	<string name="advanced_on">Advanced Mode On</string>
 	<string name="advanced_off">Advanced Mode Off</string>
 	<string name="support_message1">The eduroamCAT app requires the use of a .eap-config profile from your home institution. Once you download this profile, you can load it from the Downloads app and it will install.</string>
-	<string name="support_message2">The eduroamCAT app has installed a profile from </string>
+	<string name="support_message2">The eduroamCAT app has installed a profile from %1$s</string>
 	<string name="support_message3"> to configure eduroam. If you need help:</string>
 	<string name="support_email">Email:</string>
 	<string name="support_phone">Phone:</string>
@@ -140,11 +140,12 @@
 	<string name="scad_geoip_insufficient">Insufficient location accuracy.</string>
 	<string name="scad_geoip_noloc">No location service active. Please turn on Location Services and restart the app for auto discovery to work.</string>
 	<string name="scad_geoip_no_configs_title">No Configs Nearby</string>
-	<string name="scad_geoip_no_configs_message">No configs were automatically discovered within</string>
+	<string name="scad_geoip_no_configs_message">No configs were automatically discovered within %1$d KMs.</string>
 	<string name="scad_geoip_success">Configuration lookup success. Click search button below to list IdPs</string>
 	<string name="eapprofileMissing_text4">You can also search for configs using the Manual Search button below. </string>
     <!-- -New Strings Release for translation-->
 	<string name="scad_success">Configuration lookup success. Click search button below to list IdPs</string>
     <string name="manual_search_text">Enter institution name to search for</string>
     <string name="manual_search_more">list more</string>
+    <string name="manual_search_fail">No results</string>
 	</resources>
