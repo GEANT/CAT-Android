@@ -185,8 +185,11 @@ public class SCAD  extends AsyncTask<String, Integer, String> {
 			String locationServiceCheck="";
 			if (!hasAccuracy) locationServiceCheck="<font color=\"red\">"+activity.getString(R.string.scad_geoip_insufficient)+"</font>";
             if (!network_enabled) locationServiceCheck="<font color=\"red\">"+activity.getString(R.string.scad_geoip_noloc)+"</font>";
-        	Spanned idp_nearby = Html.fromHtml("<h1>"+activity.getString(R.string.scad_geoip_no_configs_title)+"</h1>"+activity.getString(R.string.scad_geoip_no_configs_message)+" "+MAX_DISTANCE / 1000 +"KMs.<br/>"+locationServiceCheck);
-	        if (ConfigureFragment.idptext!=null) ConfigureFragment.idptext.setText(idp_nearby);
+        	String idp_nearby = "<h1>"+activity.getString(R.string.scad_geoip_no_configs_title)+"</h1>";
+			idp_nearby+=String.format(activity.getString(R.string.scad_geoip_no_configs_message),MAX_DISTANCE / 1000));
+			idp_nearby+="<br/>"+locationServiceCheck;
+			Spanned idp_nearby2=Html.fromHtml(idp_nearby);
+	        if (ConfigureFragment.idptext!=null) ConfigureFragment.idptext.setText(idp_nearby2);
 	        if (ConfigureFragment.scadProgress!=null) ConfigureFragment.scadProgress.setVisibility(View.VISIBLE);
         }
 		else
