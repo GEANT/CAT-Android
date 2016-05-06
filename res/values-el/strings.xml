@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name">eduroamCAT</string>
   <string name="advanced_menu">Επιλογές για Προχωρημένους</string>
   <string name="about_menu">Για την εφαρμογή</string>
@@ -28,6 +28,7 @@
   <string name="debug_toggle_on">Debug ON</string>
   <string name="debug_toggle_off">Debug OFF</string>
   <string name="reconnect_button">Επανασύνδεση</string>
+  <string name="duplicate_button">Διπλότυπο Προφίλ</string>
   <string name="advanced_text">**Output Προχωρημένης Κατάστασης:\n</string>
   <string name="wifilog_text">WiFi Log:</string>
   <string name="error_with">Σφάλμα με</string>
@@ -57,9 +58,11 @@
   <string name="profileMissing_title">Σφάλμα Προφίλ</string>
   <string name="profileMissing_text1">Σφάλμα με το Προφίλ:</string>
   <string name="eapprofileMissing_title">Δεν βρέθηκαν Προφίλ EAP/WiFi</string>
-  <string name="eapprofileMissing_text1">Wifi ενεργοποιημένο και χειροκίνητα συνδεδεμένο σε</string>
+  <string name="eapprofileMissing_text1">Ασύρματο δίκτυο ενεργοποιημένο και χειροκίνητα συνδεδεμένο σε %1$s</string>
+  <!--$1$s = wirless network name-->
   <string name="eapprofileMissing_text2">Παρακαλώ κατεβάστε ένα κατάλληλο προφίλ.</string>
-  <string name="eapprofileMissing_text3">Αυτά μπορείτε να τα βρείτε είτε στις σελίδες με οδηγίες των οικείων σας ιδρυμάτων είτε στην ιστοσελίδα του eduroamCAT:</string>
+  <string name="eapprofileMissing_text3">Αυτά μπορείτε να τα βρείτε είτε στις σελίδες με οδηγίες των οικείων ιδρυμάτων σας ή στην ιστοσελίδα του eduroamCAT: %1$s</string>
+  <!--$1$s = cat website url-->
   <string name="manualChecks_title">Έλεγχοι Χειροκίνητης Ρύθμισης</string>
   <string name="removeProfile_title">Αφαίρεση Προφίλ</string>
   <string name="removeProfile_message">Είστε σίγουρος/η ότι θέλετε να αφαιρέσετε το προφίλ;</string>
@@ -88,7 +91,8 @@
   <string name="advanced_on">Advanced Mode On</string>
   <string name="advanced_off">Advanced Mode Off</string>
   <string name="support_message1">Η εφαρμογή eduroamCAT απαιτεί τη χρήση ενός προφίλ .eap-config από το οικείο σας ίδρυμα. Μόλις κατεβάσετε αυτό το προφίλ μπορείτε να το φορτώσετε από την εφαρμογή Downloads και θα εγκατασταθεί.</string>
-  <string name="support_message2">Η εφαρμογή eduroamCAT έχει εγκαταστήσει ένα προφίλ από</string>
+  <string name="support_message2">Η εφαρμογή eduroamCAT έχει εγκαταστήσει ένα προφίλ από %1$s</string>
+  <!--$1$s = institution name-->
   <string name="support_message3">για να ρυθμίσετε το eduroam. Εάν χρειαστείτε βοήθεια:</string>
   <string name="support_email">Email:</string>
   <string name="support_phone">Τηλέφωνο:</string>
@@ -110,4 +114,39 @@
   <string name="no_ca">Δεν βρέθηκε πιστοποιητικό CA</string>
   <string name="missing">λείπει</string>
   <string name="error">σφάλμα</string>
+  <string name="distance">Κοντινή Απόσταση</string>
+  <string name="click_download">Πατήστε εδώ για λήψη</string>
+  <string name="click_download2">Λήψη</string>
+  <string name="nearby">Κοντινοί φορείς με ρυθμίσεις</string>
+  <string name="loading_profiles">Φόρτωση Προφίλ</string>
+  <string name="no_configs_within">Δεν βρέθηκαν φορείς με ρυθμίσεις εντός</string>
+  <string name="no_configs">Δεν υπάρχουν φορείς με ρυθμίσεις σε κοντινή απόσταση</string>
+  <string name="no_configs_auto">Δεν εντοπίστηκαν αυτόματα φορείς με ρυθμίσεις μέσα σε</string>
+  <string name="loc_serv_check">Έχετε ενεργοποιήσει Υπηρεσίες Τοποθεσίας;</string>
+  <string name="no_loc_serv">Δεν είναι ενεργή καμία υπηρεσία τοποθεσίας.</string>
+  <string name="playstore_short">Το επίσημο εργαλείο διαμόρφωσης για ασύρματο δίκτυο eduroam</string>
+  <string name="playstore_long">Ένα εργαλείο που επιτρέπει στους χρήστες να ρυθμίζουν τη συσκευή τους για ασύρματο δίκτυο eduroam. Αυτό το εργαλείο απαιτεί ένα αρχείο ρυθμίσεων από το οικείο ίδρυμά σας ώστε να ληφθούν οι ρυθμίσεις διαμόρφωσης που απαιτούνται. Λόγω περιορισμών στο Android OS, η εφαρμογή πρέπει να ορίσει ένα κλείδωμα οθόνης, αν δεν έχει ήδη οριστεί. Το αρχείο ρυθμίσεων είναι σε τυποποιημένη μορφή αρχείου και μπορεί να ληφθεί από το eduroam Configuration Assistant Tool (όπως https://cat.eduroam.org και άλλα). Το εργαλείο παρέχει επίσης ορισμένες πληροφορίες σχετικά με την κατάσταση της σύνδεσης eduroam.</string>
+  <string name="profile_failed_marshmallow">Απέτυχε η εγκατάσταση του προφίλ! Εάν υπάρχει προφίλ με χειροκίνητες ρυθμίσεις παρακαλώ αφαιρέστε το.</string>
+  <string name="notification_title_connected">Συνδεδεμένος</string>
+  <string name="notification_message_connected">Επιτυχής και ασφαλής σύνδεση!</string>
+  <string name="list_more">Εμφάνιση περισσότερων</string>
+  <string name="list_all">Εμφάνιση όλων</string>
+  <string name="manual_search">Χειροκίνητη αναζήτηση</string>
+  <string name="search">Αναζήτηση</string>
+  <string name="scad_title">Αναζήτηση Ρυθμίσεων...</string>
+  <string name="scad_geoip_failed">Αναζήτηση Ρυθμίσεων βάσει δικτύου απέτυχε</string>
+  <string name="scad_geoip_title">Αναζήτηση Ρυθμίσεων με εντοπισμό...</string>
+  <string name="scad_geoip_trying">Προσπάθεια εντοπισμού μέσω δικτύου...</string>
+  <string name="scad_geoip_insufficient">Ανεπαρκής ακρίβεια τοποθεσίας.</string>
+  <string name="scad_geoip_noloc">Δεν είναι ενεργή καμία υπηρεσία τοποθεσίας. Παρακαλώ ενεργοποιήστε τις Υπηρεσίες Τοποθεσίας και επανεκκινήστε την εφαρμογή ώστε να λειτουργήσει ο αυτόματος εντοπισμός.</string>
+  <string name="scad_geoip_no_configs_title">Δεν υπάρχουν φορείς με ρυθμίσεις σε κοντινή απόσταση</string>
+  <string name="scad_geoip_no_configs_message">Δεν εντοπίστηκαν αυτόματα φορείς με ρυθμίσεις μέσα σε %1$d χιλιόμετρα.</string>
+  <!--$1$d = number represnting Kilometers-->
+  <string name="scad_geoip_success">Αναζήτηση ρυθμίσεων επιτυχής. Πατήστε το κουμπί αναζήτησης παρακάτω για να παρατεθούν IdPs</string>
+  <string name="eapprofileMissing_text4">Μπορείτε επίσης να ψάξετε για ρυθμίσεις χρησιμοποιώντας το κουμπί Χειροκίνητης Αναζήτησης παρακάτω.</string>
+  <!---New Strings Release for translation-->
+  <string name="scad_success">Αναζήτηση ρυθμίσεων επιτυχής. Πατήστε το κουμπί αναζήτησης παρακάτω για να παρατεθούν οι IdPs</string>
+  <string name="manual_search_text">Εισάγετε όνομα φορέα που θα αναζητηθεί</string>
+  <string name="manual_search_more">παράθεση περισσότερων</string>
+  <string name="manual_search_fail">Κανένα αποτέλεσμα</string>
 </resources>
