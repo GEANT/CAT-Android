@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name">eduroamCAT</string>
   <string name="advanced_menu">Napredne opcije</string>
   <string name="about_menu">O aplikaciji</string>
@@ -28,6 +28,7 @@
   <string name="debug_toggle_on">Debug ON</string>
   <string name="debug_toggle_off">Debug OFF</string>
   <string name="reconnect_button">Ponovno spajanje</string>
+  <string name="duplicate_button">Duplicirani profil</string>
   <string name="advanced_text">**Napredan ispis statusa:\n</string>
   <string name="wifilog_text">WiFi Log:</string>
   <string name="error_with">Greška s</string>
@@ -57,9 +58,11 @@
   <string name="profileMissing_title">Greška na profilu</string>
   <string name="profileMissing_text1">Greška s profilom:</string>
   <string name="eapprofileMissing_title">Nije pronađen EAP/WiFI profil</string>
-  <string name="eapprofileMissing_text1">WiFI omogučen i ručno spojen na</string>
+  <string name="eapprofileMissing_text1">WiFi ja aktivan i ručno spojen na %1$s</string>
+  <!--$1$s = wirless network name-->
   <string name="eapprofileMissing_text2">Molimo dohvatitie odgovarajući profil.</string>
-  <string name="eapprofileMissing_text3">Greška pri instalaciji profila</string>
+  <string name="eapprofileMissing_text3">These can either be found at your home institutions instruction pages or at the eduroamCAT website: %1$s</string>
+  <!--$1$s = cat website url-->
   <string name="manualChecks_title">Ručna provjera konfiguracije</string>
   <string name="removeProfile_title">Micanje profila</string>
   <string name="removeProfile_message">Jeste li sigurni da želite maknuti profil?</string>
@@ -88,7 +91,8 @@
   <string name="advanced_on">Napredni mod uključen</string>
   <string name="advanced_off">Napredni mod isklučen</string>
   <string name="support_message1">eduroamCAT aplikacija zahtjeva korištenje .eap-config profila vaše institucije. Nakon što dohvatite isti pmoču opcije Dohvati, isti će se instalirati.</string>
-  <string name="support_message2">eduroamCAT instalirao je profil s</string>
+  <string name="support_message2">eduroamCAT aplikacija instalirat će profil s %1$s</string>
+  <!--$1$s = institution name-->
   <string name="support_message3">za konfiguraciju eduroam-a. Ako trebate pomoć:</string>
   <string name="support_email">Email:</string>
   <string name="support_phone">Telefon:</string>
@@ -110,4 +114,39 @@
   <string name="no_ca">Nije pronađen CA certifikat</string>
   <string name="missing">nedostaje</string>
   <string name="error">greška</string>
+  <string name="distance">Udaljenost</string>
+  <string name="click_download">Odaberi slijedeće za preuzimanje</string>
+  <string name="click_download2">Dohvati</string>
+  <string name="nearby">Susjedna konfiguracija</string>
+  <string name="loading_profiles">Učitavanje konfiguracije</string>
+  <string name="no_configs_within">Nije pronađena konfiguracija</string>
+  <string name="no_configs">Nemam susjedne konfiguracije</string>
+  <string name="no_configs_auto">Niti jedna konfiguracija nije automatski pronađena s </string>
+  <string name="loc_serv_check">Da li imate uključen lokacijski sustav ?</string>
+  <string name="no_loc_serv">Lokacijski servis nije aktivan</string>
+  <string name="playstore_short">The official configuration tool for eduroam wireless</string>
+  <string name="playstore_long">A tool to allow users to configure their device for eduroam wireless networks. This tool requires a configuration file from your home institution in order acquire the configuration settings needed. Due to limitations in the Android OS, the application needs to set up a screen lock if none is already set. The configuration file is in a standardised file format and can be obtained from eduroam Configuration Assistant Tool deployments (such as https://cat.eduroam.org and others). The tool also provides some status information on the eduroam connection.</string>
+  <string name="profile_failed_marshmallow">Profile Failed to install! If a manual profile exists, please remove it first.</string>
+  <string name="notification_title_connected">Spojeno</string>
+  <string name="notification_message_connected">Uspješno i sigurno spojeno</string>
+  <string name="list_more">Pregledaj dalje</string>
+  <string name="list_all">Pregledaj sve</string>
+  <string name="manual_search">Ručno pretraži</string>
+  <string name="search">Pretraži</string>
+  <string name="scad_title">Pretraga postavki</string>
+  <string name="scad_geoip_failed">Pronalaženje lokacije temeljem mrežne povezanosti nije uspijelo</string>
+  <string name="scad_geoip_title">Pronalaženje konfiguracije lokacijskim sustavom...</string>
+  <string name="scad_geoip_trying">Pokušaj pronalaska lokalnih postavki temeljem mrežne povezanosti</string>
+  <string name="scad_geoip_insufficient">Nedovoljna točnost lokacije</string>
+  <string name="scad_geoip_noloc">No location service active. Please turn on Location Services and restart the app for auto discovery to work.</string>
+  <string name="scad_geoip_no_configs_title">Nema bliske konfiguracije</string>
+  <string name="scad_geoip_no_configs_message">Konfiguracija nije automatski pronađena u radius od %1$d KM.</string>
+  <!--$1$d = number represnting Kilometers-->
+  <string name="scad_geoip_success">KOnfiguracija pronađena. Odaberi tipku pretraga za pronalazak IdP-a</string>
+  <string name="eapprofileMissing_text4">You can also search for configs using the Manual Search button below. </string>
+  <!---New Strings Release for translation-->
+  <string name="scad_success">KOnfiguracija pronađena. Odaberi tipku pretraga za pronalazak IdP-a</string>
+  <string name="manual_search_text">Unesi naziv instituije za pretragu</string>
+  <string name="manual_search_more">učitaj još</string>
+  <string name="manual_search_fail">Bez rezulatata</string>
 </resources>
