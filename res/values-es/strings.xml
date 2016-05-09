@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name">eduroamCAT</string>
   <string name="advanced_menu">Opciones avanzadas</string>
   <string name="about_menu">Sobre esta aplicación</string>
@@ -28,6 +28,7 @@
   <string name="debug_toggle_on">Depuración ACTIVADA</string>
   <string name="debug_toggle_off">Depuración DESACTIVADA</string>
   <string name="reconnect_button">Reconectar</string>
+  <string name="duplicate_button">Duplicar perfil</string>
   <string name="advanced_text">**Salida avanzada de estado:\n</string>
   <string name="wifilog_text">Log de WiFi:</string>
   <string name="error_with">Error con</string>
@@ -57,9 +58,11 @@
   <string name="profileMissing_title">Error de perfil</string>
   <string name="profileMissing_text1">Error con el perfil:</string>
   <string name="eapprofileMissing_title">No se encontraron perfiles EAP/WiFi</string>
-  <string name="eapprofileMissing_text1">WiFi activada y conectado manualmente a </string>
+  <string name="eapprofileMissing_text1">WiFi habilitado y conectado manualmente a %1$s</string>
+  <!--$1$s = wirless network name-->
   <string name="eapprofileMissing_text2">Por favor, descargue un perfil apropiado.</string>
-  <string name="eapprofileMissing_text3">Estos pueden encontrarse en las páginas de instrucciones de su institución o en el sitio web de eduroamCAT:</string>
+  <string name="eapprofileMissing_text3">Éstos pueden encontrarse en las páginas de instrucción de tu institución de origen o en la página web de eduroamCAT: %1$s</string>
+  <!--$1$s = cat website url-->
   <string name="manualChecks_title">Comprobaciones manuales de configuración</string>
   <string name="removeProfile_title">Borrar perfil</string>
   <string name="removeProfile_message">¿Seguro de querer borrar el perfil?</string>
@@ -88,7 +91,8 @@
   <string name="advanced_on">Modo avanzado ACTIVADO</string>
   <string name="advanced_off">Modo avanzado DESACTIVADO</string>
   <string name="support_message1">La aplicación eduroamCAT requiere el uso de un perfil .eap-config de su institución. Una vez descargue este perfil, puede cargarlo desde la aplicación Descargas y este se instalará.</string>
-  <string name="support_message2">La aplicación eduroamCAT ha instalado un perfil de</string>
+  <string name="support_message2">La aplicación eduroamCAT  ha instalado un perfil desde %1$s</string>
+  <!--$1$s = institution name-->
   <string name="support_message3">para configurar eduroam. Si necesita ayuda:</string>
   <string name="support_email">Correo electrónico:</string>
   <string name="support_phone">Teléfono:</string>
@@ -110,4 +114,39 @@
   <string name="no_ca">No se encontraron certificados de CA</string>
   <string name="missing">falta</string>
   <string name="error">error</string>
+  <string name="distance">Distancia</string>
+  <string name="click_download">Haz clic aquí para descargar</string>
+  <string name="click_download2">Descargar</string>
+  <string name="nearby">Configuraciones cercanas</string>
+  <string name="loading_profiles">Cargando perfiles</string>
+  <string name="no_configs_within">No se han encontrado configuraciones dentro</string>
+  <string name="no_configs">No hay configuraciones cercanas</string>
+  <string name="no_configs_auto">No se descubrió automáticamente ninguna configuración dentro</string>
+  <string name="loc_serv_check">¿Tienes los Servicios de Localización activados?</string>
+  <string name="no_loc_serv">No hay ningún servicio de localización activo.</string>
+  <string name="playstore_short">La herramienta de configuración oficial para eduroam inalámbrico</string>
+  <string name="playstore_long">Una herramienta para permitir a los usuarios configurar sus dispositivos para su uso en las redes inalámbricas eduroam. Esta herramienta requiere un archivo de configuración proveniente de su institución origen para obtener las opciones de configuración necesarias. Debido a las limitaciones en el sistema operativo Android, la aplicación necesita que se configure una pantalla de bloqueo si no hubiera una ya activa. El archivo de configuración está en un formato de archivo estandarizado y puede obtenerse desde despliegues de la Herramienta de Asistencia en Configuración de eduroam (eduroam CAT, por sus siglas en inglés), como https://cat.eduroam.org y otros. La herramienta también proporciona información sobre el estado de la conexión del dispositivo a eduroam.</string>
+  <string name="profile_failed_marshmallow">¡El perfil falló al instalarse! Si existe un perfil manual, por favor elimine aquel antes.</string>
+  <string name="notification_title_connected">Conectado</string>
+  <string name="notification_message_connected">¡Conectado con éxito de manera segura!</string>
+  <string name="list_more">Listar más</string>
+  <string name="list_all">Listar todo</string>
+  <string name="manual_search">Búsqueda manual</string>
+  <string name="search">Búsqueda</string>
+  <string name="scad_title">Descubrimiento de configuración...</string>
+  <string name="scad_geoip_failed">Error en el descubrimiento de configuración basado en la red</string>
+  <string name="scad_geoip_title">Descubrimiento de configuración basado en la localización...</string>
+  <string name="scad_geoip_trying">Intentando consultar la localización usando la red...</string>
+  <string name="scad_geoip_insufficient">Precisión de la localización insuficiente.</string>
+  <string name="scad_geoip_noloc">No hay ningún servicio de localización activo. Por favor active los Servicios de Localización y reinicie la aplicación para que el descubrimiento automático funcione.</string>
+  <string name="scad_geoip_no_configs_title">Ninguna configuración cercana</string>
+  <string name="scad_geoip_no_configs_message">No se descubrió ninguna configuración en %1$d KMs.</string>
+  <!--$1$d = number represnting Kilometers-->
+  <string name="scad_geoip_success">Éxito en la consulta de configuración. Haz clic en el botón de abajo para listar los IdPs</string>
+  <string name="eapprofileMissing_text4">También puedes buscar configuraciones utilizando el botón de Búsqueda Manual de abajo.</string>
+  <!---New Strings Release for translation-->
+  <string name="scad_success">Éxito en la consulta de configuración. Haz clic en el botón de abajo para listar los IdPs</string>
+  <string name="manual_search_text">Introduce el nombre de la institución a buscar</string>
+  <string name="manual_search_more">mostrar más</string>
+  <string name="manual_search_fail">No hay resultados</string>
 </resources>

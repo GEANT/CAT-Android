@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name">eduroamCAT</string>
   <string name="advanced_menu">Pokročilé možnosti</string>
   <string name="about_menu">O aplikaci</string>
@@ -28,6 +28,7 @@
   <string name="debug_toggle_on">Ladění zapnuto</string>
   <string name="debug_toggle_off">Ladění vypnuto</string>
   <string name="reconnect_button">Znovu připojit</string>
+  <string name="duplicate_button">Duplicitní profil</string>
   <string name="advanced_text">Výpis stavu pro pokročilé:\n</string>
   <string name="wifilog_text">WiFi log:</string>
   <string name="error_with">Chyba... </string>
@@ -57,9 +58,9 @@
   <string name="profileMissing_title">Chyba v profilu.</string>
   <string name="profileMissing_text1">S profilem je problém:</string>
   <string name="eapprofileMissing_title">Nebyl nalezen žádný EAP/WiFi profil.</string>
-  <string name="eapprofileMissing_text1">WiFi je povoleno a ručně připojeno k síti</string>
+  <!--$1$s = wirless network name-->
   <string name="eapprofileMissing_text2">Prosím stáhněte si správný profil.</string>
-  <string name="eapprofileMissing_text3">Najdete je buď v návodech na stránkách vaší instituce nebo na stránce eduroamCAT:</string>
+  <!--$1$s = cat website url-->
   <string name="manualChecks_title">Ruční kontrola konfigurace</string>
   <string name="removeProfile_title">Odstranit profil</string>
   <string name="removeProfile_message">Určitě chcete tento profil smazat?</string>
@@ -88,7 +89,7 @@
   <string name="advanced_on">Zapnut režim pro pokročilé.</string>
   <string name="advanced_off">Vypnut režim pro pokročilé.</string>
   <string name="support_message1">Aplikace eduroamCAT potřebuje profil .eap-config vaší domovské instituce. Když si ho stáhnete, můžete ho nahrát z aplikace \"Stažené\".</string>
-  <string name="support_message2">Aplikace eduroamCAT si nainstalovala profil z</string>
+  <!--$1$s = institution name-->
   <string name="support_message3">k instalaci eduroamu. Pokud potřebujete pomoc:</string>
   <string name="support_email">E-mail:</string>
   <string name="support_phone">Telefon:</string>
@@ -110,4 +111,28 @@
   <string name="no_ca">Nebyl nalezen certifikát certifikační autority (CA).</string>
   <string name="missing">chybí</string>
   <string name="error">chyba</string>
+  <string name="distance">Vzdálenost</string>
+  <string name="click_download">Pro stažení klikněte zde</string>
+  <string name="click_download2">Stáhnout</string>
+  <string name="nearby">Blízké konfigurace</string>
+  <string name="loading_profiles">Nahrávám profily</string>
+  <string name="no_configs_within">Nenalezeny žádné konfigurace v</string>
+  <string name="no_configs">Žádné konfigurace poblíž</string>
+  <string name="no_configs_auto">Žádné konfigurace nebyly automaticky objeveny v rámci</string>
+  <string name="loc_serv_check">Máte spuštěnu službu určování polohy?</string>
+  <string name="no_loc_serv">Služba polohy není aktivní.</string>
+  <string name="playstore_short">Oficiální konfigurační nástroj pro bezdrátový eduroam</string>
+  <string name="playstore_long">Nástroj umožňující uživatelům konfigurovat své zařízení bezdrátové sítě eduroam. Tento nástroj vyžaduje konfigurační soubor ze své domovské instituce s cílem získat potřebná nastavení. Vzhledem k omezením OS Android, potřebuje aplikace nastavit zámek obrazovky, pokud ještě není nastaven. Konfigurační soubor je ve standardizovaném formátu a může být získán z eduroam Assistant Configuration Tool (například https://cat.eduroam.org a další). Nástroj také poskytuje některé stavové informace o připojení k eduroam.</string>
+  <string name="profile_failed_marshmallow">Profil se nepodařilo nainstalovat! Pokud existuje ručně zadaný profil, nejprve jej odebrte.</string>
+  <string name="notification_title_connected">Připojeno</string>
+  <string name="notification_message_connected">Úspěšně a bezpečně připojeno!</string>
+  <string name="list_more">Zobrazit více</string>
+  <string name="list_all">Zobrazit všechny</string>
+  <string name="manual_search">Ruční vyhledávání</string>
+  <string name="search">Vyhledávání</string>
+  <string name="scad_geoip_insufficient">Nedostatečná přesnost umístění.</string>
+  <string name="scad_geoip_noloc">Služba pro vyhledávání polohy není aktivní. Prosím spusťte službu určování polohy a restartujte  aplikaci.</string>
+  <string name="scad_geoip_no_configs_title">Žádné konfigurace poblíž</string>
+  <!--$1$d = number represnting Kilometers-->
+  <!---New Strings Release for translation-->
 </resources>
