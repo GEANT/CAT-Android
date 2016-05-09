@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name">eduroamCAT</string>
   <string name="advanced_menu">Zawwanswane</string>
   <string name="about_menu">O programie</string>
@@ -28,7 +28,8 @@
   <string name="debug_toggle_on">Debug wł.</string>
   <string name="debug_toggle_off">Debug wył.</string>
   <string name="reconnect_button">Połącz ponownie</string>
-  <string name="advanced_text">**Szczeguły stanu połączenia:\n</string>
+  <string name="duplicate_button">Powtórzony profil</string>
+  <string name="advanced_text">**Szczegóły stanu połączenia:\n</string>
   <string name="wifilog_text">Log WiFi:</string>
   <string name="error_with">Bląd w</string>
   <string name="version_menu">Informacja o wersji</string>
@@ -57,9 +58,11 @@
   <string name="profileMissing_title">Błąd profilu</string>
   <string name="profileMissing_text1">Błąd w profilu:</string>
   <string name="eapprofileMissing_title">Nie znaleziono żadnych profili EAP/WiFi</string>
-  <string name="eapprofileMissing_text1">WiFi włączone i ręcznie połączone z</string>
+  <string name="eapprofileMissing_text1">Wifi włączone i ręcznie podłączone do %1$s</string>
+  <!--$1$s = wirless network name-->
   <string name="eapprofileMissing_text2">Proszę pobierz odpowiedni profil.</string>
-  <string name="eapprofileMissing_text3">Można je znaleźć na stronach pomocy Twojej instytucji macierzystej, albo na stronie eduroamCAT:</string>
+  <string name="eapprofileMissing_text3">Można je znaleźć albo na stronach wsparcia Twojej instytucji macierzystej, albo na portalu edroamCAT: %1$s</string>
+  <!--$1$s = cat website url-->
   <string name="manualChecks_title">Konfiguracja ręczna</string>
   <string name="removeProfile_title">Usuń profil</string>
   <string name="removeProfile_message">Czy jesteś pewny, że chcesz usunąć profil?</string>
@@ -88,7 +91,8 @@
   <string name="advanced_on">Tryb zaawansowany wł.</string>
   <string name="advanced_off">Tryb zaawansowany wył.</string>
   <string name="support_message1">eduroamCAT wymaga użycia profilu .eap-config stworzonego przez Twoją instytucję macierzystą. Po pobraniu tego profilu możesz go załadować z aplikacji Pobrane.</string>
-  <string name="support_message2">eduroamCAT zainstalował profil z</string>
+  <string name="support_message2">Aplikacja eduroamCAT zainstalowała profil z %1$s</string>
+  <!--$1$s = institution name-->
   <string name="support_message3">aby skonfigurować eduroam. Jeżeli potrzebujesz pomocy:</string>
   <string name="support_email">Email:</string>
   <string name="support_phone">Telefon:</string>
@@ -110,4 +114,39 @@
   <string name="no_ca">Nie znaleziono certyfikatu CA</string>
   <string name="missing">brakujący</string>
   <string name="error">błąd</string>
+  <string name="distance">Odległość</string>
+  <string name="click_download">Kliknij, aby pobrać</string>
+  <string name="click_download2">Pobierz</string>
+  <string name="nearby">Pobliskie konfiguracje</string>
+  <string name="loading_profiles">Ładuję profile</string>
+  <string name="no_configs_within">Nie znaleziono konfiguracji w promieniu</string>
+  <string name="no_configs">Brak konfiguracji w bliskiej odległości</string>
+  <string name="no_configs_auto">Nie odnaleziono żadnych konfiguracji w promnieniu</string>
+  <string name="loc_serv_check">Czy włączyłeś Usługi Lokalizacji?</string>
+  <string name="no_loc_serv">Usługa lokalizacja wyłączona.</string>
+  <string name="playstore_short">Oficjalne narzędzie konfiguracyjne dla eduroam</string>
+  <string name="playstore_long">Narzędzie umożliwiające skonfigurowanie urządzenia do współpracy z siecią bezprzewodową eduroam. Niniejsze narzędzie korzysta z pliku konfiguracyjnego przygotowanego przez instytucję macierzystą użytkownika w celu wprowadzenia odpowiednich ustawień. Z powodu wymagań systemu Android aplikacja musi ustawić blokowanie ekranu, o ile nie było włączone wcześniej. Plik konfiguracyjny w zestandaryzowanym formacie może być pobrany z portali eduroam Configuration Assistant Tool (takich jak https://cat.eduroam.org i innych). Niniejsze narzędzie wyświetla również informację o stanie połączenia eduroam.</string>
+  <string name="profile_failed_marshmallow">Nie udało się zainstalować profilu! Jeżeli istnieje profil stworzony ręcznie, usuń go.</string>
+  <string name="notification_title_connected">Połączono</string>
+  <string name="notification_message_connected">Połączono pomyślnie i bezpiecznie!</string>
+  <string name="list_more">Pokaż więcej</string>
+  <string name="list_all">Pokaż wszystko</string>
+  <string name="manual_search">Wyszukanie ręczne</string>
+  <string name="search">Szukaj</string>
+  <string name="scad_title">Wyszukiwanie konfiguracji ...</string>
+  <string name="scad_geoip_failed">Wyszukiwanie konfiguracji na podstawie sieci nie powiodło się</string>
+  <string name="scad_geoip_title">Wyszukiwanie konfiguracji na podstawie lokalizacji ...</string>
+  <string name="scad_geoip_trying">Próbuję wyszukania poprzez lokalizację na podstawie sieci ...</string>
+  <string name="scad_geoip_insufficient">Niewystarczająca dokładność lokalizacji.</string>
+  <string name="scad_geoip_noloc">Nieaktywna usługa lokalizacji. Aby skorzystać z automatycznego wyszukania włącz Usługi Lokalizacji i zrestartuj aplikację.</string>
+  <string name="scad_geoip_no_configs_title">Brak pobliskich konfiguracji</string>
+  <string name="scad_geoip_no_configs_message">Nie udało się znaleźć automatycznie konfiguracji w promieniu %1$d km.</string>
+  <!--$1$d = number represnting Kilometers-->
+  <string name="scad_geoip_success">Udało się odszukać konfiguracje. Kliknij przycisk wyszukania poniżej, aby wyświetlić listę instytucji</string>
+  <string name="eapprofileMissing_text4">Możesz również wyszukać konfigurację ręcznie używając przycisku wyszukania ręcznego poniżej.</string>
+  <!---New Strings Release for translation-->
+  <string name="scad_success">Udało się odszukać konfiguracje. Kliknij przycisk wyszukania poniżej, aby wyświetlić listę instytucji</string>
+  <string name="manual_search_text">Wprowadź nazwę instytucji, którą należy wyszukać</string>
+  <string name="manual_search_more">pokaż więcej</string>
+  <string name="manual_search_fail">Brak rezultatów</string>
 </resources>
