@@ -32,7 +32,7 @@ import android.widget.ListView;
 //Supplicant Configuration Discovery Process
 public class SCAD  extends AsyncTask<String, Integer, String> {
 	
-	public static final float MAX_DISTANCE = 30000;
+	public static float MAX_DISTANCE = 30000;
 	String locationProvider = LocationManager.NETWORK_PROVIDER;
 	LocationManager locationManager;
 	public double lat,longx=0;
@@ -46,51 +46,63 @@ public class SCAD  extends AsyncTask<String, Integer, String> {
     boolean network_enabled = false;
 	Activity activity;
 	GEOIP geoip;
+	String search="";
 		
-	public SCAD(Activity activity)
+	public SCAD(Activity activity,String search)
 	{
 		//set location
 		this.activity=activity;
-		eduroamCAT.debug("Location Service setup....");
-		locationManager = (LocationManager) activity.getSystemService(activity.LOCATION_SERVICE);
-        // Define a listener that responds to location updates
-        locationListener = new LocationListener() {
-            public void onLocationChanged(Location location) {
-                // Called when a new location is found by the network location provider.
-            }
+		this.search=search;
+			eduroamCAT.debug("Location Service setup....");
+			locationManager = (LocationManager) activity.getSystemService(activity.LOCATION_SERVICE);
+			// Define a listener that responds to location updates
+			locationListener = new LocationListener() {
+				public void onLocationChanged(Location location) {
+					// Called when a new location is found by the network location provider.
+				}
 
-            public void onStatusChanged(String provider, int status, Bundle extras) {}
+				public void onStatusChanged(String provider, int status, Bundle extras) {
+				}
 
-            public void onProviderEnabled(String provider) {}
+				public void onProviderEnabled(String provider) {
+				}
 
-            public void onProviderDisabled(String provider) {}
-        };
-		if (locationManager.getAllProviders().contains(LocationManager.NETWORK_PROVIDER))
-			locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
+				public void onProviderDisabled(String provider) {
+				}
+			};
+			if (locationManager.getAllProviders().contains(LocationManager.NETWORK_PROVIDER))
+				locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
 
-        try {
-            network_enabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-        } catch(Exception ex) {
-			eduroamCAT.debug("Location Service Disabled....");
-		}
+			try {
+				network_enabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+			} catch (Exception ex) {
+				eduroamCAT.debug("Location Service Disabled....");
+			}
 
 		ConfigureFragment.setupSCAD();
 		//locationManager.requestLocationUpdates(locationProvider, 0, 0, locationListener);
-		lastKnownLocation = locationManager.getLastKnownLocation(locationProvider);
-		if (lastKnownLocation!=null) {
-            lat = lastKnownLocation.getLatitude();
-            longx = lastKnownLocation.getLongitude();
-            eduroamCAT.debug("Last Known Location=" + lat + "," + longx);
-            eduroamCAT.debug("Last Known Location Accuracy=" + lastKnownLocation.getAccuracy());
-			hasAccuracy=lastKnownLocation.hasAccuracy();
-        }
-        else {
-			geoip = new GEOIP(activity);
-			geoip.execute();
+		if (search.length()<3) {
+			lastKnownLocation = locationManager.getLastKnownLocation(locationProvider);
+			if (lastKnownLocation != null) {
+				lat = lastKnownLocation.getLatitude();
+				longx = lastKnownLocation.getLongitude();
+				eduroamCAT.debug("Last Known Location=" + lat + "," + longx);
+				eduroamCAT.debug("Last Known Location Accuracy=" + lastKnownLocation.getAccuracy());
+				hasAccuracy = lastKnownLocation.hasAccuracy();
+			} else {
+				geoip = new GEOIP(activity);
+				geoip.execute();
+				lat = 0;
+				longx = 0;
+				hasAccuracy = false;
+				eduroamCAT.debug("Location Service failed....");
+			}
+		}
+
+		if (search.length()>2) {
 			lat = 0;
 			longx = 0;
-			hasAccuracy = false;
-			eduroamCAT.debug("Location Service failed....");
+			MAX_DISTANCE=999999999;
 		}
 	}
 	
@@ -107,8 +119,18 @@ public class SCAD  extends AsyncTask<String, Integer, String> {
 			if (isIdPUniuque(id))
 			{
 				IdP aidp = new IdP(title,id,distance[0]);
-				ViewProfiles.adapter.add(aidp);
-				aidp.execute();
+				if (search.length()<3) {
+					ViewProfiles.adapter.add(aidp);
+					aidp.execute();
+				}
+				else
+				{
+					if (aidp.title.toLowerCase().contains(search.toLowerCase()))
+					{
+						ViewProfiles.adapter.add(aidp);
+						aidp.execute();
+					}
+				}
 			}
     	}
 	}
@@ -186,7 +208,8 @@ public class SCAD  extends AsyncTask<String, Integer, String> {
 			if (!hasAccuracy) locationServiceCheck="<font color=\"red\">"+activity.getString(R.string.scad_geoip_insufficient)+"</font>";
             if (!network_enabled) locationServiceCheck="<font color=\"red\">"+activity.getString(R.string.scad_geoip_noloc)+"</font>";
         	String idp_nearby = "<h1>"+activity.getString(R.string.scad_geoip_no_configs_title)+"</h1>";
-			idp_nearby+=String.format(activity.getString(R.string.scad_geoip_no_configs_message),MAX_DISTANCE / 1000));
+			if (search.length()>2)
+			idp_nearby+=activity.getString(R.string.scad_geoip_no_configs_message,(double)MAX_DISTANCE / 1000);
 			idp_nearby+="<br/>"+locationServiceCheck;
 			Spanned idp_nearby2=Html.fromHtml(idp_nearby);
 	        if (ConfigureFragment.idptext!=null) ConfigureFragment.idptext.setText(idp_nearby2);

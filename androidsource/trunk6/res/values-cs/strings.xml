@@ -135,4 +135,14 @@
   <string name="scad_geoip_no_configs_title">Žádné konfigurace poblíž</string>
   <!--$1$d = number represnting Kilometers-->
   <!---New Strings Release for translation-->
+  <string name="eapprofileMissing_text1">Wifi enabled and manually connected
+to %1$s</string>
+<string name="eapprofileMissing_text3">These can either be found at your
+home institutions instruction pages or at the eduroamCAT website:
+%1$s</string>
+<string name="support_message2">The eduroamCAT app has installed a profile
+from %1$s</string>
+<string name="scad_geoip_no_configs_message">No configs were automatically
+discovered within %1$d KMs.</string>
+
 </resources>

@@ -376,7 +376,7 @@ public class eduroamCAT extends FragmentActivity implements ActionBar.TabListene
                 			  String helpPhone=profiles.get(0).getHelpdeskPhoneNumber();
                 			  String helpEmail=profiles.get(0).getSupportEmails();
                 			  String displayName=profiles.get(0).getDisplayName();
-                			  String message=String.format(getString(R.string.support_message2),displayName);
+                			  String message=getString(R.string.support_message2,displayName);
                 			  message+=" ";
                 			  message+=getString(R.string.support_message3)+"\n";
                 			  if (helpEmail.length()>0) message+=getString(R.string.support_email)+helpEmail+"\n";
