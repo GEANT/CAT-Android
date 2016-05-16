@@ -110,4 +110,5 @@
   <string name="no_ca">Aucun certifcat CA n\'a été trouvé</string>
   <string name="missing">manquant</string>
   <string name="error">erreur</string>
+
 </resources>

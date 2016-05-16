@@ -3,6 +3,7 @@ package uk.ac.swansea.eduroamcat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.StringTokenizer;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -30,6 +31,7 @@ public class IdP extends AsyncTask<String, Integer, String> {
 	public List <Integer> profileID = new ArrayList<Integer>();
 	public List <String> profileDisplay = new ArrayList<String>();
     public List <String> profileRedirected = new ArrayList<String>();
+	public List <String> downloads = new ArrayList<String>();
 	//public List <Integer> profileHasLogo = new ArrayList<Integer>();
 	public boolean profileHasLogo = false;
     public String profileRedirect="";
@@ -38,8 +40,7 @@ public class IdP extends AsyncTask<String, Integer, String> {
 	String androidID="";
 	String lang="en";
 	public Bitmap logo;
-	
-	
+
 	public IdP(String title, int id, float distance)
 	{
 		this.title=title;
@@ -106,6 +107,7 @@ public class IdP extends AsyncTask<String, Integer, String> {
 								aLogo.execute();
 							}
 							download="https://cat.eduroam.org/user/API.php?action=downloadInstaller&id="+androidID+"&profile="+iditem.getInt("id")+"&lang="+lang;
+							downloads.add(download);
 						}
 					}
 					else {
@@ -121,6 +123,7 @@ public class IdP extends AsyncTask<String, Integer, String> {
 							aLogo.execute();
 						}
 						download="https://cat.eduroam.org/user/API.php?action=downloadInstaller&id="+androidID+"&profile="+iditem.getInt("id")+"&lang="+lang;
+						downloads.add(download);
 					}
 				}
 		} catch (JSONException e) {
@@ -142,7 +145,17 @@ public class IdP extends AsyncTask<String, Integer, String> {
 //        ConfigureFragment.idptext.setMovementMethod(LinkMovementMethod.getInstance());
         if (ConfigureFragment.scadProgress!=null) ConfigureFragment.scadProgress.setVisibility(View.GONE);
     }
-	
+
+	public String getDownload(String profile)
+	{
+		int listcount=0;
+		for (String display : profileDisplay) {
+				if (display.equals(profile)) return downloads.get(listcount);
+				listcount++;
+		}
+		return download;
+	}
+
 	@Override
 	protected String doInBackground(String... params) {
 		String str = "";

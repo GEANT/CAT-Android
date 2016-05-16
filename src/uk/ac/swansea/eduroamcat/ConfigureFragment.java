@@ -169,10 +169,11 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
 		{
 				summary_template = "<font color=\"red\"><h2>"+getString(R.string.eapprofileMissing_title)+"</h2></font><br/>";
 				if (eduroamCAT.wifiCon.isWifiEnabled() && eduroamCAT.wifiCon.getCurrentSSID().length()>0)
-				{
-					summary_template+=String.format(getString(R.string.eapprofileMissing_text1),eduroamCAT.wifiCon.getCurrentSSID());
+				{;
+					summary_template+=getString(R.string.eapprofileMissing_text1,eduroamCAT.wifiCon.getCurrentSSID());
 					summary_template+="<br/>"+getString(R.string.eapprofileMissing_text2)+"<br> ";
-					summary_template+String.format(getString(R.string.eapprofileMissing_text3),"<a href=\"https://cat.eduroam.org\">https://cat.eduroam.org</a>");
+					String catURL="<a href=\"https://cat.eduroam.org\">https://cat.eduroam.org</a>";
+					summary_template+=getString(R.string.eapprofileMissing_text3,catURL);
 					summary_template+="<br/>"+getString(R.string.eapprofileMissing_text4);
 					if (eduroamCAT.wifiCon.getCurrentSSID().contains("eduroam")) {
 						summary_template+="<h1>"+getString(R.string.manualChecks_title)+"</h1>";

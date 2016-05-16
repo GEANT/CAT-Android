@@ -37,7 +37,7 @@ public class ProfileLogo extends AsyncTask<String, Integer, Bitmap> {
         super.onPostExecute(result);
         if (result!=null) {
             aIdP.logo = result;
-            eduroamCAT.debug("got logo for " + idpID + " and got " + result.toString());
+            //eduroamCAT.debug("got logo for " + idpID + " and got " + result.toString());
         }
         ViewProfiles.adapter.notifyDataSetChanged();
 
