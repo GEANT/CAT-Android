@@ -580,11 +580,11 @@ public class WifiController
 		return message;
 	}	
 	
-    public boolean deleteProfile(String sSID)
+    public boolean deleteProfile(String sSID, boolean override)
     {
 		boolean removed = false;
 		int currentapiVersion = android.os.Build.VERSION.SDK_INT;
-		if (currentapiVersion < 23) {
+		if (currentapiVersion < 23 || override) {
 			List<WifiConfiguration> currentConfigs;
 			currentConfigs = wifi.getConfiguredNetworks();
 			if (currentConfigs != null)

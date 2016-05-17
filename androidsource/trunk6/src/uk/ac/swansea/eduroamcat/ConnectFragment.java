@@ -546,7 +546,7 @@ public class ConnectFragment extends Fragment implements OnClickListener
 					  theAuthMethod=eduroamCAT.profiles.get(0).getAuthenticationMethod(authMethodNumber-1);
 					  //remove any exisisting profiles for SSID
 					  if (eduroamCAT.wifiProfile!=null && !eduroamCAT.wifiProfile.hasError())
-						  eduroamCAT.debug("Delete=" + eduroamCAT.wifiCon.deleteProfile(eduroamCAT.wifiProfile.getSSID()));
+						  eduroamCAT.debug("Delete=" + eduroamCAT.wifiCon.deleteProfile(eduroamCAT.wifiProfile.getSSID(),false));
 					  eduroamCAT.debug("Got Auth Method:"+theAuthMethod.getOuterEAPType()+"/"+theAuthMethod.getInnerEAPType());
 					  //add new profile
 					  boolean installed = eduroamCAT.wifiConfig18.saveEapConfig(username.getText().toString(), password.getText().toString(),theAuthMethod);

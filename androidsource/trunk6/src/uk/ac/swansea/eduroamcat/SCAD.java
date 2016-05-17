@@ -120,15 +120,19 @@ public class SCAD  extends AsyncTask<String, Integer, String> {
 			{
 				IdP aidp = new IdP(title,id,distance[0]);
 				if (search.length()<3) {
-					ViewProfiles.adapter.add(aidp);
-					aidp.execute();
+					if (ViewProfiles.adapter.getCount()<20) {
+						ViewProfiles.adapter.add(aidp);
+						aidp.execute();
+					}
 				}
 				else
 				{
 					if (aidp.title.toLowerCase().contains(search.toLowerCase()))
 					{
-						ViewProfiles.adapter.add(aidp);
-						aidp.execute();
+						if (ViewProfiles.adapter.getCount()<20) {
+							ViewProfiles.adapter.add(aidp);
+							aidp.execute();
+						}
 					}
 				}
 			}
@@ -204,11 +208,14 @@ public class SCAD  extends AsyncTask<String, Integer, String> {
 		});
         eduroamCAT.debug("Number of IdPs="+IdPs.size());
         if (IdPs.size()<1) {
+			IdP tmpidp = new IdP(activity.getString(R.string.manual_search_fail),0,0);
+			tmpidp.profileRedirect="0";
+			ViewProfiles.adapter.add(tmpidp);
 			String locationServiceCheck="";
 			if (!hasAccuracy) locationServiceCheck="<font color=\"red\">"+activity.getString(R.string.scad_geoip_insufficient)+"</font>";
             if (!network_enabled) locationServiceCheck="<font color=\"red\">"+activity.getString(R.string.scad_geoip_noloc)+"</font>";
         	String idp_nearby = "<h1>"+activity.getString(R.string.scad_geoip_no_configs_title)+"</h1>";
-			if (search.length()>2)
+			if (search.length()==0)
 			idp_nearby+=activity.getString(R.string.scad_geoip_no_configs_message,(double)MAX_DISTANCE / 1000);
 			idp_nearby+="<br/>"+locationServiceCheck;
 			Spanned idp_nearby2=Html.fromHtml(idp_nearby);

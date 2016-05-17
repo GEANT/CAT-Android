@@ -94,12 +94,14 @@ public class ViewProfiles extends Activity {
                     startActivity(browserIntent);
                 }
                 else {
-                    if (adapter.getItem(position).profileID.size()==1) {
-                        Uri uri = Uri.parse(adapter.getItem(position).download);
-                        eduroamCAT.debug("Click Download:"+uri.toString());
-                        download.setData(uri);
-                        startActivity(download);
-                        eduroamCAT.debug("started activity");
+                    if (adapter.getItem(position).profileID.size() == 1) {
+                        if (adapter.getItem(position).download.length() > 0) {
+                            Uri uri = Uri.parse(adapter.getItem(position).download);
+                            eduroamCAT.debug("Click Download:" + uri.toString());
+                            download.setData(uri);
+                            startActivity(download);
+                            eduroamCAT.debug("started activity");
+                        }
                     }
                 }
             }
@@ -117,8 +119,17 @@ public class ViewProfiles extends Activity {
         super.onResume();  // Always call the superclass method first
         if (adapter.getCount()>0) {
             adapter.clear();
+            IdP tmpidp = new IdP(getString(R.string.manual_search_fail),0,0);
+            tmpidp.profileRedirect="0";
+            adapter.add(tmpidp);
         }
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        SCAD.MAX_DISTANCE=30000;
     }
 
 
