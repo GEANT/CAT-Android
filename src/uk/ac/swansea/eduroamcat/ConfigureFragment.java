@@ -236,7 +236,7 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
 	    		db.deleteWiFi();
 	    		db.deleteAllProfiles();
 	    		db.close();
-	    		eduroamCAT.wifiCon.deleteProfile("eduroam");
+	    		eduroamCAT.wifiCon.deleteProfile("eduroam",true);
 	    		if (eduroamCAT.profiles.isEmpty()) 
 	    		{
 	    			eduroamCAT.debug("*****************REMOVED PROFILES********************");
