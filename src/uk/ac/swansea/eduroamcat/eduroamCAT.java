@@ -372,10 +372,14 @@ public class eduroamCAT extends FragmentActivity implements ActionBar.TabListene
                 		  if (profiles.size()>0 && profiles!=null)
                 		  if (profiles.get(0).hasHelpdeskInfo())
                 		  {
-                			  String helpURL=profiles.get(0).getHelpdeskURL().toString();
-                			  String helpPhone=profiles.get(0).getHelpdeskPhoneNumber();
-                			  String helpEmail=profiles.get(0).getSupportEmails();
-                			  String displayName=profiles.get(0).getDisplayName();
+							  String displayName="";
+							  String helpEmail="";
+							  String helpPhone="";
+							  String helpURL="";
+                			  if (profiles.get(0).getHelpdeskURL()!=null) { helpURL=profiles.get(0).getHelpdeskURL().toString(); }
+							  if (profiles.get(0).getHelpdeskPhoneNumber()!=null) { helpPhone=profiles.get(0).getHelpdeskPhoneNumber();}
+							  if (profiles.get(0).getSupportEmails()!=null) { helpEmail=profiles.get(0).getSupportEmails(); }
+							  if (profiles.get(0).getDisplayName()!=null) { displayName=profiles.get(0).getDisplayName();}
                 			  String message=getString(R.string.support_message2,displayName);
                 			  message+=" ";
                 			  message+=getString(R.string.support_message3)+"\n";
