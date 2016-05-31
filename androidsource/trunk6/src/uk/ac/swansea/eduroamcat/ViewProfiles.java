@@ -86,12 +86,17 @@ public class ViewProfiles extends Activity {
             {
                 eduroamCAT.debug("Click in listview");
                 Intent download = new Intent(getApplicationContext(), EAPMetadata.class);
-                if (!adapter.getItem(position).profileRedirect.equals("0")) {
-                    Uri uri = Uri.parse(adapter.getItem(position).profileRedirect);
+                if (!adapter.getItem(position).profileRedirect.equals("0") && adapter.getItem(position).profileRedirect.length()>0) {
+                    String url=adapter.getItem(position).profileRedirect;
+                    if (url.contains("http")==false)
+                        url="http://"+url;
+                    Uri uri = Uri.parse(url);
                     //launch browser for a redirect
-                    eduroamCAT.debug("redirect click:"+adapter.getItem(position).title +" and "+adapter.getItem(position).profileRedirect);
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, uri);
-                    startActivity(browserIntent);
+                    eduroamCAT.debug("redirect click:"+adapter.getItem(position).title +" and "+uri.toString());
+                    if (url.toString().length()>0) {
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(browserIntent);
+                    }
                 }
                 else {
                     if (adapter.getItem(position).profileID.size() == 1) {
@@ -119,9 +124,6 @@ public class ViewProfiles extends Activity {
         super.onResume();  // Always call the superclass method first
         if (adapter.getCount()>0) {
             adapter.clear();
-            IdP tmpidp = new IdP(getString(R.string.manual_search_fail),0,0);
-            tmpidp.profileRedirect="0";
-            adapter.add(tmpidp);
         }
         adapter.notifyDataSetChanged();
     }
