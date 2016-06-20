@@ -31,9 +31,9 @@ class DownloadEAPConfig extends AsyncTask<String, Integer, Integer> {
                 code = httpConnection.getResponseCode();
                 eduroamCAT.debug("response code="+code);
             }
-            int fileLength = connection.getContentLength();
-            int tickSize = 2 * fileLength / 100;
-            int nextProgress = tickSize;
+//            int fileLength = connection.getContentLength();
+//            int tickSize = 2 * fileLength / 100;
+//            int nextProgress = tickSize;
             InputStream input = new BufferedInputStream(url.openStream());
             String path = Environment.getExternalStorageDirectory().getPath() + "/EAPConfig/";
             File file = new File(path);
