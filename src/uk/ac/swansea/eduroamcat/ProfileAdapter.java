@@ -1,9 +1,12 @@
+//*******************
+//Author: Gareth Ayres <g.j.ayres@swansea.ac.uk>
+//SENSE Project
+//https://github.com/GEANT/CAT-Android
+//*******************
 package uk.ac.swansea.eduroamcat;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -15,17 +18,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Locale;
 
-/**
- * Created by AyresGJ on 21/03/2016.
- */
 public class ProfileAdapter extends ArrayAdapter<IdP> {
 
         public ProfileAdapter(Context context, ArrayList<IdP> idps) {

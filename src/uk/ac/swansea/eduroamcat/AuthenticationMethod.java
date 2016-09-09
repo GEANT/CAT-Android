@@ -1,3 +1,9 @@
+//*******************
+//Author: Gareth Ayres <g.j.ayres@swansea.ac.uk>
+//SENSE Project
+//https://github.com/GEANT/CAT-Android
+//*******************
+
 package uk.ac.swansea.eduroamcat;
 
 import java.io.BufferedInputStream;

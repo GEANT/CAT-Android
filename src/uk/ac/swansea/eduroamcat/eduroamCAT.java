@@ -1,37 +1,18 @@
 //*******************
 //Author: Gareth Ayres <g.j.ayres@swansea.ac.uk>
 //SENSE Project
-//
+//https://github.com/GEANT/CAT-Android
 //*******************
 
 package uk.ac.swansea.eduroamcat;
 
-//import uk.ac.swan.su1x.WifiConfig;
-//import uk.ac.swansea.eduroamCAT.WifiConfigAPI18;
-//import uk.ac.swansea.eduroamCAT.WifiController;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-
-import uk.ac.swansea.eduroamcat.WifiConfigAPI18;
-import uk.ac.swansea.eduroamcat.WifiController;
-import uk.ac.swansea.eduroamcat.WifiStatus;
-
 import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.net.ConnectivityManager;
-import android.net.Uri;
 import android.net.wifi.WifiConfiguration;
-import android.net.wifi.WifiEnterpriseConfig;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.app.ActionBar;
-import android.app.ActionBar.Tab;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -43,10 +24,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.database.Cursor;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.TaskStackBuilder;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;

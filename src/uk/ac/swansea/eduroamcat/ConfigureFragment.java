@@ -1,15 +1,12 @@
+//*******************
+//Author: Gareth Ayres <g.j.ayres@swansea.ac.uk>
+//SENSE Project
+//https://github.com/GEANT/CAT-Android
+//*******************
 package uk.ac.swansea.eduroamcat;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.security.cert.Certificate;
 import java.util.ArrayList;
-
-import uk.ac.swansea.eduroamcat.eduroamCAT;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
@@ -24,12 +21,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class ConfigureFragment extends Fragment implements OnClickListener {

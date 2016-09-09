@@ -1,8 +1,12 @@
+//*******************
+//Author: Gareth Ayres <g.j.ayres@swansea.ac.uk>
+//SENSE Project
+//https://github.com/GEANT/CAT-Android
+//*******************
 package uk.ac.swansea.eduroamcat;
 
 import java.util.ArrayList;
 import java.util.List;
-import uk.ac.swansea.eduroamcat.eduroamCAT;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -13,9 +17,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
 import android.net.wifi.WifiConfiguration;
-import android.net.wifi.WifiEnterpriseConfig;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -23,7 +25,6 @@ import android.text.Html;
 import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnFocusChangeListener;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;

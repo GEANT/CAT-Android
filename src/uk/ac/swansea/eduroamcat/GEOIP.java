@@ -1,12 +1,15 @@
+//*******************
+//Author: Gareth Ayres <g.j.ayres@swansea.ac.uk>
+//SENSE Project
+//https://github.com/GEANT/CAT-Android
+//*******************
 package uk.ac.swansea.eduroamcat;
 
 import android.app.Activity;
-import android.location.Location;
 import android.os.AsyncTask;
 import android.text.Html;
 import android.text.Spanned;
 import android.view.View;
-
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;

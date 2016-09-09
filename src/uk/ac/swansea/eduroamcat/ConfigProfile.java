@@ -1,13 +1,14 @@
+//*******************
+//Author: Gareth Ayres <g.j.ayres@swansea.ac.uk>
+//SENSE Project
+//https://github.com/GEANT/CAT-Android
+//*******************
 package uk.ac.swansea.eduroamcat;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 import android.content.res.Resources;
-import android.graphics.Picture;
 import android.location.Location;
 import android.util.Base64;
 import android.webkit.URLUtil;

@@ -1,3 +1,8 @@
+//*******************
+//Author: Gareth Ayres <g.j.ayres@swansea.ac.uk>
+//SENSE Project
+//https://github.com/GEANT/CAT-Android
+//*******************
 package uk.ac.swansea.eduroamcat;
 
 import android.app.ActionBar;
@@ -5,8 +10,6 @@ import android.app.ActionBar.Tab;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
-import android.widget.Toast;
-import uk.ac.swansea.eduroamcat.R;
 
 class TabsListener implements ActionBar.TabListener {
             public Fragment fragment;

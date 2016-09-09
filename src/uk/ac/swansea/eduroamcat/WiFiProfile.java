@@ -1,11 +1,9 @@
+//*******************
+//Author: Gareth Ayres <g.j.ayres@swansea.ac.uk>
+//SENSE Project
+//https://github.com/GEANT/CAT-Android
+//*******************
 package uk.ac.swansea.eduroamcat;
-
-import java.util.ArrayList;
-
-import android.graphics.Picture;
-import android.location.Location;
-import android.net.wifi.WifiConfiguration;
-import android.util.Base64;
 
 public class WiFiProfile {
 	
