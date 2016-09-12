@@ -14,10 +14,17 @@ dependencies {
 }
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'eduroamcat'
+            keyPassword 'sw@n%78%'
+            storeFile file('C:/Users/AyresGJ/workspace/SENSE-App/docs/eduroamcat')
+            storePassword 'sw@n%78%'
+        }
+    }
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
-    useLibrary  'org.apache.http.legacy'
-
+    useLibrary 'org.apache.http.legacy'
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
@@ -40,5 +47,10 @@ android {
         // by a similar customization.
         debug.setRoot('build-types/debug')
         release.setRoot('build-types/release')
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.config
+        }
     }
 }
