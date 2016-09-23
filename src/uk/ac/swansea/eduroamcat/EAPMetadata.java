@@ -13,7 +13,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.security.cert.Certificate;
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Locale;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -624,23 +628,35 @@ public class EAPMetadata extends Activity {
 			   	for(int s=0; s<locationList.getLength(); s++)
 			   	{
 			   		Element location = (Element) locationList.item(s);
-			   		
+					NumberFormat format = NumberFormat.getInstance(Locale.getDefault());
 			   		NodeList latList = location.getElementsByTagName("Latitude");
 			   		if (latList.getLength()>0) {
 			   			Element lat = (Element) latList.item(0);
-			   			longitude = Double.parseDouble(lat.getTextContent());
+						try {
+							Number number = format.parse(lat.getTextContent());
+							longitude = number.doubleValue();
+						}
+						catch (ParseException e) {
+							eduroamCAT.debug("latitude parse error");
+						}
 			   		}
 			   		
 			   		NodeList longList = location.getElementsByTagName("Longitude");
 			   		if (longList.getLength()>0) {
-			   			Element location2 = (Element) longList.item(0);
-			   			latitude = Double.parseDouble(location2.getTextContent());
+						Element location2 = (Element) longList.item(0);
+						try {
+							Number number = format.parse(location2.getTextContent());
+							longitude = number.doubleValue();
+						}
+						catch (ParseException e) {
+							eduroamCAT.debug("longitude parse error");
+						}
 			   		}
 			   	}
 		   		
 			   	if (latitude!=0 && longitude!=0)
 			   	{
-			   		config1x.setLocation(latitude,longitude);
+					config1x.setLocation(latitude,longitude);
 			   		eduroamCAT.debug("Got Location:"+config1x.getLocation());
 			   	}
 			   	}
