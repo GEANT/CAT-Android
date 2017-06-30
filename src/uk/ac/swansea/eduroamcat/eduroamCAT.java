@@ -122,16 +122,16 @@ public class eduroamCAT extends FragmentActivity implements ActionBar.TabListene
 		setContentView(R.layout.activity_start);
 		eduroamCAT.debug("Starting on create for main activity");
 		//set focus off text fields
-		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+//		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		      
 		//setup the action bar (tabs at top of app)
 		final ActionBar actionBar = getActionBar();
 		actionBar.setTitle(R.string.app_name);
 		
-		//hide ActionBar when not used
-		getWindow().
-		  getDecorView().
-		  setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION); 
+//		//hide ActionBar when not used
+//		getWindow().
+//		  getDecorView().
+//		  setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
 		
 		//Action Bar Tabs
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
