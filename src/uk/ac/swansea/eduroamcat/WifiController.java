@@ -330,7 +330,8 @@ public class WifiController
 		{
 			List <WifiConfiguration> networks = wifi.getConfiguredNetworks();
 			currentConfigs = wifi.getConfiguredNetworks();
-			debug("Found "+currentConfigs.size()+" ssid profiles on device");
+			if (currentConfigs !=null ) debug("Found "+currentConfigs.size()+" ssid profiles on device");
+			else debug("Found 0 ssid profiles on device");
 			boolean removed = false;
 			for (WifiConfiguration currentConfig : currentConfigs) 
 			{
