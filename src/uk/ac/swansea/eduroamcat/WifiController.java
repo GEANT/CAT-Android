@@ -462,6 +462,7 @@ public class WifiController
 		if (wifi.isWifiEnabled()) 
 		{
 			currentConfigs = wifi.getConfiguredNetworks();
+			if (currentConfigs != null)
 			for (WifiConfiguration currentConfig : currentConfigs) 
 			{
 				if (currentConfig.SSID.equals("\"eduroam\""))
