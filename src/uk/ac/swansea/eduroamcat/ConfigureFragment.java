@@ -109,7 +109,7 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
 							if (aAuthMethod.getInnerEAPType()==6) inner="/GTC";
 							authMethods = authMethods.concat("<b>"+getString(R.string.authMethod_text_innereapmethod)+"</b><font color=\"blue\"> "+aAuthMethod.getInnerEAPType()+inner+"</font><br/>");
 						if (aAuthMethod.getAnonID().length()>0)
-							authMethods = authMethods.concat("<b>"+getString(R.string.authMethod_text_innereapmethod)+"</b><font color=\"blue\"> "+aAuthMethod.getAnonID()+"</font><br/>");
+							authMethods = authMethods.concat("<b>"+getString(R.string.authMethod_text_outter)+"</b><font color=\"blue\"> "+aAuthMethod.getAnonID()+"</font><br/>");
 						if (aAuthMethod.getServerIDs().size()>0)
 						{
 							ArrayList<String> serverID = aAuthMethod.getServerIDs();
@@ -117,7 +117,7 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
 							{
 								String aServerID = serverID.get(s);
 								if (aServerID.length()>0)
-									authMethods = authMethods.concat("<b>"+getString(R.string.authMethod_text_innereapmethod)+"</b><font color=\"green\"> "+aServerID+"</font><br/>");
+									authMethods = authMethods.concat("<b>"+getString(R.string.authMethod_text_server)+"</b><font color=\"green\"> "+aServerID+"</font><br/>");
 							}
 						}
 						Certificate tempcert = aAuthMethod.getCAcert();
