@@ -239,6 +239,7 @@ public class EAPMetadata extends Activity {
 						if (aAuthMethod.getOuterEAPType()==25) outer="/PEAP";
 						if (aAuthMethod.getOuterEAPType()==21) outer="/TTLS";
 						if (aAuthMethod.getOuterEAPType()==13) outer="/TLS";
+						if (aAuthMethod.getOuterEAPType()==52) outer="/PWD";
 						authMethods = authMethods.concat("<b>"+getString(R.string.authMethod_text_eapmethod)+"</b> <font color=\"blue\">"+aAuthMethod.getOuterEAPType()+outer+"</font><br/>");
 						if (aAuthMethod.getInnerEAPType()>0)
 							if (aAuthMethod.getInnerEAPType()==1) inner="/PAP";

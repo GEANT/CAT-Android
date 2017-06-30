@@ -101,8 +101,12 @@ public class WifiConfigAPI18 {
 	        else if (aAuth.getOuterEAPType() == 13) {
 	        	outter="TLS";
 	        	enterpriseConfig.setEapMethod(WifiEnterpriseConfig.Eap.TLS);
-	        }	        
-	        else { 
+	        }
+			else if (aAuth.getOuterEAPType() == 52) {
+				outter="PWD";
+				enterpriseConfig.setEapMethod(WifiEnterpriseConfig.Eap.PWD);
+			}
+			else {
 	        	outter="ERROR";
 	        	eduroamCAT.debug("ERROR:no outter eap type");
 	        	enterpriseConfig.setEapMethod(WifiEnterpriseConfig.Eap.PEAP);
@@ -114,6 +118,7 @@ public class WifiConfigAPI18 {
 	        if (enterpriseConfig.getEapMethod()==Eap.PWD) debug("Set to PWD OK");
 	        if (enterpriseConfig.getEapMethod()==Eap.TLS) debug("Set to TLS OK");
 	        if (enterpriseConfig.getEapMethod()==Eap.TTLS) debug("Set to TTLS OK");
+			if (enterpriseConfig.getEapMethod()==Eap.PWD) debug("Set to PWD OK");
 	        
 	        /*EAP Phase 2*/
 	        eduroamCAT.debug("Inner="+aAuth.getInnerEAPType());
