@@ -441,7 +441,7 @@ public class WifiController
 			if (currentConfigs!=null)
 			for (WifiConfiguration currentConfig : currentConfigs) 
 			{
-				if (!currentConfig.SSID.isEmpty())
+				if (currentConfig.SSID != null && !currentConfig.SSID.isEmpty())
 				if (currentConfig.SSID.equals("\"eduroam\""))
 					{
 						message+="<font color=\"black\">Found SSID "+currentConfig.SSID;
