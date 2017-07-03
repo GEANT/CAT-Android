@@ -158,20 +158,19 @@ public class WifiConfigAPI18 {
 	        debug("Set Anon to:"+aAuth.getAnonID());
 	        
 	        /*Cert*/
-	        if (aAuth.getCAcert().toString().length()>0)
+	        if (aAuth.getCAcert() != null && aAuth.getCAcert().toString().length()>0)
 	        try 
 	        {
+				debug("Setting cert:"+aAuth.getCAcert().toString());
 	        	eduroamCAT.debug("Installing cert...");
 	        	enterpriseConfig.setCaCertificate((X509Certificate) aAuth.getCAcert());
 	        	eduroamCAT.debug("Cert installed="+enterpriseConfig.getCaCertificate());
 	        }
-	        catch (IllegalArgumentException e)
-	        {
-	        	eduroamCAT.debug("cert install error:\n"+e);
-	        	eduroamCAT.debug("for cert:\n"+aAuth.getCAcert().toString());
-	        	eduroamCAT.debug("Length:\n"+aAuth.getCAcert().toString().length());
-	        }
-	        debug("Setting cert:"+aAuth.getCAcert().toString());
+	        catch (IllegalArgumentException e) {
+				eduroamCAT.debug("cert install error:\n" + e);
+				eduroamCAT.debug("for cert:\n" + aAuth.getCAcert().toString());
+				eduroamCAT.debug("Length:\n" + aAuth.getCAcert().toString().length());
+			}
 	        
 	        //test comma delimited!
 	        if (aAuth.getServerIDs().size()>0)

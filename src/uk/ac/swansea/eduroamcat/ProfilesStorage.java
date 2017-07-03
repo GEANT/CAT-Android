@@ -305,11 +305,12 @@ public class ProfilesStorage extends SQLiteOpenHelper {
 	    	    		  } catch (UnsupportedEncodingException e) {
 							e.printStackTrace();
 	    	    		  }
-	    	    		  String[] temp = res2.getString(7).split(";");
-	    	    		  for (int x=0; x<temp.length; x++)
-	    	    		  {
-	    	    			  tempAuthMethod.addServerID(temp[x]);
-	    	    		  }
+	    	    		  if (res2.getString(7).length()>0) {
+							  String[] temp = res2.getString(7).split(";");
+							  for (int x = 0; x < temp.length; x++) {
+								  tempAuthMethod.addServerID(temp[x]);
+							  }
+						  }
 	    	    		  if (res2.getString(11).length()>0) tempAuthMethod.setAnonID(res2.getString(11), true);
 	    	    		  if (res2.getString(8).length()>0)
 							try {
