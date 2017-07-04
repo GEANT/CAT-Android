@@ -18,6 +18,7 @@ import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiConfiguration;
+import android.net.wifi.WifiEnterpriseConfig;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -52,7 +53,7 @@ public class ConnectFragment extends Fragment implements OnClickListener
 	Activity activity = getActivity();
 	static TextView state1,state2,state3,state4,state5,state6,warning,passText;
 	static ImageView state1_image,state2_image,state3_image,state4_image,state5_image,state6_image;
-	static LinearLayout feedback;
+	static LinearLayout feedback,state5_layout;
 	private static WifiManager wifi = null;
 	static Boolean installedOK = false;
 	
@@ -97,6 +98,7 @@ public class ConnectFragment extends Fragment implements OnClickListener
     	String state4_text="";
     	String state5_text="";
     	String state6_text="";
+		boolean pwdortls=false;
     	List <WifiConfiguration> currentConfigs;
     		currentConfigs = wifi.getConfiguredNetworks();
     		int found=0;
@@ -128,11 +130,18 @@ public class ConnectFragment extends Fragment implements OnClickListener
     					else if (state4_text.contains("\"#000000\"")) state4_image.setImageResource(R.drawable.question);
     					else if (state4_text.contains("\"black\"")) state4_image.setImageResource(R.drawable.tick);
     					else  state4_image.setImageResource(R.drawable.cross);
-    					state5_text=eduroamCAT.wifiCon.checkEduroamCA();
-    					if (state5_text.contains("\"#000001\"")) state5_image.setImageResource(R.drawable.cross);
-    					else if (state5_text.contains("\"#000000\"")) state5_image.setImageResource(R.drawable.question);
-    					else if (state5_text.contains("\"black\"")) state5_image.setImageResource(R.drawable.tick);
-    					else  state5_image.setImageResource(R.drawable.cross);
+						if (currentConfig.enterpriseConfig.getEapMethod()!= WifiEnterpriseConfig.Eap.PWD) {
+							pwdortls=false;
+							state5_text = eduroamCAT.wifiCon.checkEduroamCA();
+							if (state5_text.contains("\"#000001\""))
+								state5_image.setImageResource(R.drawable.cross);
+							else if (state5_text.contains("\"#000000\""))
+								state5_image.setImageResource(R.drawable.question);
+							else if (state5_text.contains("\"black\""))
+								state5_image.setImageResource(R.drawable.tick);
+							else state5_image.setImageResource(R.drawable.cross);
+						}
+						else pwdortls=true;
     					state6_text=eduroamCAT.wifiCon.checkEduroamSubject();
     					if (state6_text.contains("\"#000001\"")) state6_image.setImageResource(R.drawable.cross);
     					else if (state6_text.contains("\"#000000\"")) state6_image.setImageResource(R.drawable.question);
@@ -149,8 +158,15 @@ public class ConnectFragment extends Fragment implements OnClickListener
 			state3.setText(idp_summary);
 			idp_summary = Html.fromHtml(state4_text);
 			state4.setText(idp_summary);
-			idp_summary = Html.fromHtml(state5_text);
-			state5.setText(idp_summary);
+				if (!pwdortls) {
+					idp_summary = Html.fromHtml(state5_text);
+					state5.setText(idp_summary);
+				}
+				else {
+					state5_image.setVisibility(View.GONE);
+					state5.setVisibility(View.GONE);
+					state5_layout.setVisibility(View.GONE);
+				}
 			idp_summary = Html.fromHtml(state6_text);
 			state6.setText(idp_summary);
 			//state1.setMovementMethod(new ScrollingMovementMethod());
@@ -338,7 +354,8 @@ public class ConnectFragment extends Fragment implements OnClickListener
         state5_image = (ImageView) v.findViewById(R.id.imageView5);
         state6 = (TextView) v.findViewById(R.id.stateText6);
         state6_image = (ImageView) v.findViewById(R.id.imageView6);
-        feedback = (LinearLayout) v.findViewById(R.id.feedback); 
+        feedback = (LinearLayout) v.findViewById(R.id.feedback);
+		state5_layout = (LinearLayout) v.findViewById(R.id.state5_layout);
         //ssids.setOnItemClickListener(this);
         warning = (TextView) v.findViewById(R.id.textView3);
         username = (EditText) v.findViewById(R.id.username);

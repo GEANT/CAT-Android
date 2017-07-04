@@ -392,7 +392,7 @@ public class WifiController
 						message+="<br/>User ID:<font color=\"green\">"+currentConfig.enterpriseConfig.getIdentity()+"</font>";
 						message+="<br/>EAP Method:";
 				        if (currentConfig.enterpriseConfig.getEapMethod()==Eap.PEAP) message+="<font color=\"green\">PEAP</font> with ";
-				        else if (currentConfig.enterpriseConfig.getEapMethod()==Eap.PWD) message+="<font color=\"green\">PWD</font> with ";
+				        else if (currentConfig.enterpriseConfig.getEapMethod()==Eap.PWD) message+="<font color=\"green\">PWD</font> ";
 				        else if (currentConfig.enterpriseConfig.getEapMethod()==Eap.TLS) message+="<font color=\"green\">TLS</font>";
 				        else if (currentConfig.enterpriseConfig.getEapMethod()==Eap.TTLS) message+="<font color=\"green\">TTLS</font> with ";
 				        else message+="<font color=\"red\">EAP Method error</font>";
@@ -401,6 +401,8 @@ public class WifiController
 				        if (currentConfig.enterpriseConfig.getPhase2Method()==Phase2.MSCHAPV2) message+="Phase2:<font color=\"green\">MSCHAPv2</font>";
 				        else if (currentConfig.enterpriseConfig.getPhase2Method()==Phase2.GTC) message+="Phase2:<font color=\"green\">GTC</font>";
 				        else if (currentConfig.enterpriseConfig.getPhase2Method()==Phase2.PAP) message+="Phase2:<font color=\"green\">PAP</font>";
+                        else if (currentConfig.enterpriseConfig.getEapMethod()==Eap.PWD) message+="";
+                        else if (currentConfig.enterpriseConfig.getEapMethod()==Eap.TLS) message+="";
 				        else message+="<font color=\"red\">Phase2 Missing</font>";
 				        }
 				        eduroamCAT.debug("CA="+currentConfig.enterpriseConfig.getCaCertificate());
@@ -419,7 +421,8 @@ public class WifiController
 				        }
 				        else
 				        {
-				        	message+="<br/><font color=\"red\">No CA certificate found</font>";
+							if (currentConfig.enterpriseConfig.getEapMethod()==Eap.PWD) message+="<font color=\"black\">CA Certificate unrequired</font>";
+							else message+="<br/><font color=\"red\">No CA certificate found</font>";
 				        }
 				        if (currentConfig.enterpriseConfig.getSubjectMatch()!=null)
 				        {
@@ -468,6 +471,7 @@ public class WifiController
 				if (currentConfig.SSID.equals("\"eduroam\""))
 					{
 						if (currentConfig.enterpriseConfig.getAnonymousIdentity().length()>0) message+="Anon ID=<font color=\"black\">"+currentConfig.enterpriseConfig.getAnonymousIdentity()+"</font>";
+						else if (currentConfig.enterpriseConfig.getEapMethod()==Eap.PWD) message+="<font color=\"black\">Anon ID unrequired</font>";
 						else message+="<font color=\"#000000\">Anon ID missing (optional)</font>";
 					}
 			}
@@ -506,7 +510,7 @@ public class WifiController
 				{
 					message+="EAP Method=";
 					if (currentConfig.enterpriseConfig.getEapMethod()==Eap.PEAP) message+="<font color=\"black\">PEAP</font> with ";
-					else if (currentConfig.enterpriseConfig.getEapMethod()==Eap.PWD) message+="<font color=\"black\">PWD</font> with ";
+					else if (currentConfig.enterpriseConfig.getEapMethod()==Eap.PWD) message+="<font color=\"black\">PWD</font>";
 					else if (currentConfig.enterpriseConfig.getEapMethod()==Eap.TLS) message+="<font color=\"black\">TLS</font>";
 					else if (currentConfig.enterpriseConfig.getEapMethod()==Eap.TTLS) message+="<font color=\"black\">TTLS</font> with ";
 					else message+="<font color=\"#000001\">EAP Method error</font>";
@@ -515,6 +519,8 @@ public class WifiController
 						if (currentConfig.enterpriseConfig.getPhase2Method()==Phase2.MSCHAPV2) message+="Phase2:<font color=\"black\">MSCHAPv2</font>";
 						else if (currentConfig.enterpriseConfig.getPhase2Method()==Phase2.GTC) message+="Phase2:<font color=\"black\">GTC</font>";
 						else if (currentConfig.enterpriseConfig.getPhase2Method()==Phase2.PAP) message+="Phase2:<font color=\"black\">PAP</font>";
+                        else if (currentConfig.enterpriseConfig.getEapMethod()==Eap.PWD) message+="";
+                        else if (currentConfig.enterpriseConfig.getEapMethod()==Eap.TLS) message+="";
 						else message+="<font color=\"#000001\">Phase2 Missing</font>";
 					}
 				}
@@ -544,13 +550,17 @@ public class WifiController
 						//start=currentConfig.enterpriseConfig.toString().indexOf("ca_cert");
 						//finish=currentConfig.enterpriseConfig.toString().indexOf("\"", start+10);
 						//if (start>0 && finish>0)
-						message+="<font color=\"black\">CA Certificate OK";
+						message+="<font color=\"black\">CA Certificate OK</font>";
 					}
 					else
 					{
 						message+="<font color=\"#000001\">No CA certificate found</font>";
 					}
-					if (message.length()<1) message+="<font color=\"#000001\">No CA certificate found</font>";
+					if (message.length()<1)
+					{
+						if (currentConfig.enterpriseConfig.getEapMethod()==Eap.PWD) message+="<font color=\"black\">CA Certificate unrequired</font>";
+						else message+="<font color=\"#000001\">No CA certificate found</font>";
+					}
 				}
 			}
 		}
