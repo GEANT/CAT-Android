@@ -79,7 +79,8 @@ public class StatusFragment extends Fragment implements OnClickListener {
         summaryText+=getActivity().getString(R.string.status_supplicant)+"<b>"+supState+"</b>("+supDetailed+")<br/>";
         summaryText+=getActivity().getString(R.string.status_wifi)+"<b>"+eduroamCAT.wifiCon.checkWifiEnabled()+"</b>"+getActivity().getString(R.string.status_supplicant_ok)+"<b>"+ eduroamCAT.wifiCon.isSupplicantOK()+"</b><br/>";
         summaryText+=failReason;
-        summaryText+=getActivity().getString(R.string.status_ip)+"<b><font color=\"blue\">"+ip+"</font></b>"+getActivity().getString(R.string.status_mac)+"<b>"+mac+"</b> <br/>";
+			if (eduroamCAT.currentapiVersion<23) summaryText+=getActivity().getString(R.string.status_ip)+"<b><font color=\"blue\">"+ip+"</font></b>"+getActivity().getString(R.string.status_mac)+"<b>"+mac+"</b> <br/>";
+			else summaryText+=getActivity().getString(R.string.status_ip)+"<b><font color=\"blue\">"+ip+"</font></b><br/>";
         summaryText+="<br/>";
         Spanned statusSummary = Html.fromHtml(summaryText);
         if (statusInfo!=null) statusInfo.setText(statusSummary);

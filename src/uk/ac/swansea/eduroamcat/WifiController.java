@@ -6,6 +6,7 @@
 package uk.ac.swansea.eduroamcat;
 
 import java.math.BigInteger;
+import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.nio.ByteOrder;
@@ -186,7 +187,7 @@ public class WifiController
 		if (rss.equals("-200")) rss="0";
 		return rss;
 	}
-	
+
 	//get device MACAdderss
 	public String getDeviceWiFiMac()
 	{
@@ -195,7 +196,8 @@ public class WifiController
 		if (mac==null) mac="Unknown";
 		return mac;
 	}	
-	
+
+
 	//get link speed
 	public String getLinkSpeed()
 	{

@@ -54,6 +54,7 @@ public class eduroamCAT extends FragmentActivity implements ActionBar.TabListene
         final static Fragment statusFragment = new StatusFragment();
         private static boolean advanced_mode= false;
 		public static boolean downloaded=false;
+		public final static int currentapiVersion = android.os.Build.VERSION.SDK_INT;
 	    
 	    //Debug method to print to logd
 	    public static void debug(String msg)
