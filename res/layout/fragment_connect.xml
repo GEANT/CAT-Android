@@ -101,12 +101,13 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/state2_layout"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:layout_weight="0.95"
-                    android:gravity="fill_horizontal" 
+                    android:gravity="fill_horizontal"
                     android:scrollbarAlwaysDrawVerticalTrack="false"
-                    android:scrollbars="none" >
+                    android:scrollbars="none">
 
                     <ImageView
                         android:id="@+id/imageView2"
