@@ -33,6 +33,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
+import android.net.Uri;
 
 public class eduroamCAT extends FragmentActivity implements ActionBar.TabListener
 {
@@ -154,7 +155,7 @@ public class eduroamCAT extends FragmentActivity implements ActionBar.TabListene
           actionBar.addTab(statusTab);
           
           //Setup WiFi Module
-          if (wifi==null) wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+          if (wifi==null) wifi = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
   		
   		//Setup wifi status broadcast receivers
   		  if (wifiStatus==null) wifiStatus = new WifiStatus(getSystemService(Context.CONNECTIVITY_SERVICE));
@@ -270,7 +271,8 @@ public class eduroamCAT extends FragmentActivity implements ActionBar.TabListene
 		//Add menu opetion in rop right of app
 		 MenuInflater inflater = getMenuInflater();
 		    //inflater.inflate(R.menu.settings, menu);
-		    inflater.inflate(R.menu.advanced, menu);
+			inflater.inflate(R.menu.selectfile, menu);
+			inflater.inflate(R.menu.advanced, menu);
 		    inflater.inflate(R.menu.support, menu);
 		    inflater.inflate(R.menu.about, menu);
 		    inflater.inflate(R.menu.version, menu);
@@ -345,7 +347,14 @@ public class eduroamCAT extends FragmentActivity implements ActionBar.TabListene
                       finish();
                       startActivity(intent);
                       return true;
-                      
+					  case R.id.selectfile:
+						  Toast.makeText(this, getString(R.string.select_menu),
+								  Toast.LENGTH_LONG).show();
+						  Intent selectIntent = new Intent()
+								  .setType("*/*")
+								  .setAction(Intent.ACTION_GET_CONTENT);
+						  startActivityForResult(Intent.createChooser(selectIntent, "Select a file"), 123);
+						  return true;
                   case R.id.support:
                 	  if (db.numberOfRowsEAP()>0)
                 	  {
@@ -387,7 +396,22 @@ public class eduroamCAT extends FragmentActivity implements ActionBar.TabListene
                   }
                   return false;
       }
-      
+
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if(requestCode==123 && resultCode==RESULT_OK) {
+			Uri selectedfile = data.getData();
+			eduroamCAT.debug("Got eap-config uri of:"+selectedfile);
+			//content://com.android.providers.downloads.documents/document/8
+			Intent download = new Intent(this, EAPMetadata.class);
+			download.setData(selectedfile);
+			startActivity(download);
+			eduroamCAT.debug("started activity");
+		}
+	}
+
   	@Override
   	public void onDestroy()
   	{

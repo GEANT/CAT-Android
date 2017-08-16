@@ -152,4 +152,5 @@
     <string name="manual_search_text">Enter institution name to search for</string>
     <string name="manual_search_more">list more</string>
     <string name="manual_search_fail">No results</string>
+	<string name="select_menu">Select Config File</string>
 	</resources>
