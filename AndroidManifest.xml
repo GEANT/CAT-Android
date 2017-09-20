@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="uk.ac.swansea.eduroamcat"
-    android:versionCode="41"
-    android:versionName="1.1.41">
+    android:versionCode="42"
+    android:versionName="1.1.42">
 
     <uses-sdk
         android:minSdkVersion="18"
@@ -15,6 +15,8 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> -->
 
     <application
         android:allowBackup="true"
@@ -38,18 +40,17 @@
             android:name=".ViewProfiles"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
-            android:parentActivityName="uk.ac.swansea.eduroamcat.eduroamCAT"
+            android:parentActivityName=".eduroamCAT"
             android:windowSoftInputMode="adjustResize">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="uk.ac.swansea.eduroamcat.eduroamCAT" />
-
         </activity>
         <activity
             android:name=".EAPMetadata"
             android:label="@string/title_activity_eapmetadata"
             android:parentActivityName=".eduroamCAT">
-                <meta-data
+            <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="uk.ac.swansea.eduroamcat.eduroamCAT" />
             <!-- MIME Type registration -->
@@ -117,9 +118,23 @@
                     android:scheme="content" />
 
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".EduroamCATService"
+            android:exported="false" />
+<!--
+        <receiver
+            android:name=".BootReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+            </intent-filter>
+        </receiver>
+        -->
     </application>
 
 </manifest>

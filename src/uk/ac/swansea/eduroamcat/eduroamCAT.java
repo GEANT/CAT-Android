@@ -250,15 +250,6 @@ public class eduroamCAT extends FragmentActivity implements ActionBar.TabListene
 						.setSmallIcon(R.drawable.ic_launcher)
 						.setContentTitle(activ.getString(R.string.notification_title_connected))
 						.setContentText(activ.getString(R.string.notification_message_connected));
-//		Intent resultIntent = new Intent(activ, eduroamCAT.class);
-//		TaskStackBuilder stackBuilder = TaskStackBuilder.create(activ);
-//		stackBuilder.addParentStack(eduroamCAT.class);
-//		stackBuilder.addNextIntent(resultIntent);
-//		PendingIntent resultPendingIntent =
-//				stackBuilder.getPendingIntent(
-//						0,
-//						PendingIntent.FLAG_UPDATE_CURRENT
-//				);
 		notificationManager.notify(mId, mBuilder.build());
 	}
 

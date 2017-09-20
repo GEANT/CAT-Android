@@ -230,10 +230,16 @@ public class WifiConfigAPI18 {
 	        else
 	        {
 	        	debug("Successfully added ("+eduroamCAT.wifiProfile.getSSID()+"), Network id=" + res );
-				boolean c = wifi.saveConfiguration();
-				debug("Saving configuration... " + c );
-				enabled = wifi.enableNetwork(res, true);
-				debug("Setting ("+eduroamCAT.wifiProfile.getSSID()+") to Enabled returned " + enabled );
+				try {
+					boolean c = wifi.saveConfiguration();
+					debug("Saving configuration... " + c);
+					enabled = wifi.enableNetwork(res, true);
+					debug("Setting (" + eduroamCAT.wifiProfile.getSSID() + ") to Enabled returned " + enabled);
+				}
+				catch (Exception e)
+				{
+					eduroamCAT.debug("caught error with save eap config and enable " + e);
+				}
 	        }
 	        
 	        debug("FINISHED SETUP FOR IDENTITY:"+selectedConfig.enterpriseConfig.getIdentity());
