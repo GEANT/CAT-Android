@@ -44,7 +44,8 @@ public class IdP extends AsyncTask<String, Integer, String> {
 		this.id=id;
 		this.distance=distance;
 		int currentapiVersion = android.os.Build.VERSION.SDK_INT;
-		if (currentapiVersion == 25) androidID="android_nougat";
+		if (currentapiVersion == 26) androidID="android_oreo";
+		else if (currentapiVersion == 25) androidID="android_nougat";
 		else if (currentapiVersion == 24) androidID="android_marshmallow";
 		else if (currentapiVersion == 23) androidID="android_marshmallow";
 		else if (currentapiVersion == 22) androidID="android_lollipop";
