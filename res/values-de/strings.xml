@@ -92,7 +92,7 @@
 	<string name="status_wifi_supp_problem">Problem mit WLAN Adapter oder Supplikant</string>
 	<string name="status_wifi_disabled">WLAN ist ausgeschaltet!</string>
 	<string name="advanced_on">Fortgeschrittener Modus Ein</string>
-	<string name="advanced_off">Fortgeschrittener Modus AUs</string>
+	<string name="advanced_off">Fortgeschrittener Modus Aus</string>
 	<string name="support_message1">Die App benötigt eine Konfiguration in Form eines .eap-config Profils ihres Identitätsproviders. Nachdem Sie das Profil heruntergeladen haben, können Sie es von der Downloads app aus antippen und es wird installiert.</string>
 	<string name="support_message2">Die eduroamCAT App hat ein Profile von %1$s installiert</string>
     <!-- $1$s = institution name -->
