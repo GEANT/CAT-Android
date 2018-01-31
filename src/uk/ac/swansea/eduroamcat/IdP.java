@@ -53,7 +53,7 @@ public class IdP extends AsyncTask<String, Integer, String> {
 		else if (currentapiVersion == 20) androidID="android_kitkat";
 		else if (currentapiVersion == 19) androidID="android_kitkat";
 		else if (currentapiVersion == 18) androidID="android_43";
-		else androidID="android_legacy";
+		else androidID="android_kitkat";
 
 		lang= Locale.getDefault().getLanguage();
 	}
