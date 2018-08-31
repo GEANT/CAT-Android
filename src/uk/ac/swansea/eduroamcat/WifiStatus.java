@@ -44,20 +44,22 @@ public class WifiStatus extends BroadcastReceiver
 		status = wifiStatus.getState();
 		eduroamCAT.debug("Broadcast=" + status.toString());
 
+		if (ConnectFragment.getProfileInstalled() == Boolean.TRUE)
 		if (status.toString().equals("DISCONNECTED"))
 		{
 			ConnectFragment.setStatus(status.toString()+" from SSID "+wifim.getConnectionInfo().getSSID());
 		}
-		else
-		{
-			String tempSSID=wifim.getConnectionInfo().getSSID();
-			tempSSID=tempSSID.replace("\"","");
-			if (tempSSID.equals(eduroamCAT.appSSID) && ConnectFragment.getProfileInstalled()) {
-				eduroamCAT.debug("************************Installed and CONNECTED");
-				Activity activity = (Activity) context;
-				eduroamCAT.notifyConnected(activity,context);
+		else {
+			String tempSSID = wifim.getConnectionInfo().getSSID();
+			if (wifim != null) {
+				tempSSID = tempSSID.replace("\"", "");
+				if (tempSSID.equals(eduroamCAT.appSSID) && ConnectFragment.getProfileInstalled()) {
+					eduroamCAT.debug("************************Installed and CONNECTED");
+					Activity activity = (Activity) context;
+					eduroamCAT.notifyConnected(activity, context);
+				}
+				if (status.toString() != null) ConnectFragment.setStatus(status.toString() + " to SSID " + wifim.getConnectionInfo().getSSID());
 			}
-			ConnectFragment.setStatus(status.toString()+" to SSID "+wifim.getConnectionInfo().getSSID());
 		}
 		eduroamCAT.setSummary();
 
