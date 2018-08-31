@@ -150,7 +150,7 @@ public class SCAD  extends AsyncTask<String, Integer, String> {
 	protected void onPostExecute(String result) {
         super.onPostExecute(result);
         //eduroamCAT.debug("RESULT="+result);
-        if (result.length()>0)
+        if (result.length()>0 && geoip !=null)
         try {
 			if (hasAccuracy==false && geoip.hasLocation()) {
 				lat = geoip.getLatitude();
