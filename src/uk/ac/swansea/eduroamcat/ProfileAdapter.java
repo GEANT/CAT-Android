@@ -32,7 +32,6 @@ public class ProfileAdapter extends ArrayAdapter<IdP> {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             final IdP aIdP = getItem(position);
-            eduroamCAT.debug("Adding item to List:"+aIdP.getName());
             // Check if an existing view is being reused, otherwise inflate the view
             if (convertView == null) {
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.profile_item, parent, false);

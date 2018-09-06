@@ -108,6 +108,7 @@ public class ViewProfiles extends Activity {
             }
 
         });
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -118,6 +119,7 @@ public class ViewProfiles extends Activity {
     @Override
     public void onResume() {
         super.onResume();  // Always call the superclass method first
+        eduroamCAT.debug("resumed viewProfiles");
         if (adapter.getCount()>0) {
             adapter.clear();
         }

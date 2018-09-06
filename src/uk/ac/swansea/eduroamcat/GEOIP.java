@@ -78,6 +78,7 @@ public class GEOIP extends AsyncTask<String, Integer, String> {
                         }
                     eduroamCAT.debug("GEOIP GOT: " + latx + " and " + longx);
                         hasLocation=true;
+                        ViewProfiles.adapter.notifyDataSetChanged();
                 }
             } catch (JSONException e) {
                 String error_message = "";
