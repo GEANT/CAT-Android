@@ -10,7 +10,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.4'
+        classpath 'com.android.tools.build:gradle:3.2.1'
     }
 }
 apply plugin: 'android'
@@ -30,7 +30,7 @@ android {
         }
     }
     compileSdkVersion 23
-    buildToolsVersion '27.0.3'
+    buildToolsVersion '28.0.3'
     useLibrary 'org.apache.http.legacy'
     sourceSets {
         main {
@@ -59,6 +59,10 @@ android {
         release {
             signingConfig signingConfigs.config
         }
+    }
+    defaultConfig {
+        minSdkVersion = 18
+        targetSdkVersion = 26
     }
 }
 repositories {

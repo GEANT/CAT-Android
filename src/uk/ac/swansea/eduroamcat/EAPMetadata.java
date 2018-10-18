@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringReader;
+import java.security.KeyStoreException;
 import java.security.cert.Certificate;
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -37,6 +38,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.support.v4.app.NavUtils;
 import android.text.Html;
@@ -47,6 +49,7 @@ public class EAPMetadata extends Activity {
 
 	static Button discard,install;
 	ProfilesStorage db = new ProfilesStorage(this);
+	String keyPass=""; //default to nothing to start (optional)
 	
 	public boolean testExternalStorage()
 	{
@@ -367,7 +370,7 @@ public class EAPMetadata extends Activity {
 							{
 								serverIDs += aAuthMethod.getServerIDs().get(s)+";";
 							}
-							db.insertAuth(aProfile.getEAPIdP_ID(), aAuthMethod.getOuterEAPType(), aAuthMethod.getInnerEAPType(), aAuthMethod.getInnerNonEAPType(), aAuthMethod.getCAencoding(),aAuthMethod.getCAFormat(), serverIDs, aAuthMethod.getOrignalClientCert(), aAuthMethod.getClientCertEncoding(), aAuthMethod.getClientCertFormat(), aAuthMethod.getAnonID(), 1, aAuthMethod.getOrignalCACert());
+							db.insertAuth(aProfile.getEAPIdP_ID(), aAuthMethod.getOuterEAPType(), aAuthMethod.getInnerEAPType(), aAuthMethod.getInnerNonEAPType(), aAuthMethod.getCAencoding(),aAuthMethod.getCAFormat(), serverIDs, aAuthMethod.getOrignalClientCert(), aAuthMethod.getClientCertEncoding(), aAuthMethod.getClientCertFormat(), aAuthMethod.getClientCertPass(),aAuthMethod.getAnonID(), 1, aAuthMethod.getOrignalCACert());
 							eduroamCAT.debug("Inserting Auth method for EAP Profile:"+aProfile.getEAPIdP_ID());
 						}
 					}
@@ -434,6 +437,64 @@ public class EAPMetadata extends Activity {
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 
 	}
+
+    public static void requestKeypass(String message, String title, Activity activ, final NodeList clientCert, final AuthenticationMethod newAuthMethod)
+    {
+		// Set an EditText view to get user input
+		final EditText input = new EditText(activ);
+
+		new AlertDialog.Builder(activ)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+						String pin = input.getText().toString();
+						eduroamCAT.debug("PIN=" + pin);
+						String certstring = "";
+						Element Clientcert = null;
+
+						if (clientCert.getLength() > 0) {
+							for (int s = 0; s < clientCert.getLength(); s++) {
+								Clientcert = (Element) clientCert.item(s);
+								String tmp = null;
+								tmp = Clientcert.getTextContent().trim();
+
+								//get recent eap-tld profile, and add the client sert to any eap-tls auth methods
+								if (eduroamCAT.profiles != null)
+									if (eduroamCAT.profiles.size() > 0)
+										if (!eduroamCAT.profiles.get(eduroamCAT.profiles.size() - 1).isError()) {
+											//get last profile added
+											ConfigProfile aProfile = eduroamCAT.profiles.get(eduroamCAT.profiles.size() - 1);
+											if (aProfile.getNumberAuthenticationMethods() > 0) {
+												eduroamCAT.debug("eap-tls auth methods:" + aProfile.getNumberAuthenticationMethods());
+												for (int i = 0; i < aProfile.getNumberAuthenticationMethods(); i++) {
+													if (aProfile.getAuthenticationMethod(i).isError()) {
+														eduroamCAT.debug("AUTH METHOD " + i + " has error");
+														continue;
+													}
+													AuthenticationMethod aAuthMethod = aProfile.getAuthenticationMethod(i);
+													eduroamCAT.debug("got auth method with eap inner="+aAuthMethod.getOuterEAPType());
+													if (aAuthMethod.getOuterEAPType()==13)
+													try {
+													    eduroamCAT.debug("adding client cert:" +tmp + "with pin "+pin);
+														aAuthMethod.loadClientCert(tmp, Clientcert.getAttribute("format"), Clientcert.getAttribute("encoding"), pin);
+														aAuthMethod.setClientCertPass(pin);
+														aProfile.removeAuthenticationMethod(i);
+														aProfile.addAuthenticationMethod(aAuthMethod);
+														eduroamCAT.profiles.set(eduroamCAT.profiles.size() - 1,aProfile);
+													} catch (KeyStoreException e) {
+														e.printStackTrace();
+													}
+												}
+											}
+										}
+							}
+						}
+					}
+                })
+				.setView(input)
+                .show();
+    }
 	
 	public ArrayList<ConfigProfile> parseProfile(String config) throws IOException, ParserConfigurationException, SAXException
 	{
@@ -550,6 +611,7 @@ public class EAPMetadata extends Activity {
 			  //****************************************************************ClientSideCredentials
 			    NodeList clientSide = authElement.getElementsByTagName("ClientSideCredential");
 			    if (clientSide.getLength()>0) {
+					eduroamCAT.debug("ClientSideCredential cert="+clientSide.toString());
 			    	Element clientSideElement = (Element) clientSide.item(0);
 			    	Boolean allow_save = true;
 			    	allow_save = Boolean.valueOf(clientSideElement.getAttribute("allow_save"));
@@ -565,14 +627,12 @@ public class EAPMetadata extends Activity {
 			    			eduroamCAT.debug("Got anonID="+anonIDvalue.getTextContent());
 			    		}
 
-			    		//get Client Side Cert
-			    		NodeList clientCert = innerElement.getElementsByTagName("ClientCertificate");
-			    		if (clientCert.getLength()>0)
-			    		{
-			    			Element clietnCertElement = (Element) anonID.item(0);
-			    			newAuthMethod.setClientCert(clietnCertElement.getTextContent().trim(),clietnCertElement.getAttribute("format"),clietnCertElement.getAttribute("encoding"));
-			    			eduroamCAT.debug("Got ClientCert:"+newAuthMethod.getClientCert());
-			    		}
+						//get Client cert
+                        //get keypass from user
+						NodeList clientCert = authElement.getElementsByTagName("ClientCertificate");
+                        if (clientCert.getLength()>0) requestKeypass("Enter PIN","Enter PIN",this,clientCert,newAuthMethod);
+
+
 			    	}
 			    }
 			    

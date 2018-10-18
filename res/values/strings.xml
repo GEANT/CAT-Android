@@ -147,10 +147,13 @@
     <!-- $1$d = number represnting Kilometers -->
 	<string name="scad_geoip_success">Configuration lookup success. Click search button below to list IdPs</string>
 	<string name="eapprofileMissing_text4">You can also search for configs using the Manual Search button below. </string>
-    <!-- -New Strings Release for translation-->
 	<string name="scad_success">Configuration lookup success. Click search button below to list IdPs</string>
     <string name="manual_search_text">Enter institution name to search for</string>
     <string name="manual_search_more">list more</string>
     <string name="manual_search_fail">No results</string>
 	<string name="select_menu">Select Config File</string>
+	<!-- -New Strings Release for translation-->
+	<string name="authMethod_text_clientcertcn">PrivateKey CN:</string>
+	<string name="authMethod_text_clientcertexp">PrivateKey expiry:</string>
+	<string name="PinDialog">Enter Pin:</string>
 	</resources>

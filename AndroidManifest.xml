@@ -2,11 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="uk.ac.swansea.eduroamcat"
     android:versionCode="45"
-    android:versionName="1.1.45">
-
-    <uses-sdk
-        android:minSdkVersion="18"
-        android:targetSdkVersion="26" />
+    android:versionName="1.2.0">
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />

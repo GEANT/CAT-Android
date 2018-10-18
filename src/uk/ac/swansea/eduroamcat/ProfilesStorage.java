@@ -6,6 +6,7 @@
 package uk.ac.swansea.eduroamcat;
 
 import java.io.UnsupportedEncodingException;
+import java.security.KeyStoreException;
 import java.util.ArrayList;
 import android.content.ContentValues;
 import android.content.Context;
@@ -18,7 +19,7 @@ import android.util.Log;
 public class ProfilesStorage extends SQLiteOpenHelper {
 	  
 	  private static final String DATABASE_NAME = "eduroamProfiles.db";
-	  private static final int DATABASE_VERSION = 1;
+	  private static final int DATABASE_VERSION = 2;
 	  
 	  //EAP CONFIG TABLE
 	  public static final String TABLE_NAME_EAP = "eapProfiles";
@@ -93,6 +94,8 @@ public class ProfilesStorage extends SQLiteOpenHelper {
 			  + "anonID_save"
 			  + " integer,"
 			  + "CAcert"
+			  + " text,"
+			  + "clientCertPass"
 			  + " text"
 			  + ");";	
 
@@ -170,7 +173,7 @@ public class ProfilesStorage extends SQLiteOpenHelper {
 	   }
 	   
 	   public long insertAuth (String ID_EAP, int outterEAPType, int innerEAPType, int innerNonEAPType, String CAencoding, String CAformat,
-			   String serverIDs, String clientCert, String clientCertEncoding, String clientCertFormat, String anonID, int anonID_save, String CAcert)
+			   String serverIDs, String clientCert, String clientCertEncoding, String clientCertFormat, String clientCertPass, String anonID, int anonID_save, String CAcert)
 	   {
 	      SQLiteDatabase db = this.getWritableDatabase();
 	      ContentValues contentValues = new ContentValues();
@@ -187,6 +190,7 @@ public class ProfilesStorage extends SQLiteOpenHelper {
 	      contentValues.put("anonID", anonID);
 	      contentValues.put("anonID_save", anonID_save);
 	      contentValues.put("CAcert", CAcert);
+		  contentValues.put("clientCertPass", clientCertPass);
 	      long result = db.insert(TABLE_NAME_AUTH, null, contentValues);
 	      db.close();
 	      return result;
@@ -314,11 +318,10 @@ public class ProfilesStorage extends SQLiteOpenHelper {
 	    	    		  if (res2.getString(11).length()>0) tempAuthMethod.setAnonID(res2.getString(11), true);
 	    	    		  if (res2.getString(8).length()>0)
 							try {
-								tempAuthMethod.setClientCert(res2.getString(8), res2.getString(10), res2.getString(9));
-							} catch (UnsupportedEncodingException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
+									tempAuthMethod.loadClientCert(res2.getString(8), res2.getString(10), res2.getString(9),res2.getString(14));
+								} catch (KeyStoreException e) {
+									e.printStackTrace();
+								}
 	    	    		  tempProfile.addAuthenticationMethod(tempAuthMethod);
 	    	    		  res2.moveToNext();
 	    	    	  }

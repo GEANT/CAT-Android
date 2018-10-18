@@ -241,7 +241,17 @@ public class ConfigProfile {
 	//get an Authentication Method
 	public AuthenticationMethod getAuthenticationMethod(int index)
 	{
-		return authenticationMethods.get(index);
+		eduroamCAT.debug("auth methods list size="+authenticationMethods.size());
+		if (authenticationMethods.size()>0) return authenticationMethods.get(index);
+		else return null;
+	}
+
+	//remove authentication method
+	public Boolean removeAuthenticationMethod(int index)
+	{
+		eduroamCAT.debug("Removing auth method="+index);
+		if (authenticationMethods.size()>=index) { authenticationMethods.remove(index); return true; }
+		else return false;
 	}
 	
 	//get number of Authentication Methods

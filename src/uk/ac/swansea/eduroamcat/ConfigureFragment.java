@@ -5,7 +5,10 @@
 //*******************
 package uk.ac.swansea.eduroamcat;
 
+import java.security.Key;
+import java.security.PrivateKey;
 import java.security.cert.Certificate;
+import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -94,7 +97,7 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
 							eduroamCAT.debug("ERROR="+aProfile.getAuthenticationMethod(i).getError());
 							continue;
 						}
-						AuthenticationMethod aAuthMethod = aProfile.getAuthenticationMethod(i); 
+						AuthenticationMethod aAuthMethod = aProfile.getAuthenticationMethod(i);
 						int count=i+1;
 						authMethods = authMethods.concat("<h3>"+getString(R.string.authMethod_text_title)+ count +"</h3>");
 						String outer="";
@@ -131,6 +134,29 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
 								authMethods = authMethods.concat("<b>"+getString(R.string.authMethod_text_certcn)+"</b><font color=\"purple\"> "+certString+"</font><br/>");
 							}
 						}
+
+						if (aAuthMethod.getOuterEAPType()==13) {
+							PrivateKey tmpkey = aAuthMethod.getClientPrivateKey();
+							if (tmpkey != null) {
+								String keyString = tmpkey.toString();
+								eduroamCAT.debug("key string="+keyString);
+								eduroamCAT.debug("algo="+tmpkey.getAlgorithm());
+								eduroamCAT.debug("format="+tmpkey.getAlgorithm());
+								eduroamCAT.debug("encoded="+tmpkey.getEncoded());
+								X509Certificate acert;
+								acert=aAuthMethod.getClientCert();
+								if (acert!=null) {
+									eduroamCAT.debug("key cert=" + acert.toString());
+								}
+								else eduroamCAT.debug("Client Key Cert = null");
+								int start=keyString.indexOf("CN=");
+								int finish=keyString.indexOf("Validity");
+								if (start>0 && finish>0) {
+									keyString = keyString.substring(start, finish);
+									authMethods = authMethods.concat("<b>"+getString(R.string.authMethod_text_clientcertcn)+"</b><font color=\"purple\"> "+keyString+"</font><br/>");
+								}
+							}
+						}
 					}
 					LayoutParams params = summaryView.getLayoutParams();
 					params.height = 1000;
@@ -162,7 +188,7 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
 		{
 				summary_template = "<font color=\"red\"><h2>"+getString(R.string.eapprofileMissing_title)+"</h2></font><br/>";
 				if (eduroamCAT.wifiCon.isWifiEnabled() && eduroamCAT.wifiCon.getCurrentSSID().length()>0)
-				{;
+				{
 					summary_template+=getString(R.string.eapprofileMissing_text1,eduroamCAT.wifiCon.getCurrentSSID());
 					summary_template+="<br/>"+getString(R.string.eapprofileMissing_text2)+"<br> ";
 					String catURL="<a href=\"https://cat.eduroam.org\">https://cat.eduroam.org</a>";

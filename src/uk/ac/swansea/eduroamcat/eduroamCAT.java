@@ -212,7 +212,7 @@ public class eduroamCAT extends FragmentActivity implements ActionBar.TabListene
   		ArrayList <ConfigProfile> profiles = new ArrayList <ConfigProfile>();
   		//draw tabs on top of app
   		
-  		if (profiles.isEmpty() && db.numberOfRowsEAP()>0)
+  		if (profiles.isEmpty() && db.numberOfRowsEAP()>0 && db.numberOfRowsAUTH()>0)
   		{
   			loadProfiles();
   			actionBar.setSelectedNavigationItem(0);

@@ -51,7 +51,7 @@ public class ConnectFragment extends Fragment implements OnClickListener
 	AlertDialog alert;
 	private static WifiManager wifim;
 	Activity activity = getActivity();
-	static TextView state1,state2,state3,state4,state5,state6,warning,passText;
+	static TextView state1,state2,state3,state4,state5,state6,warning,passText,userText;
 	static ImageView state1_image,state2_image,state3_image,state4_image,state5_image,state6_image;
 	static LinearLayout feedback,state5_layout,state2_layout, state6_layout;
 	private static WifiManager wifi = null;
@@ -191,6 +191,12 @@ public class ConnectFragment extends Fragment implements OnClickListener
       			  {
       				  password.setVisibility(View.GONE);
       				  passText.setVisibility(View.GONE);
+      				  //remove anon identity warn for TLS
+					  state2_image.setVisibility(View.GONE);
+					  state2.setVisibility(View.GONE);
+					  state2_layout.setVisibility(View.GONE);
+      				  //username.setVisibility(View.GONE);
+      				  //userText.setVisibility(View.GONE);
       			  }
       		  }
     }
@@ -372,6 +378,7 @@ public class ConnectFragment extends Fragment implements OnClickListener
         username = (EditText) v.findViewById(R.id.username);
         password = (EditText) v.findViewById(R.id.password);
         passText = (TextView) v.findViewById(R.id.textView2);
+        userText = (TextView) v.findViewById(R.id.textView1);
         connect = (Button) v.findViewById(R.id.connect);
         connect.setOnClickListener(this);
         //rescan = (Button) v.findViewById(R.id.rescan);
@@ -588,9 +595,9 @@ public class ConnectFragment extends Fragment implements OnClickListener
 						  ProfilesStorage db = new ProfilesStorage(getActivity());
 						  db.insertUSER(username.getText().toString());
 						  db.close();
-						  if (theAuthMethod.getOuterEAPType()==13) {
-							  eduroamCAT.alertUser(getString(R.string.profile_tls_message), "TLS", getActivity());
-						  }
+//						  if (theAuthMethod.getOuterEAPType()==13) {
+////							  eduroamCAT.alertUser(getString(R.string.profile_tls_message), "TLS", getActivity());
+////						  }
 						  showCurrentState();
 						  setProfileInstalled(true);
 						  //SOCIAL MEDIA SUCCESS

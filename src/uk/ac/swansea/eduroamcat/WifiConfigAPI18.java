@@ -210,8 +210,23 @@ public class WifiConfigAPI18 {
 	        }
 	        
 	        //User Cert
-	        PrivateKey newpk = null;
-	        enterpriseConfig.setClientKeyEntry(newpk, (X509Certificate) aAuth.getClientCert());
+            if (aAuth.getInnerEAPType()==13)
+			if (aAuth.getClientPrivateKey() != null)
+			try
+			{
+				debug("Setting client cert:"+aAuth.getClientPrivateKey().toString());
+				eduroamCAT.debug("Installing client cert...");
+				//if api >26
+				//enterpriseConfig.setClientKeyEntry(aAuth.getClientPrivateKey(), aAuth.getClientChain());
+				//else
+				enterpriseConfig.setClientKeyEntry(aAuth.getClientPrivateKey(), aAuth.getClientCert());
+				eduroamCAT.debug("Client Cert installed="+enterpriseConfig.getClientCertificate());
+			}
+			catch (IllegalArgumentException e) {
+				eduroamCAT.debug("cert install error:\n" + e);
+				eduroamCAT.debug("for cert:\n" + aAuth.getClientPrivateKey().toString());
+				eduroamCAT.debug("Length:\n" + aAuth.getClientPrivateKey().toString().length());
+			}
 	        
 	        /*User and pass*/
 	        enterpriseConfig.setIdentity(userName);
