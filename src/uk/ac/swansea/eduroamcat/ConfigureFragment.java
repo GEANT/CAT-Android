@@ -136,24 +136,16 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
 						}
 
 						if (aAuthMethod.getOuterEAPType()==13) {
-							PrivateKey tmpkey = aAuthMethod.getClientPrivateKey();
-							if (tmpkey != null) {
-								String keyString = tmpkey.toString();
-								eduroamCAT.debug("key string="+keyString);
-								eduroamCAT.debug("algo="+tmpkey.getAlgorithm());
-								eduroamCAT.debug("format="+tmpkey.getAlgorithm());
-								eduroamCAT.debug("encoded="+tmpkey.getEncoded());
-								X509Certificate acert;
-								acert=aAuthMethod.getClientCert();
-								if (acert!=null) {
-									eduroamCAT.debug("key cert=" + acert.toString());
-								}
-								else eduroamCAT.debug("Client Key Cert = null");
-								int start=keyString.indexOf("CN=");
-								int finish=keyString.indexOf("Validity");
-								if (start>0 && finish>0) {
-									keyString = keyString.substring(start, finish);
-									authMethods = authMethods.concat("<b>"+getString(R.string.authMethod_text_clientcertcn)+"</b><font color=\"purple\"> "+keyString+"</font><br/>");
+                            X509Certificate acert;
+                            acert=aAuthMethod.getClientCert();
+							if (acert != null) {
+							    eduroamCAT.debug("key cert=" + acert.toString());
+							    String expiry = acert.getNotAfter().toString();
+							    String issuer = acert.getIssuerDN().getName();
+
+								if (expiry.length()>0 && issuer.length()>0) {
+									authMethods = authMethods.concat("<b>"+getString(R.string.authMethod_text_clientcertcn)+"</b><font color=\"purple\"> "+issuer+"</font><br/>");
+                                    authMethods = authMethods.concat("<b>"+getString(R.string.authMethod_text_clientcertexp)+"</b><font color=\"purple\"> "+expiry+"</font><br/>");
 								}
 							}
 						}

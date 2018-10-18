@@ -287,12 +287,10 @@ public class AuthenticationMethod {
 
 				//get private key and x509 from keystore
 				Enumeration<String> aliases = keyStore.aliases();
+				eduroamCAT.debug("aliases="+keyStore.aliases().toString());
 				while (aliases.hasMoreElements()) {
 					String alias = aliases.nextElement();
 					eduroamCAT.debug("Got alias " + alias);
-					eduroamCAT.debug("type"+keyStore.getType());
-					eduroamCAT.debug("provider"+keyStore.getProvider());
-					eduroamCAT.debug("date"+keyStore.getCreationDate(alias).toString());
 					//usercert = keyStore.getCertificate(alias);
                     try {
                         privateKey = (PrivateKey) keyStore.getKey(alias,keypass.toCharArray());
@@ -381,7 +379,7 @@ public class AuthenticationMethod {
 					Enumeration<String> aliases = keyStore.aliases();
 					while (aliases.hasMoreElements()) {
 						String alias = aliases.nextElement();
-						if (keyStore.isCertificateEntry(alias))
+						if (keyStore.isKeyEntry(alias))
 							return (X509Certificate) keyStore.getCertificate(alias);
 					}
 				}
