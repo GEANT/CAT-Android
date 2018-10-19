@@ -14,6 +14,7 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.security.KeyStoreException;
 import java.security.cert.Certificate;
+import java.security.cert.X509Certificate;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.ArrayList;

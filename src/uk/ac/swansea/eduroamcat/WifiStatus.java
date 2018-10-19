@@ -42,7 +42,7 @@ public class WifiStatus extends BroadcastReceiver
 		String str = intent.getAction();
 		wifiStatus = connectivity.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 		status = wifiStatus.getState();
-		eduroamCAT.debug("Broadcast=" + status.toString());
+		//eduroamCAT.debug("Broadcast=" + status.toString());
 
 		if (ConnectFragment.getProfileInstalled() == Boolean.TRUE)
 		if (status.toString().equals("DISCONNECTED"))
@@ -86,8 +86,8 @@ public class WifiStatus extends BroadcastReceiver
 		{
 			//StatusFragment.setDebug("Wifi Connected to:"+wifim.getConnectionInfo().getSSID());
 		}
-		eduroamCAT.debug("detailed="+detailed.toString());
-		eduroamCAT.debug("state="+state.toString());
+		//eduroamCAT.debug("detailed="+detailed.toString());
+		//eduroamCAT.debug("state="+state.toString());
 		if (detailed.toString().contains("SCANNING") || detailed.toString().contains("CONNECTING"))
 			ConnectFragment.setStatus("Trying SSID "+wifim.getConnectionInfo().getSSID());
 

@@ -33,7 +33,7 @@ public class ProfileAttributes extends AsyncTask<String, Integer, String> {
     {
         this.profileID=profileID;
         this.aIdP=idp;
-        eduroamCAT.debug("profile attributes....");
+        //eduroamCAT.debug("profile attributes....");
         int currentapiVersion = android.os.Build.VERSION.SDK_INT;
         if (currentapiVersion == 26) androidID="android_oreo";
         else if (currentapiVersion == 25) androidID="android_nougat";
@@ -97,7 +97,7 @@ public class ProfileAttributes extends AsyncTask<String, Integer, String> {
         //HttpPost myConnection = new HttpPost("https://cat-test.eduroam.org/branch/user/API.php?action=profileAttributes&id="+profileID+"&lang="+lang);
         HttpPost myConnection = new HttpPost("https://cat.eduroam.org/user/API.php?action=profileAttributes&id="+profileID+"&lang="+lang);
         try {
-            eduroamCAT.debug("Getting profile attributes "+profileID);
+            //eduroamCAT.debug("Getting profile attributes "+profileID);
             response = myClient.execute(myConnection);
             str = EntityUtils.toString(response.getEntity(), "UTF-8");
             //eduroamCAT.debug("Content="+str);

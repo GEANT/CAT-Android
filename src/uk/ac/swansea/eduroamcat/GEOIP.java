@@ -58,7 +58,7 @@ public class GEOIP extends AsyncTask<String, Integer, String> {
                 if (ConfigureFragment.idptext != null)
                     ConfigureFragment.idptext.setVisibility(View.VISIBLE);
                 JSONObject item = new JSONObject(result);
-                eduroamCAT.debug("JSON GEOIP Length " + item.length());
+                //eduroamCAT.debug("JSON GEOIP Length " + item.length());
                 String country = "";
                 country = item.getString("country");
                     if (item.has("geo")) {
@@ -76,7 +76,7 @@ public class GEOIP extends AsyncTask<String, Integer, String> {
                             latx = geo.getDouble("lat");
                             longx = geo.getDouble("lon");
                         }
-                    eduroamCAT.debug("GEOIP GOT: " + latx + " and " + longx);
+                        //eduroamCAT.debug("GEOIP GOT: " + latx + " and " + longx);
                         hasLocation=true;
                         ViewProfiles.adapter.notifyDataSetChanged();
                 }

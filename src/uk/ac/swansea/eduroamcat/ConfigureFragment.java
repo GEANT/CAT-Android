@@ -141,11 +141,13 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
 							if (acert != null) {
 							    eduroamCAT.debug("key cert=" + acert.toString());
 							    String expiry = acert.getNotAfter().toString();
-							    String issuer = acert.getIssuerDN().getName();
-
+							    String issuer = acert.getSubjectDN().getName();
+                                int start=issuer.indexOf("CN=");
+                                int finish=issuer.indexOf(",", start);
+                                issuer = issuer.substring(start,finish);
 								if (expiry.length()>0 && issuer.length()>0) {
 									authMethods = authMethods.concat("<b>"+getString(R.string.authMethod_text_clientcertcn)+"</b><font color=\"purple\"> "+issuer+"</font><br/>");
-                                    authMethods = authMethods.concat("<b>"+getString(R.string.authMethod_text_clientcertexp)+"</b><font color=\"purple\"> "+expiry+"</font><br/>");
+                                    authMethods = authMethods.concat("<b>"+getString(R.string.authMethod_text_clientcertexp)+"</b><font color=\"blue\"> "+expiry+"</font><br/>");
 								}
 							}
 						}

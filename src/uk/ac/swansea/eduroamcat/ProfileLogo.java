@@ -22,7 +22,7 @@ public class ProfileLogo extends AsyncTask<String, Integer, Bitmap> {
     {
         this.idpID=idpID;
         this.aIdP=idp;
-        eduroamCAT.debug("profile logo....");
+        //eduroamCAT.debug("profile logo....");
     }
 
     protected void onPostExecute(Bitmap result) {
@@ -41,7 +41,7 @@ public class ProfileLogo extends AsyncTask<String, Integer, Bitmap> {
         Bitmap logo = null;
         String url = "https://cat.eduroam.org/user/API.php?action=sendLogo&id="+idpID+"";
         try {
-            eduroamCAT.debug("Getting profile logo "+idpID);
+            //eduroamCAT.debug("Getting profile logo "+idpID);
             InputStream in = new java.net.URL(url).openStream();
             logo = BitmapFactory.decodeStream(in);
         } catch (Exception e) {
