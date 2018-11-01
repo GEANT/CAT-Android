@@ -132,19 +132,20 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/state3_layout"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:layout_weight="0.95"
                     android:gravity="fill_horizontal"
                     android:scrollbarAlwaysDrawVerticalTrack="false"
-                    android:scrollbars="none" >
+                    android:scrollbars="none">
 
                     <ImageView
                         android:id="@+id/imageView3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:minHeight="40dp"
                         android:minWidth="40dp"
+                        android:minHeight="40dp"
                         android:src="@drawable/tick" />
 
                     <TextView

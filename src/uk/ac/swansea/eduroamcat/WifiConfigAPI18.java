@@ -210,7 +210,7 @@ public class WifiConfigAPI18 {
 	        }
 	        
 	        //User Cert
-            if (aAuth.getInnerEAPType()==13)
+            if (aAuth.getOuterEAPType()==13)
 			if (aAuth.getClientPrivateKey() != null)
 			try
 			{
@@ -228,10 +228,12 @@ public class WifiConfigAPI18 {
 				eduroamCAT.debug("Length:\n" + aAuth.getClientPrivateKey().toString().length());
 			}
 	        
-	        /*User and pass*/
-	        enterpriseConfig.setIdentity(userName);
-	        debug("Using Username:"+userName);
-	        enterpriseConfig.setPassword(passString);
+	        /*User and pass if not TLS*/
+			if (aAuth.getOuterEAPType()!=13) {
+				enterpriseConfig.setIdentity(userName);
+				debug("Using Username:"+userName);
+				enterpriseConfig.setPassword(passString);
+			}
 	        
 	        selectedConfig.enterpriseConfig=enterpriseConfig;
 	        

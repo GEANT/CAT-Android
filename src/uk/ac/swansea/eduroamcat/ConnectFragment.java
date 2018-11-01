@@ -53,7 +53,7 @@ public class ConnectFragment extends Fragment implements OnClickListener
 	Activity activity = getActivity();
 	static TextView state1,state2,state3,state4,state5,state6,warning,passText,userText;
 	static ImageView state1_image,state2_image,state3_image,state4_image,state5_image,state6_image;
-	static LinearLayout feedback,state5_layout,state2_layout, state6_layout;
+	static LinearLayout feedback,state5_layout,state2_layout,state3_layout, state6_layout;
 	private static WifiManager wifi = null;
 	static Boolean installedOK = false;
 	
@@ -195,8 +195,12 @@ public class ConnectFragment extends Fragment implements OnClickListener
 					  state2_image.setVisibility(View.GONE);
 					  state2.setVisibility(View.GONE);
 					  state2_layout.setVisibility(View.GONE);
-      				  //username.setVisibility(View.GONE);
-      				  //userText.setVisibility(View.GONE);
+					  //remove user id warning
+					  state3_image.setVisibility(View.GONE);
+					  state3.setVisibility(View.GONE);
+					  state3_layout.setVisibility(View.GONE);
+      				  username.setVisibility(View.GONE);
+      				  userText.setVisibility(View.GONE);
       			  }
       		  }
     }
@@ -372,6 +376,7 @@ public class ConnectFragment extends Fragment implements OnClickListener
         feedback = (LinearLayout) v.findViewById(R.id.feedback);
 		state5_layout = (LinearLayout) v.findViewById(R.id.state5_layout);
 		state2_layout = (LinearLayout) v.findViewById(R.id.state2_layout);
+		state3_layout = (LinearLayout) v.findViewById(R.id.state3_layout);
 		state6_layout = (LinearLayout) v.findViewById(R.id.state6_layout);
         //ssids.setOnItemClickListener(this);
         warning = (TextView) v.findViewById(R.id.textView3);
