@@ -36,6 +36,13 @@ public class ConfigProfile {
 		this.error=true;
 		this.errorMessage=errorMessage;
 	}
+
+	//remove error
+	public void clearConfigError()
+	{
+		this.error=false;
+		this.errorMessage="";
+	}
 	
 	//Return if error or not
 	public boolean isError()

@@ -273,6 +273,7 @@ public class AuthenticationMethod {
 		this.setClientCertPass(keypass);
 		//store orignal cypher text
 		this.clientCert=ausercert;
+		Boolean keyError=false;
 
 		if ( format.compareToIgnoreCase("PKCS12")==0) {
 			try {
@@ -295,24 +296,29 @@ public class AuthenticationMethod {
                     try {
                         privateKey = (PrivateKey) keyStore.getKey(alias,keypass.toCharArray());
                     } catch (UnrecoverableKeyException e) {
+						keyError=true;
                         e.printStackTrace();
                     }
                 }
 			}
 			catch (java.security.KeyStoreException ke) {
 				eduroamCAT.debug("KeyStore Exception "+ ke);
+				keyError=true;
 			} catch (CertificateException e) {
+				keyError=true;
 				e.printStackTrace();
 			} catch (NoSuchAlgorithmException e) {
+				keyError=true;
 				e.printStackTrace();
 			} catch (IOException e) {
+				keyError=true;
 				e.printStackTrace();
 			}
 
 		}
 
 		//If cert is set
-		if (keyStore!=null)
+		if (keyStore!=null && keyError==false)
 		{
 			eduroamCAT.debug("ClientCert installed:"+ausercert);
 	    //	checks on supported eap types?
@@ -332,6 +338,7 @@ public class AuthenticationMethod {
 	//return Client cert key
 	public PrivateKey getClientPrivateKey() {
 		try {
+			if (keyStore!=null)
 			if (keyStore.size() > 0) {
 				Enumeration<String> aliases = keyStore.aliases();
 				while (aliases.hasMoreElements()) {
@@ -375,6 +382,7 @@ public class AuthenticationMethod {
 		public X509Certificate getClientCert()
 		{
 			try {
+				if (keyStore!=null)
 				if (keyStore.size() > 0) {
 					Enumeration<String> aliases = keyStore.aliases();
 					while (aliases.hasMoreElements()) {
