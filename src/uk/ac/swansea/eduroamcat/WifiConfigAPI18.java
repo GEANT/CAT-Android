@@ -234,10 +234,17 @@ public class WifiConfigAPI18 {
 				debug("Using Username:"+userName);
 				enterpriseConfig.setPassword(passString);
 			}
+
+			//just identity for TLS
+			if (aAuth.getOuterEAPType()==13) {
+				if (userName.length()==0) userName=aAuth.getClientPrivateKeySubjectCN();
+				enterpriseConfig.setIdentity(userName);
+				debug("Using Username:"+userName);
+			}
 	        
 	        selectedConfig.enterpriseConfig=enterpriseConfig;
 	        
-	        //Add newtwork profile
+	        //Add network profile
 		int res = wifi.addNetwork(selectedConfig);
 		boolean enabled = false;
 		if (res<0) {

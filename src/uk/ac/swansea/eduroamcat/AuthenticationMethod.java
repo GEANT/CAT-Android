@@ -358,6 +358,33 @@ public class AuthenticationMethod {
 		return null;
 	}
 
+	//return Client cert key
+	public String getClientPrivateKeySubjectCN() {
+		try {
+			if (keyStore!=null)
+				if (keyStore.size() > 0) {
+					Enumeration<String> aliases = keyStore.aliases();
+					while (aliases.hasMoreElements()) {
+						String alias = aliases.nextElement();
+						if (keyStore.isKeyEntry(alias)) {
+							X509Certificate acert= (X509Certificate) keyStore.getCertificate(alias);
+							String expiry = acert.getNotAfter().toString();
+							String issuer = acert.getSubjectDN().getName();
+							int start=issuer.indexOf("CN=");
+							int finish=issuer.indexOf(",", start);
+							issuer = issuer.substring(start+3,finish);
+							if (expiry.length()>0 && issuer.length()>0) {
+								return issuer;
+							}
+						}
+					}
+				}
+		} catch (java.security.KeyStoreException ke) {
+			ke.printStackTrace();
+		}
+		return null;
+	}
+
 	//return client cert x509 cert chain if one
 	public Certificate[] getClientChain() {
 		try {

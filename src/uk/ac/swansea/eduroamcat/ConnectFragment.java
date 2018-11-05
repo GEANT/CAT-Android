@@ -590,7 +590,11 @@ public class ConnectFragment extends Fragment implements OnClickListener
 						  eduroamCAT.debug("Delete=" + eduroamCAT.wifiCon.deleteProfile(eduroamCAT.wifiProfile.getSSID(),false));
 					  eduroamCAT.debug("Got Auth Method:"+theAuthMethod.getOuterEAPType()+"/"+theAuthMethod.getInnerEAPType());
 					  //add new profile
-					  boolean installed = eduroamCAT.wifiConfig18.saveEapConfig(username.getText().toString(), password.getText().toString(),theAuthMethod);
+                          String usernameValue="";
+                          if (username.getText()!=null) usernameValue = username.getText().toString();
+                          if (usernameValue.length()==0 && theAuthMethod.getOuterEAPType()==13) usernameValue=theAuthMethod.getClientPrivateKeySubjectCN();
+                          eduroamCAT.debug("Setting Identity to: "+usernameValue);
+					  boolean installed = eduroamCAT.wifiConfig18.saveEapConfig(usernameValue, password.getText().toString(),theAuthMethod);
 					  if (installed){
 						  //eduroamCAT.alertUser("Profile Installed! Check Status Tab for Connection Information","Success",this.getActivity());
 						  eduroamCAT.debug("Installed TRUE");
@@ -598,7 +602,7 @@ public class ConnectFragment extends Fragment implements OnClickListener
 						  warning.setText(getString(R.string.profile_installed));
 						  warning.setTextColor(Color.parseColor("#00ff00"));
 						  ProfilesStorage db = new ProfilesStorage(getActivity());
-						  db.insertUSER(username.getText().toString());
+						  db.insertUSER(usernameValue);
 						  db.close();
 //						  if (theAuthMethod.getOuterEAPType()==13) {
 ////							  eduroamCAT.alertUser(getString(R.string.profile_tls_message), "TLS", getActivity());
