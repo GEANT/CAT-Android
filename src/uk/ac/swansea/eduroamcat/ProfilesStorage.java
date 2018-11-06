@@ -369,8 +369,10 @@ public class ProfilesStorage extends SQLiteOpenHelper {
 	      SQLiteDatabase db = this.getWritableDatabase();
 	      db.execSQL("DROP TABLE IF EXISTS " +TABLE_NAME_EAP);
 	      db.execSQL("DROP TABLE IF EXISTS " +TABLE_NAME_AUTH);
+	      db.execSQL("DROP TABLE IF EXISTS " +TABLE_NAME_USER);
 		  db.execSQL(DATABASE_CREATE_EAP);
 		  db.execSQL(DATABASE_CREATE_AUTH);
+		  db.execSQL(DATABASE_CREATE_USER);
 	      db.close();
 		  return true;
 	   }
