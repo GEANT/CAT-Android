@@ -155,5 +155,6 @@
 	<!-- -New Strings Release for translation-->
 	<string name="authMethod_text_clientcertcn">User ID:</string>
 	<string name="authMethod_text_clientcertexp">Credential Expiry:</string>
-	<string name="PinDialog">Enter Pin:</string>
-	</resources>
+	<string name="pinDialog">Enter import PIN:</string>
+	<string name="pinFailed">PIN incorrect, unable to import!</string>
+</resources>

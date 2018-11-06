@@ -271,8 +271,6 @@ public class AuthenticationMethod {
 
 		//store cert keypass
 		this.setClientCertPass(keypass);
-		//store orignal cypher text
-		this.clientCert=ausercert;
 		Boolean keyError=false;
 
 		if ( format.compareToIgnoreCase("PKCS12")==0) {
@@ -338,7 +336,7 @@ public class AuthenticationMethod {
 	//return Client cert key
 	public PrivateKey getClientPrivateKey() {
 		try {
-			if (keyStore!=null)
+			if (keyStore!=null && clientCert.length()>0)
 			if (keyStore.size() > 0) {
 				Enumeration<String> aliases = keyStore.aliases();
 				while (aliases.hasMoreElements()) {
@@ -349,10 +347,13 @@ public class AuthenticationMethod {
 			}
 		} catch (java.security.KeyStoreException ke) {
 			ke.printStackTrace();
+			return null;
 		} catch (UnrecoverableKeyException e) {
 			e.printStackTrace();
+			return null;
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
+			return null;
 		}
 		//return Certificate ;
 		return null;

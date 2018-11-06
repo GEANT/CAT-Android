@@ -28,6 +28,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
+
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Environment;
 import android.app.Activity;
@@ -45,6 +47,7 @@ import android.support.v4.app.NavUtils;
 import android.text.Html;
 import android.text.Spanned;
 import android.text.method.ScrollingMovementMethod;
+import android.widget.Toast;
 
 public class EAPMetadata extends Activity {
 
@@ -441,8 +444,7 @@ public class EAPMetadata extends Activity {
 				if (eduroamCAT.profiles.get(eduroamCAT.profiles.size()-1).getAuthenticationMethod(lastAuthMethod-1).getOuterEAPType()==13)
 					if (eduroamCAT.profiles.get(eduroamCAT.profiles.size()-1).getAuthenticationMethod(lastAuthMethod-1).getClientPrivateKey()==null)
 					{
-						requestKeypass(getString(R.string.PinDialog),getString(R.string.PinDialog),this, clientCert);
-						eduroamCAT.debug("No valid auth method in profile. check if tls and req PIN again");
+						requestKeypass(getString(R.string.pinDialog),getString(R.string.pinDialog),this, clientCert);
 					}
 			}
 	}
@@ -456,7 +458,7 @@ public class EAPMetadata extends Activity {
 
 	}
 
-    public static void requestKeypass(String message, String title, Activity activ, final NodeList clientCertx)
+    public static void requestKeypass(String message, String title, final Activity activ, final NodeList clientCertx)
     {
 		// Set an EditText view to get user input
 		final EditText input = new EditText(activ);
@@ -479,36 +481,36 @@ public class EAPMetadata extends Activity {
 
 								//get recent eap-tld profile, and add the client sert to any eap-tls auth methods
 								if (eduroamCAT.profiles != null)
-									if (eduroamCAT.profiles.size() > 0)
-										if (!eduroamCAT.profiles.get(eduroamCAT.profiles.size() - 1).isError()) {
-											//get last profile added
-											ConfigProfile aProfile = eduroamCAT.profiles.get(eduroamCAT.profiles.size() - 1);
-											if (aProfile.getNumberAuthenticationMethods() > 0) {
-												eduroamCAT.debug("eap-tls auth methods:" + aProfile.getNumberAuthenticationMethods());
-												for (int i = 0; i < aProfile.getNumberAuthenticationMethods(); i++) {
-													if (aProfile.getAuthenticationMethod(i).isError()) {
-														eduroamCAT.debug("AUTH METHOD " + i + " has error");
-														continue;
-													}
-													AuthenticationMethod aAuthMethod = aProfile.getAuthenticationMethod(i);
-													eduroamCAT.debug("got auth method with eap inner="+aAuthMethod.getOuterEAPType());
-													if (aAuthMethod.getOuterEAPType()==13)
+									if (eduroamCAT.profiles.size() > 0) {
+										//get last profile added
+										ConfigProfile aProfile = eduroamCAT.profiles.get(eduroamCAT.profiles.size() - 1);
+										if (aProfile.getNumberAuthenticationMethods() > 0) {
+											eduroamCAT.debug("eap-tls auth methods:" + aProfile.getNumberAuthenticationMethods());
+											for (int i = 0; i < aProfile.getNumberAuthenticationMethods(); i++) {
+												AuthenticationMethod aAuthMethod = aProfile.getAuthenticationMethod(i);
+												eduroamCAT.debug("got auth method with eap inner=" + aAuthMethod.getOuterEAPType());
+												if (aAuthMethod.getOuterEAPType() == 13)
 													try {
-													    eduroamCAT.debug("adding client cert:" +tmp + "with pin "+pin);
+														eduroamCAT.debug("adding client cert:" + tmp + "with pin " + pin);
 														if (aAuthMethod.loadClientCert(tmp, Clientcert.getAttribute("format"), Clientcert.getAttribute("encoding"), pin)) {
 															aAuthMethod.setClientCertPass(pin);
+															aAuthMethod.clearConfigError();
 															aProfile.removeAuthenticationMethod(i);
 															aProfile.addAuthenticationMethod(aAuthMethod);
 															eduroamCAT.profiles.set(eduroamCAT.profiles.size() - 1, aProfile);
+															eduroamCAT.profiles.get(eduroamCAT.profiles.size() - 1).clearConfigError();
+														} else {
+															eduroamCAT.profiles.get(eduroamCAT.profiles.size() - 1).setConfigError("Client cert error");
+															Toast.makeText(activ, activ.getString(R.string.pinFailed), Toast.LENGTH_LONG).show();
 														}
-														else eduroamCAT.profiles.get(eduroamCAT.profiles.size()-1).setConfigError("Client cert error");
 													} catch (KeyStoreException e) {
 														e.printStackTrace();
-														eduroamCAT.profiles.get(eduroamCAT.profiles.size()-1).setConfigError("Client cert error");
+														eduroamCAT.profiles.get(eduroamCAT.profiles.size() - 1).setConfigError("Client cert error");
+														Toast.makeText(activ, activ.getString(R.string.pinFailed), Toast.LENGTH_LONG).show();
 													}
-												}
 											}
 										}
+									}
 							}
 						}
 					}
@@ -657,7 +659,7 @@ public class EAPMetadata extends Activity {
 						//get Client cert
                         //get keypass from user
 						clientCert = authElement.getElementsByTagName("ClientCertificate");
-                        if (clientCert.getLength()>0) requestKeypass(getString(R.string.PinDialog),getString(R.string.PinDialog),this,clientCert);
+                        if (clientCert.getLength()>0) requestKeypass(getString(R.string.pinDialog),getString(R.string.pinDialog),this,clientCert);
 			    	}
 			    }
 			    
