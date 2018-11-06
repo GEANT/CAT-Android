@@ -371,9 +371,13 @@ public class AuthenticationMethod {
 							X509Certificate acert= (X509Certificate) keyStore.getCertificate(alias);
 							String expiry = acert.getNotAfter().toString();
 							String issuer = acert.getSubjectDN().getName();
-							int start=issuer.indexOf("CN=");
-							int finish=issuer.indexOf(",", start);
-							issuer = issuer.substring(start+3,finish);
+							int start,finish=0;
+							start=issuer.indexOf("CN=");
+							if (start<2) start=issuer.indexOf("E=");
+							if (start>0 && issuer.length()>3) {
+								finish = issuer.indexOf(",", start);
+								issuer = issuer.substring(start + 3, finish);
+							}
 							if (expiry.length()>0 && issuer.length()>0) {
 								return issuer;
 							}
