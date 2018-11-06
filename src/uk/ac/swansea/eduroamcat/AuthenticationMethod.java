@@ -376,6 +376,7 @@ public class AuthenticationMethod {
 							if (start<2) start=issuer.indexOf("E=");
 							if (start>0 && issuer.length()>3) {
 								finish = issuer.indexOf(",", start);
+								if (finish<1) finish=issuer.length();
 								issuer = issuer.substring(start + 3, finish);
 							}
 							if (expiry.length()>0 && issuer.length()>0) {

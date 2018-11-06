@@ -140,6 +140,7 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
                             acert=aAuthMethod.getClientCert();
 							if (acert != null) {
 							    eduroamCAT.debug("key cert=" + acert.toString());
+							    eduroamCAT.debug("subjectdn="+acert.getSubjectDN().getName());
 							    String expiry = acert.getNotAfter().toString();
 							    String issuer = acert.getSubjectDN().getName();
 							    int start,finish=0;
@@ -147,6 +148,7 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
                                 if (start<2) start=issuer.indexOf("E=");
                                 if (start>0 && issuer.length()>3) {
 									finish = issuer.indexOf(",", start);
+									if (finish<1) finish=issuer.length();
 									issuer = issuer.substring(start + 3, finish);
 								}
 								if (expiry.length()>0 && issuer.length()>0) {
