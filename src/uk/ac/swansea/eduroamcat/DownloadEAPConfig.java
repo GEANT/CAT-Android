@@ -25,6 +25,12 @@ class DownloadEAPConfig extends AsyncTask<String, Integer, Integer> {
             URLConnection connection = url.openConnection();
             eduroamCAT.debug("starting download...");
             eduroamCAT.downloaded=false;
+            //test storage
+            String state = Environment.getExternalStorageState();
+            if (Environment.MEDIA_MOUNTED.equals(state)) {
+                eduroamCAT.debug("Storage state ok ="+state.toString());
+            }
+            else eduroamCAT.debug("Storage state BAD ="+state.toString());
             InputStream input = new BufferedInputStream(url.openStream());
             String path = Environment.getExternalStorageDirectory().getPath() + "/EAPConfig/";
             File file = new File(path);
@@ -43,7 +49,7 @@ class DownloadEAPConfig extends AsyncTask<String, Integer, Integer> {
             code=1;
 
         } catch (Exception e) {
-        	eduroamCAT.debug("Error writing file to external storage");
+        	eduroamCAT.debug("Error writing file to external storage:"+e.getMessage() );
             code=0;
         }
         if (code>0) eduroamCAT.downloaded=true;

@@ -29,13 +29,17 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -56,6 +60,7 @@ public class EAPMetadata extends Activity {
 	String keyPass=""; //default to nothing to start (optional)
 	//global clietn cert value for retry
 	static NodeList clientCert;
+    private static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 0;
 	
 	public boolean testExternalStorage()
 	{
@@ -64,6 +69,21 @@ public class EAPMetadata extends Activity {
 	        return true;
 	    }
 	    else return false;
+	}
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+		switch (requestCode) {
+			case MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE: {
+				if (grantResults.length > 0
+						&& grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+					this.recreate();
+				} else {
+					Toast.makeText(this, this.getString(R.string.storagePermission), Toast.LENGTH_LONG).show();
+				}
+				return;
+			}
+		}
 	}
 	
 		@Override
@@ -82,6 +102,18 @@ public class EAPMetadata extends Activity {
         boolean configFileError = false;
         String pathToDownload ="";
         eduroamCAT.debug("Got eap-config:"+configIntent.getDataString());
+
+        //check real-time permissions for storage
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED) {
+            eduroamCAT.debug("No External Storage permissions");
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE);
+            configFileError=true;
+			Toast.makeText(this, this.getString(R.string.storagePermission), Toast.LENGTH_LONG).show();
+        }
+        else configFileError=false;
+
         if (configIntent.getDataString().contains("http://") || configIntent.getDataString().contains("https://"))
         {
         	//download file to sdcard

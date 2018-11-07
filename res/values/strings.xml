@@ -50,7 +50,7 @@
 	<string name="authMethod_text_innereapmethod">Inner EAP Method Type:</string>
 	<string name="authMethod_text_outter">Outer Identity:</string>
 	<string name="authMethod_text_server">Authentication Server:</string>
-	<string name="authMethod_text_certcn">Certificate CN:</string>
+	<string name="authMethod_text_certcn">CA Certificate CN:</string>
 	<string name="authMethod_text_error1">Authentication Methods</string>
 	<string name="authMethod_text_error2">ERROR - No Auth Methods found.</string>
 	<string name="summary_text_title">Configuration File Summary</string>
@@ -157,4 +157,5 @@
 	<string name="authMethod_text_clientcertexp">Credential Expiry:</string>
 	<string name="pinDialog">Enter import PIN:</string>
 	<string name="pinFailed">PIN incorrect, unable to import!</string>
+	<string name="storagePermission">No External Storage Permission</string>
 </resources>

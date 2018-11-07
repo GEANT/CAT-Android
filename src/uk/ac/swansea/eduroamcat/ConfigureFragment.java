@@ -139,8 +139,6 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
                             X509Certificate acert;
                             acert=aAuthMethod.getClientCert();
 							if (acert != null) {
-							    eduroamCAT.debug("key cert=" + acert.toString());
-							    eduroamCAT.debug("subjectdn="+acert.getSubjectDN().getName());
 							    String expiry = acert.getNotAfter().toString();
 							    String issuer = acert.getSubjectDN().getName();
 							    int start,finish=0;
