@@ -121,9 +121,8 @@ public class ViewProfiles extends Activity {
         super.onResume();  // Always call the superclass method first
         eduroamCAT.debug("resumed viewProfiles");
         if (adapter.getCount()>0) {
-            adapter.clear();
+            adapter.notifyDataSetChanged();
         }
-        adapter.notifyDataSetChanged();
     }
 
     @Override

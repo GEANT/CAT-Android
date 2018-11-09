@@ -31,6 +31,7 @@ import android.support.v4.content.ContextCompat;
 import android.text.Html;
 import android.text.Spanned;
 import android.view.View;
+import android.widget.Toast;
 
 //Supplicant Configuration Discovery Process
 public class SCAD  extends AsyncTask<String, Integer, String> {
@@ -51,7 +52,7 @@ public class SCAD  extends AsyncTask<String, Integer, String> {
 	Activity activity;
 	GEOIP geoip;
 	String search="";
-		
+
 	public SCAD(Activity activity,String search)
 	{
 		//set location
@@ -85,6 +86,7 @@ public class SCAD  extends AsyncTask<String, Integer, String> {
 			eduroamCAT.debug("Location Service setup....");
 			locationManager = (LocationManager) activity.getSystemService(activity.LOCATION_SERVICE);
 			// Define a listener that responds to location updates
+
 			locationListener = new LocationListener() {
 				public void onLocationChanged(Location location) {
 					// Called when a new location is found by the network location provider.
