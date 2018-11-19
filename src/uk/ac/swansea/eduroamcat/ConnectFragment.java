@@ -59,8 +59,9 @@ public class ConnectFragment extends Fragment implements OnClickListener
 	
     public static void setStatus(String status)
     {
-    	progressText.setText("Status:" + status);
-    	showCurrentState();
+    	if (progressText!=null && status!=null) {
+			progressText.setText("Status:" + status);
+			showCurrentState();
 //    	if (status.contains("CONNECTED"))
 //    	{
 //    		//prog.setVisibility(0);
@@ -72,6 +73,7 @@ public class ConnectFragment extends Fragment implements OnClickListener
 //    	{
 //    		//prog.setVisibility(1);
 //    	}
+		}
     }
 
 	//set installed boolean
