@@ -1,5 +1,8 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<resources>
+<?xml version="1.0" encoding="utf-8"?>
+<resources
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation" >
+
   <string name="app_name">eduroamCAT</string>
   <string name="advanced_menu">Options avancées</string>
   <string name="about_menu">À propos de cette application</string>
@@ -46,7 +49,6 @@
   <string name="authMethod_text_innereapmethod">Type de méthode EAP interne :</string>
   <string name="authMethod_text_outter">Identité externe :</string>
   <string name="authMethod_text_server">Serveur d\'authentification :</string>
-  <string name="authMethod_text_certcn">CN du certificat :</string>
   <string name="authMethod_text_error1">Méthodes d\'authentification</string>
   <string name="authMethod_text_error2">ERREUR - Aucune méthode d\'authentification n\'a été trouvée</string>
   <string name="summary_text_title">Résumé du fichier de configuration</string>
@@ -57,9 +59,9 @@
   <string name="profileMissing_title">Erreur sur le profil</string>
   <string name="profileMissing_text1">Erreur avec le profil :</string>
   <string name="eapprofileMissing_title">Aucun profil EAP/WIFI n\'a été trouvé</string>
-  <string name="eapprofileMissing_text1">Wifi actif et manuellement connecté à</string>
+  <!-- $1$s = wirless network name -->
   <string name="eapprofileMissing_text2">Veuillez charger un profil approprié.</string>
-  <string name="eapprofileMissing_text3">Ceux-ci peuvent être trouvés soit dans la documentation de votre institution soit sur le site CAT eduroam :</string>
+  <!-- $1$s = cat website url-->
   <string name="manualChecks_title">Vérification manuelle de la configuration</string>
   <string name="removeProfile_title">Enlever le profil</string>
   <string name="removeProfile_message">Êtes-vous sûr de vouloir supprimer le profil ?</string>
@@ -88,7 +90,7 @@
   <string name="advanced_on">Mode avancé Actif</string>
   <string name="advanced_off">Mode avancé Inactif</string>
   <string name="support_message1">L\'application eduroamCAT nécessite l\'utilisation d\'un profile de configuration eap propre à votre institution d\'accueil. Lorsque vous aurez téléchargé le profil vous pourrez l\'activer à partir de l\'application de téléchargement afin de lancer son installation.</string>
-  <string name="support_message2">L\'application eduroamCAT a installé un profil à partir de</string>
+  <!-- $1$s = institution name -->
   <string name="support_message3">pour configurer eduroam. Si vous avez besoin d\'aide :</string>
   <string name="support_email">Email :</string>
   <string name="support_phone">Teléphone:</string>
@@ -110,5 +112,5 @@
   <string name="no_ca">Aucun certifcat CA n\'a été trouvé</string>
   <string name="missing">manquant</string>
   <string name="error">erreur</string>
-
+  <string name="click_download2">Téléchargement</string>
 </resources>

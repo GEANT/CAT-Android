@@ -3,26 +3,26 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	tools:ignore="MissingTranslation" >
 
-    <string name="app_name">eduroamCAT</string>
-    <string name="advanced_menu">Lisäasetukset</string>
-    <string name="about_menu">Tietoja</string>
-    <string name="support_menu">Tuki</string>
-    <string name="settings_menu">Asetukset</string>
-    <string name="title_tab1">Asenna</string>
-    <string name="title_tab2">Profiilit</string>
-    <string name="title_tab3">Tila</string>
-    <string name="title_activity_status">Tila</string>
-    <string name="title_1xconfig">Tila</string>
-    <string name="title_activity_eapmetadata">Asenna asetustiedosto</string>
-    <string name="action_settings">Asetukset</string>
-    <string name="configureTitle">Asetusvaihtoehdot</string>
-    <string name="quickConnect">Pikayhteys</string>
-    <string name="install">Asenna profiili</string>
-    <string name="connect">Yhdistä</string>
-    <string name="removeProfile">Poista profiili</string>
-    <string name="install_button">Asenna</string>
-    <string name="discard_button">Hylkää</string>
-    <string name="status_info">Tila:</string>
+	<string name="app_name">eduroamCAT</string>
+	<string name="advanced_menu">Lisäasetukset</string>
+	<string name="about_menu">Tietoja</string>
+	<string name="support_menu">Tuki</string>
+	<string name="settings_menu">Asetukset</string>
+	<string name="title_tab1">Asenna</string>
+	<string name="title_tab2">Profiilit</string>
+	<string name="title_tab3">Tila</string>
+	<string name="title_activity_status">Tila</string>
+	<string name="title_1xconfig">Tila</string>
+	<string name="title_activity_eapmetadata">Asenna asetustiedosto</string>
+	<string name="action_settings">Asetukset</string>
+	<string name="configureTitle">Asetusvaihtoehdot</string>
+	<string name="quickConnect">Pikayhteys</string>
+	<string name="install">Asenna profiili</string>
+	<string name="connect">Yhdistä</string>
+	<string name="removeProfile">Poista profiili</string>
+	<string name="install_button">Asenna</string>
+	<string name="discard_button">Hylkää</string>
+	<string name="status_info">Tila:</string>
 	<string name="password_label">Salasana:</string>
 	<string name="username_label">Käyttäjätunnus:</string>
 	<string name="currentConfig_label">Nykyiset asetusvaihtoehdot:</string>
@@ -32,9 +32,9 @@
 	<string name="debug_toggle_off">Debug OFF</string>
 	<string name="reconnect_button">Yhdistä uudelleen</string>
 	<string name="duplicate_button">Kopioi profiili</string>
-    <string name="advanced_text">**Advanced Status -tuloste:\n</string>
+	<string name="advanced_text">**Advanced Status -tuloste:\n</string>
 	<string name="wifilog_text">WiFi Log:</string>
-    <string name="error_with">Virhe:</string>
+	<string name="error_with">Virhe:</string>
 	<string name="version_menu">Versiotiedot</string>
 	<string name="profile_warning">Profiilin asentaminen korvaa olemassaolevat eduroam-asetukset</string>
 	<string name="about_text">Tämä sovellus on tuotettu osana GN3+ OpenCall -projektia, nimeltään SENSE. Kaikki sovellukseen liittyvät kommentit ja bugiraportit voi lähettää osoitteeseen playstore@eduroam.org</string>
@@ -50,7 +50,6 @@
 	<string name="authMethod_text_innereapmethod">Sisempi EAP-tyyppi:</string>
 	<string name="authMethod_text_outter">Ulkoinen identiteetti:</string>
 	<string name="authMethod_text_server">Autentikointipalvelin:</string>
-	<string name="authMethod_text_certcn">Varmenteen CN:</string>
 	<string name="authMethod_text_error1">Autentikointimenetelmät</string>
 	<string name="authMethod_text_error2">VIRHE - Autentikointimenetelmiä ei löytynyt.</string>
 	<string name="summary_text_title">Asetustiedoston yhteenveto</string>
@@ -62,10 +61,10 @@
 	<string name="profileMissing_text1">Virhe profiilissa:</string>
 	<string name="eapprofileMissing_title">EAP/WiFi-profiilia ei löytynyt</string>
 	<string name="eapprofileMissing_text1">Wifi on käytössä ja yhdistetty manuaalisesti verkkoon %1$s</string>
-    <!-- $1$s = wirless network name -->
+	<!-- $1$s = wirless network name -->
 	<string name="eapprofileMissing_text2">Ole hyvä ja laitaa profiili.</string>
 	<string name="eapprofileMissing_text3">Löydät ohjeet joko kotiorganisaatiosi ohjesivuilta tai eduroamCAT-sivustolta: %1$s</string>
-    <!-- $1$s = cat website url-->
+	<!-- $1$s = cat website url-->
 	<string name="manualChecks_title">Manuaaliset asetustarkistukset</string>
 	<string name="removeProfile_title">Poista profiili</string>
 	<string name="removeProfile_message">Oletko varma että haluat poistaa profiilin?</string>
@@ -95,7 +94,7 @@
 	<string name="advanced_off">Advanced Mode Off</string>
 	<string name="support_message1">eduroamCAT-sovellus edellyttää .eap-asetustiedostoa kotiorganisaatioltasi. Kun lataan profiilin, voit noutaa asetustiedoston Downloads-sovelluksesta ja ottaa asetukset käyttöön.</string>
 	<string name="support_message2">eduroamCAT-sovellus on asentanut profiilin kohteesta %1$s</string>
-    <!-- $1$s = institution name -->
+	<!-- $1$s = institution name -->
 	<string name="support_message3">määritelläksesi eduroamin. Saat tarvittaessa apua:</string>
 	<string name="support_email">Sähköposti:</string>
 	<string name="support_phone">Puhelinnumero:</string>
@@ -144,13 +143,12 @@
 	<string name="scad_geoip_noloc">Paikannuspalvelu ei ole päällä. Ole hyvä ja salli paikannus ja käynnistä haku sen jälkeen uudelleen.</string>
 	<string name="scad_geoip_no_configs_title">Määrityksiä ei löytynyt läheltä</string>
 	<string name="scad_geoip_no_configs_message">Määrityksiä ei löytynyt automaattisesti etäisyydeltä %1$d km.</string>
-    <!-- $1$d = number represnting Kilometers -->
+	<!-- $1$d = number represnting Kilometers -->
 	<string name="scad_geoip_success">Määritysten haku onnistui. Käynnistä alta kotiorganisaatioiden haku</string>
 	<string name="eapprofileMissing_text4">Voit etsiä määrityksiä alapuolelta myös manuaalisella haulla.</string>
-    <!-- -New Strings Release for translation-->
 	<string name="scad_success">Määritysten haku onnistui. Käynnistä alta IdP-haku</string>
-    <string name="manual_search_text">Anna etsittävän kotiorganisaation nimi</string>
-    <string name="manual_search_more">näytä lisää</string>
-    <string name="manual_search_fail">Ei hakutuloksia</string>
+	<string name="manual_search_text">Anna etsittävän kotiorganisaation nimi</string>
+	<string name="manual_search_more">näytä lisää</string>
+	<string name="manual_search_fail">Ei hakutuloksia</string>
 	<string name="select_menu">Valitse asetustiedosto</string>
-	</resources>
+</resources>

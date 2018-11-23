@@ -1,5 +1,8 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<?xml version="1.0" encoding="utf-8"?>
+<resources
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation" >
+
   <string name="app_name">eduroamCAT</string>
   <string name="advanced_menu">Опции за напреднали</string>
   <string name="about_menu">Относно приложението</string>
@@ -47,7 +50,6 @@
   <string name="authMethod_text_innereapmethod">Вътрешен EAP метод:</string>
   <string name="authMethod_text_outter">Външна идентичност:</string>
   <string name="authMethod_text_server">Сървър за автентикация:</string>
-  <string name="authMethod_text_certcn">CN поле на сертификата:</string>
   <string name="authMethod_text_error1">Методи за автентикация:</string>
   <string name="authMethod_text_error2">ГРЕШКА - не са намерени никакви методи за автентикация</string>
   <string name="summary_text_title">Резюме на конфигурационния файл</string>
@@ -59,10 +61,10 @@
   <string name="profileMissing_text1">Грешка в профила:</string>
   <string name="eapprofileMissing_title">Не са намерени EAP/WiFi профили</string>
   <string name="eapprofileMissing_text1">Wifi е включен и ръчно свързан към %1$s</string>
-  <!--$1$s = wirless network name-->
+  <!-- $1$s = wirless network name -->
   <string name="eapprofileMissing_text2">Моля изтеглете подходящ профил.</string>
   <string name="eapprofileMissing_text3">Тези могат да бъдат намерени в страниците с инструкции на Вашата институция или  в сайта eduroamCAT: %1$s</string>
-  <!--$1$s = cat website url-->
+  <!-- $1$s = cat website url-->
   <string name="manualChecks_title">Ръчни проверки на конфигурацията</string>
   <string name="removeProfile_title">Премахни профил</string>
   <string name="removeProfile_message">Сигурен ли сте, че искате да премахнете профила?</string>
@@ -92,7 +94,7 @@
   <string name="advanced_off">Режим за напреднали изключен.</string>
   <string name="support_message1">eduroamCAT приложението изисква .eap-config профил от Вашата институция. След като след като изтеглите този профил, можете да го заредите от проложението Downloads и той ще се инсталира.</string>
   <string name="support_message2">Приложението eduroamCAT е инсталирало профил от %1$s</string>
-  <!--$1$s = institution name-->
+  <!-- $1$s = institution name -->
   <string name="support_message3">за конфигуриране на eduroam. Ако имате нужда от помощ:</string>
   <string name="support_email">Email:</string>
   <string name="support_phone">Телефон:</string>
@@ -141,10 +143,9 @@
   <string name="scad_geoip_noloc">Няма активна услуга за локация. Моля включете Location Services и рестартирайте приложението, за да работи автоматичното откриване.</string>
   <string name="scad_geoip_no_configs_title">Няма близки конфигурации</string>
   <string name="scad_geoip_no_configs_message">Не бяха открити конфигурации автоматично в %1$d KMs.</string>
-  <!--$1$d = number represnting Kilometers-->
+  <!-- $1$d = number represnting Kilometers -->
   <string name="scad_geoip_success">Търсенето на конфигурация е успешно. Кликнете върху бутона за търсене по-долу, за да видите IdPs</string>
   <string name="eapprofileMissing_text4">Можете да търсите конфигурации, използвайки бутона Manual Search по-долу.</string>
-  <!---New Strings Release for translation-->
   <string name="scad_success">Търсенето на конфигурация е успешно. Кликнете върху бутона за търсене по-долу, за да видите IdPs</string>
   <string name="manual_search_text">Въведете име на търсената институция</string>
   <string name="manual_search_more">покажи повече</string>

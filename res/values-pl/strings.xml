@@ -3,26 +3,26 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	tools:ignore="MissingTranslation" >
 
-    <string name="app_name">eduroamCAT</string>
-    <string name="advanced_menu">Zawwanswane</string>
-    <string name="about_menu">O programie</string>
-    <string name="support_menu">Kontakt ze wsparciem</string>
-    <string name="settings_menu">Ustawienia</string>
-    <string name="title_tab1">Instaluj</string>
-    <string name="title_tab2">Profile</string>
-    <string name="title_tab3">Stan</string>
-    <string name="title_activity_status">Stan</string>
-    <string name="title_1xconfig">Stan</string>
-    <string name="title_activity_eapmetadata">Zainstaluj plik konfiguracyjny</string>
-    <string name="action_settings">Ustawienia</string>
-    <string name="configureTitle">Opcje konfiguracji</string>
-    <string name="quickConnect">Szabie połączenie</string>
-    <string name="install">Zainstaluj profil</string>
-    <string name="connect">Połącz</string>
-    <string name="removeProfile">Usuń profil</string>
-    <string name="install_button">Instaluj</string>
-    <string name="discard_button">Odrzuć</string>
-    <string name="status_info">Stan:</string>
+	<string name="app_name">eduroamCAT</string>
+	<string name="advanced_menu">Zawwanswane</string>
+	<string name="about_menu">O programie</string>
+	<string name="support_menu">Kontakt ze wsparciem</string>
+	<string name="settings_menu">Ustawienia</string>
+	<string name="title_tab1">Instaluj</string>
+	<string name="title_tab2">Profile</string>
+	<string name="title_tab3">Stan</string>
+	<string name="title_activity_status">Stan</string>
+	<string name="title_1xconfig">Stan</string>
+	<string name="title_activity_eapmetadata">Zainstaluj plik konfiguracyjny</string>
+	<string name="action_settings">Ustawienia</string>
+	<string name="configureTitle">Opcje konfiguracji</string>
+	<string name="quickConnect">Szabie połączenie</string>
+	<string name="install">Zainstaluj profil</string>
+	<string name="connect">Połącz</string>
+	<string name="removeProfile">Usuń profil</string>
+	<string name="install_button">Instaluj</string>
+	<string name="discard_button">Odrzuć</string>
+	<string name="status_info">Stan:</string>
 	<string name="password_label">Hasło:</string>
 	<string name="username_label">Użytkownik:</string>
 	<string name="currentConfig_label">Bieżąca konfiguracja urządzenia:</string>
@@ -32,9 +32,9 @@
 	<string name="debug_toggle_off">Debug wył.</string>
 	<string name="reconnect_button">Połącz ponownie</string>
 	<string name="duplicate_button">Powtórzony profil</string>
-    <string name="advanced_text">**Szczegóły stanu połączenia:\n</string>
+	<string name="advanced_text">**Szczegóły stanu połączenia:\n</string>
 	<string name="wifilog_text">Log WiFi:</string>
-    <string name="error_with">Bląd w</string>
+	<string name="error_with">Bląd w</string>
 	<string name="version_menu">Informacja o wersji</string>
 	<string name="profile_warning">Instalacja profilu zamaże dotychczasowe ustawienia eduroam</string>
 	<string name="about_text">Ta aplikacja została stworzona w ramach projektu SENSE w konkursie OpenCall projketu GN3+. Wszelkie uwagi dotyczące aplikacji (a nie generalnie na temat łączności w ramach eduroam) należy zgłaszać do playstore@eduroam.org</string>
@@ -50,7 +50,6 @@
 	<string name="authMethod_text_innereapmethod">Typ wewnętrznej metody EAP:</string>
 	<string name="authMethod_text_outter">Tożsamość zewnętrzna:</string>
 	<string name="authMethod_text_server">Serwer uwierzytelniający:</string>
-	<string name="authMethod_text_certcn">Wartość CN certyfikatu:</string>
 	<string name="authMethod_text_error1">Metody uwierzytelniania</string>
 	<string name="authMethod_text_error2">BŁĄD - nie znaleziono metod uwierzytelniania.</string>
 	<string name="summary_text_title">Podsumowanie pliku konfiguracyjnego</string>
@@ -62,10 +61,10 @@
 	<string name="profileMissing_text1">Błąd w profilu:</string>
 	<string name="eapprofileMissing_title">Nie znaleziono żadnych profili EAP/WiFi</string>
 	<string name="eapprofileMissing_text1">Wifi włączone i ręcznie podłączone do %1$s</string>
-    <!-- $1$s = wirless network name -->
+	<!-- $1$s = wirless network name -->
 	<string name="eapprofileMissing_text2">Proszę pobierz odpowiedni profil.</string>
 	<string name="eapprofileMissing_text3">Można je znaleźć albo na stronach wsparcia Twojej instytucji macierzystej, albo na portalu edroamCAT: %1$s</string>
-    <!-- $1$s = cat website url-->
+	<!-- $1$s = cat website url-->
 	<string name="manualChecks_title">Konfiguracja ręczna</string>
 	<string name="removeProfile_title">Usuń profil</string>
 	<string name="removeProfile_message">Czy jesteś pewny, że chcesz usunąć profil?</string>
@@ -95,7 +94,7 @@
 	<string name="advanced_off">Tryb zaawansowany wył.</string>
 	<string name="support_message1">eduroamCAT wymaga użycia profilu .eap-config stworzonego przez Twoją instytucję macierzystą. Po pobraniu tego profilu możesz go załadować z aplikacji Pobrane.</string>
 	<string name="support_message2">Aplikacja eduroamCAT zainstalowała profil z %1$s</string>
-    <!-- $1$s = institution name -->
+	<!-- $1$s = institution name -->
 	<string name="support_message3">aby skonfigurować eduroam. Jeżeli potrzebujesz pomocy:</string>
 	<string name="support_email">Email:</string>
 	<string name="support_phone">Telefon:</string>
@@ -144,13 +143,12 @@
 	<string name="scad_geoip_noloc">Nieaktywna usługa lokalizacji. Aby skorzystać z automatycznego wyszukania włącz Usługi Lokalizacji i zrestartuj aplikację.</string>
 	<string name="scad_geoip_no_configs_title">Brak pobliskich konfiguracji</string>
 	<string name="scad_geoip_no_configs_message">Nie udało się znaleźć automatycznie konfiguracji w promieniu %1$d km.</string>
-    <!-- $1$d = number represnting Kilometers -->
+	<!-- $1$d = number represnting Kilometers -->
 	<string name="scad_geoip_success">Udało się odszukać konfiguracje. Kliknij przycisk wyszukania poniżej, aby wyświetlić listę instytucji</string>
 	<string name="eapprofileMissing_text4">Możesz również wyszukać konfigurację ręcznie używając przycisku wyszukania ręcznego poniżej.</string>
-    <!-- -New Strings Release for translation-->
 	<string name="scad_success">Udało się odszukać konfiguracje. Kliknij przycisk wyszukania poniżej, aby wyświetlić listę instytucji</string>
-    <string name="manual_search_text">Wprowadź nazwę instytucji, którą należy wyszukać</string>
-    <string name="manual_search_more">pokaż więcej</string>
-    <string name="manual_search_fail">Brak rezultatów</string>
+	<string name="manual_search_text">Wprowadź nazwę instytucji, którą należy wyszukać</string>
+	<string name="manual_search_more">pokaż więcej</string>
+	<string name="manual_search_fail">Brak rezultatów</string>
 	<string name="select_menu">Wybierz plik konfiguracyjny</string>
-	</resources>
+</resources>

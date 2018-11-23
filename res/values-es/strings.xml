@@ -3,26 +3,26 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	tools:ignore="MissingTranslation" >
 
-    <string name="app_name">eduroamCAT</string>
-    <string name="advanced_menu">Opciones avanzadas</string>
-    <string name="about_menu">Sobre esta aplicación</string>
-    <string name="support_menu">Soporte</string>
-    <string name="settings_menu">Preferencias</string>
-    <string name="title_tab1">Instalar</string>
-    <string name="title_tab2">Perfiles</string>
-    <string name="title_tab3">Estado</string>
-    <string name="title_activity_status">Estado</string>
-    <string name="title_1xconfig">Estado</string>
-    <string name="title_activity_eapmetadata">Instalar fichero de configuración</string>
-    <string name="action_settings">Preferencias</string>
-    <string name="configureTitle">Opciones de configuración</string>
-    <string name="quickConnect">Conexión rápida</string>
-    <string name="install">Instalar perfil</string>
-    <string name="connect">Conectar</string>
-    <string name="removeProfile">Borrar perfil</string>
-    <string name="install_button">Instalar</string>
-    <string name="discard_button">Descartar</string>
-    <string name="status_info">Estado:</string>
+	<string name="app_name">eduroamCAT</string>
+	<string name="advanced_menu">Opciones avanzadas</string>
+	<string name="about_menu">Sobre esta aplicación</string>
+	<string name="support_menu">Recibir soporte</string>
+	<string name="settings_menu">Preferencias</string>
+	<string name="title_tab1">Instalar</string>
+	<string name="title_tab2">Perfiles</string>
+	<string name="title_tab3">Estado</string>
+	<string name="title_activity_status">Estado</string>
+	<string name="title_1xconfig">Estado</string>
+	<string name="title_activity_eapmetadata">Instalar fichero de configuración</string>
+	<string name="action_settings">Preferencias</string>
+	<string name="configureTitle">Opciones de configuración</string>
+	<string name="quickConnect">Conexión rápida</string>
+	<string name="install">Instalar perfil</string>
+	<string name="connect">Conectar</string>
+	<string name="removeProfile">Borrar perfil</string>
+	<string name="install_button">Instalar</string>
+	<string name="discard_button">Descartar</string>
+	<string name="status_info">Estado:</string>
 	<string name="password_label">Contraseña:</string>
 	<string name="username_label">Usuario:</string>
 	<string name="currentConfig_label">Configuración actual del dispositivo:</string>
@@ -32,9 +32,9 @@
 	<string name="debug_toggle_off">Depuración DESACTIVADA</string>
 	<string name="reconnect_button">Reconectar</string>
 	<string name="duplicate_button">Duplicar perfil</string>
-    <string name="advanced_text">**Salida avanzada de estado:\n</string>
+	<string name="advanced_text">**Salida avanzada de estado:\n</string>
 	<string name="wifilog_text">Log de WiFi:</string>
-    <string name="error_with">Error con</string>
+	<string name="error_with">Error con</string>
 	<string name="version_menu">Información de versión</string>
 	<string name="profile_warning">Instalando un perfil  reemplazará configuraciones de eduroam previas existentes</string>
 	<string name="about_text">Esta aplicación se desarrolló como parte del proyecto SENSE de GN3+ OpenCall. Cualquier problema/fallo de la aplicación (no relacionado con conectividad eduroam) o comentarios pueden enviarse a la dirección playstore@eduroam.org</string>
@@ -50,7 +50,7 @@
 	<string name="authMethod_text_innereapmethod">Tipo interno del método EAP:</string>
 	<string name="authMethod_text_outter">Identidad externa:</string>
 	<string name="authMethod_text_server">Servidor de autenticación:</string>
-	<string name="authMethod_text_certcn">CN del certificado:</string>
+	<string name="authMethod_text_certcn">CN del certificado de CA:</string>
 	<string name="authMethod_text_error1">Métodos de autenticación:</string>
 	<string name="authMethod_text_error2">ERROR - No se encontraron métodos de autenticación.</string>
 	<string name="summary_text_title">Resumen del fichero de configuración.</string>
@@ -62,10 +62,10 @@
 	<string name="profileMissing_text1">Error con el perfil:</string>
 	<string name="eapprofileMissing_title">No se encontraron perfiles EAP/WiFi</string>
 	<string name="eapprofileMissing_text1">WiFi habilitado y conectado manualmente a %1$s</string>
-    <!-- $1$s = wirless network name -->
+	<!-- $1$s = wirless network name -->
 	<string name="eapprofileMissing_text2">Por favor, descargue un perfil apropiado.</string>
 	<string name="eapprofileMissing_text3">Éstos pueden encontrarse en las páginas de instrucción de tu institución de origen o en la página web de eduroamCAT: %1$s</string>
-    <!-- $1$s = cat website url-->
+	<!-- $1$s = cat website url-->
 	<string name="manualChecks_title">Comprobaciones manuales de configuración</string>
 	<string name="removeProfile_title">Borrar perfil</string>
 	<string name="removeProfile_message">¿Seguro de querer borrar el perfil?</string>
@@ -74,7 +74,7 @@
 	<string name="button_ok">OK</string>
 	<string name="profile_install">Instalando el perfil.</string>
 	<string name="profile_installed">Perfil instalado</string>
-	<string name="profile_tls_message">Por favor, seleccione un certificado de usuario manualmente usando Preferencias &gt; Wi-Fi &gt; Modificar eduroam -&gt; Certificado de usuario</string>
+	<string name="profile_tls_message">Por favor, seleccione un certificado de usuario manualmente usando Preferencias > Wi-Fi > Modificar eduroam -> Certificado de usuario</string>
 	<string name="profile_failed_message">¡Falló la instalación del perfil! Por favor, comprueba la configuración de la pantalla de bloqueo (se necesita el bloqueo de pantalla) y prueba a conectarte de nuevo</string>
 	<string name="profile_install_failed">Falló la instalación del perfil.</string>
 	<string name="profile_install_missing">Falta perfil. Por favor, instale un perfil primero.</string>
@@ -95,7 +95,7 @@
 	<string name="advanced_off">Modo avanzado DESACTIVADO</string>
 	<string name="support_message1">La aplicación eduroamCAT requiere el uso de un perfil .eap-config de su institución. Una vez descargue este perfil, puede cargarlo desde la aplicación Descargas y este se instalará.</string>
 	<string name="support_message2">La aplicación eduroamCAT  ha instalado un perfil desde %1$s</string>
-    <!-- $1$s = institution name -->
+	<!-- $1$s = institution name -->
 	<string name="support_message3">para configurar eduroam. Si necesita ayuda:</string>
 	<string name="support_email">Correo electrónico:</string>
 	<string name="support_phone">Teléfono:</string>
@@ -144,13 +144,18 @@
 	<string name="scad_geoip_noloc">No hay ningún servicio de localización activo. Por favor active los Servicios de Localización y reinicie la aplicación para que el descubrimiento automático funcione.</string>
 	<string name="scad_geoip_no_configs_title">Ninguna configuración cercana</string>
 	<string name="scad_geoip_no_configs_message">No se descubrió ninguna configuración en %1$d KMs.</string>
-    <!-- $1$d = number represnting Kilometers -->
+	<!-- $1$d = number represnting Kilometers -->
 	<string name="scad_geoip_success">Éxito en la consulta de configuración. Haz clic en el botón de abajo para listar los IdPs</string>
 	<string name="eapprofileMissing_text4">También puedes buscar configuraciones utilizando el botón de Búsqueda Manual de abajo.</string>
-    <!-- -New Strings Release for translation-->
 	<string name="scad_success">Éxito en la consulta de configuración. Haz clic en el botón de abajo para listar los IdPs</string>
-    <string name="manual_search_text">Introduce el nombre de la institución a buscar</string>
-    <string name="manual_search_more">mostrar más</string>
-    <string name="manual_search_fail">No hay resultados</string>
+	<string name="manual_search_text">Introduce el nombre de la institución a buscar</string>
+	<string name="manual_search_more">mostrar más</string>
+	<string name="manual_search_fail">No hay resultados</string>
 	<string name="select_menu">Selecciona el archivo de configuración</string>
-	</resources>
+	<!-- -New Strings Release for translation-->
+	<string name="authMethod_text_clientcertcn">ID de usuario:</string>
+	<string name="authMethod_text_clientcertexp">Caducidad de la credencial:</string>
+	<string name="pinDialog">Introduce el PIN de importación:</string>
+	<string name="pinFailed">PIN incorrecto. No se ha podido importar.</string>
+	<string name="storagePermission">Sin permiso para el almacenamiento externo</string>
+</resources>

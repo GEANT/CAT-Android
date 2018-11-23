@@ -1,5 +1,8 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<?xml version="1.0" encoding="utf-8"?>
+<resources
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation" >
+
   <string name="app_name">eduroamCAT</string>
   <string name="advanced_menu">Rozšírené nastavenia</string>
   <string name="about_menu">O aplikácii</string>
@@ -47,7 +50,6 @@
   <string name="authMethod_text_innereapmethod">Vnútorná EAP metóda:</string>
   <string name="authMethod_text_outter">Vonkajšia identita:</string>
   <string name="authMethod_text_server">Overovací server:</string>
-  <string name="authMethod_text_certcn">CN certifikátu:</string>
   <string name="authMethod_text_error1">Overovacie metódy</string>
   <string name="authMethod_text_error2">CHYBA - nepodarilo sa nájsť žiadnu overovaciu metódu</string>
   <string name="summary_text_title">Súhrn konfiguračných údajov</string>
@@ -59,10 +61,10 @@
   <string name="profileMissing_text1">Chyba v profile:</string>
   <string name="eapprofileMissing_title">Nepodarilo sa nájsť žiaden EAP/WiFi profil</string>
   <string name="eapprofileMissing_text1">Wifi je zapnuté a manuálne pripojené k %1$s</string>
-  <!--$1$s = wirless network name-->
+  <!-- $1$s = wirless network name -->
   <string name="eapprofileMissing_text2">Prosím, stiahnite si vhodný profil.</string>
   <string name="eapprofileMissing_text3">Vhodný profil nájdete buď na stránkach vašej domovskej organizácie alebo na webe eduroamCAT: %1$s</string>
-  <!--$1$s = cat website url-->
+  <!-- $1$s = cat website url-->
   <string name="manualChecks_title">Kontrola konfgurácie zadanej ručne</string>
   <string name="removeProfile_title">Odstrániť profil</string>
   <string name="removeProfile_message">Skutočne si prajete odstrániť tento profil?</string>
@@ -92,7 +94,7 @@
   <string name="advanced_off">Rozšírené možnosti vypnuté</string>
   <string name="support_message1">Aplikácia eduroamCAT vyžaduje konfiguráciu v podobe .eap-config profilu, ktorý získate od vášho poskytovateľa identity. Akonáhle si profil stiahnete, možete ho v aplikácii Downloads otvoriť a nainštalovať.</string>
   <string name="support_message2">Aplikácia eduroamCAT nainštalovala profil %1$s</string>
-  <!--$1$s = institution name-->
+  <!-- $1$s = institution name -->
   <string name="support_message3">Ak hľadáte pomoc:</string>
   <string name="support_email">E-mail:</string>
   <string name="support_phone">Telefón:</string>
@@ -141,10 +143,9 @@
   <string name="scad_geoip_noloc">Služba určovania polohy nie je aktívna. Prosím, zapnite službu určovania polohy a reštartujte aplikáciu.</string>
   <string name="scad_geoip_no_configs_title">Žiadne konfigurácie nablízku</string>
   <string name="scad_geoip_no_configs_message">Žiadne konfigurácie neboli automaticky objavené v rámci %1$d KMs.</string>
-  <!--$1$d = number represnting Kilometers-->
+  <!-- $1$d = number represnting Kilometers -->
   <string name="scad_geoip_success">Vyhľadávanie konfigurácie bolo úspešné. Pre zobrazenie zoznamu výsledkov kliknite na tlačítko pre vyhľadávanie nižšie.</string>
   <string name="eapprofileMissing_text4">Konfiguráciu je možné vyhľadať pomocou voľby Manuálne vyhľadávanie nižšie.</string>
-  <!---New Strings Release for translation-->
   <string name="scad_success">Vyhľadávanie konfigurácie bolo úspešné. Pre zobrazenie zoznamu výsledkov kliknite na tlačítko nižšie.</string>
   <string name="manual_search_text">Ako vstup do vyhľadávača zadajte názov organizácie</string>
   <string name="manual_search_more">zobraziť viac</string>

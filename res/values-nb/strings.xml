@@ -1,17 +1,20 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<resources xmlns:tools="http://schemas.android.com/tools">
-  <string name="app_name">eduroamCAt</string>
+<?xml version="1.0" encoding="utf-8"?>
+<resources
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation" >
+
+  <string name="app_name">eduroamCAT</string>
   <string name="advanced_menu">Avanserte valg</string>
   <string name="about_menu">Om app\'en</string>
   <string name="support_menu">Få hjelp</string>
-  <string name="settings_menu">Instillinger</string>
+  <string name="settings_menu">Innstillinger</string>
   <string name="title_tab1">Installér</string>
   <string name="title_tab2">Profiler</string>
   <string name="title_tab3">Status</string>
   <string name="title_activity_status">Status</string>
   <string name="title_1xconfig">Status</string>
   <string name="title_activity_eapmetadata">Installer konfigurasjonsfil</string>
-  <string name="action_settings">Instillinger</string>
+  <string name="action_settings">Innstillinger</string>
   <string name="configureTitle">Konfigurasjonsvalg</string>
   <string name="quickConnect">Quick Connect</string>
   <string name="install">Installer profil</string>
@@ -33,7 +36,7 @@
   <string name="wifilog_text">WiFi log:</string>
   <string name="error_with">Feil med</string>
   <string name="version_menu">Versjonsinformasjon</string>
-  <string name="profile_warning">Installasjon av profil erstatter gjeldende eduroam instillinger</string>
+  <string name="profile_warning">Installasjon av profil erstatter gjeldende eduroam innstillinger</string>
   <string name="about_text">Denne app ble laget som en del av GN3+ OpenCall prosjektet, SENSE. Ethvert app spesifikt (ikke eduroam konnektivitet) problem/bug eller kommentarer kan sendes til playstore@eduroam.org </string>
   <string name="wifiProfileMissing_text1">Fant ingen WiFi profil</string>
   <string name="wifiProfileMissing_text2">Vennligst last inn en profil fil.</string>
@@ -47,7 +50,6 @@
   <string name="authMethod_text_innereapmethod">Indre EAP-type metode:</string>
   <string name="authMethod_text_outter">Ytre identitet:</string>
   <string name="authMethod_text_server">Autentiseringstjener:</string>
-  <string name="authMethod_text_certcn">Sertifikat CN:</string>
   <string name="authMethod_text_error1">Autentiseringsmetoder</string>
   <string name="authMethod_text_error2">FEIL - ingen autentiseringsmetode funnet</string>
   <string name="summary_text_title">Konfigurasjonsfil oppsummering</string>
@@ -59,10 +61,10 @@
   <string name="profileMissing_text1">Feil med profilen:</string>
   <string name="eapprofileMissing_title">Ingen EAP/WiFi profil funnet</string>
   <string name="eapprofileMissing_text1">WiFi på og manualt koblet til %1$s</string>
-  <!--$1$s = wirless network name-->
+  <!-- $1$s = wirless network name -->
   <string name="eapprofileMissing_text2">Vennligst last ned en profil.</string>
   <string name="eapprofileMissing_text3">En slik profil finnes på din institusjons instruksjonssider eller på eduroamCAT siten: %1$s</string>
-  <!--$1$s = cat website url-->
+  <!-- $1$s = cat website url-->
   <string name="manualChecks_title">Manuell sjekk av konfigurasjon</string>
   <string name="removeProfile_title">Fjern profil</string>
   <string name="removeProfile_message">Er du sikker på at du vil slette denne profilen?</string>
@@ -71,7 +73,7 @@
   <string name="button_ok">OK</string>
   <string name="profile_install">Installer profil</string>
   <string name="profile_installed">Profil installert</string>
-  <string name="profile_tls_message">Velg brukersertifikat manuelt ved å bruker Instillinger &gt; Wi-Fi &gt; Endre eduroam -&gt; Brukersertifikat</string>
+  <string name="profile_tls_message">Velg brukersertifikat manuelt ved å bruker Innstillinger &gt; Wi-Fi &gt; Endre eduroam -&gt; Brukersertifikat</string>
   <string name="profile_failed_message">Profilen ble ikke installert! Sjekk skjermlås innstillinger (skjermlås kreves) og forsøk igjen.</string>
   <string name="profile_install_failed">Profilen ble ikke installert</string>
   <string name="profile_install_missing">Manglende profil. Vennligst installer en profil først.</string>
@@ -92,7 +94,7 @@
   <string name="advanced_off">Avansert modus av </string>
   <string name="support_message1">eduroamCAT app krever bruk av en .eap-config profil fra din institusjon. Når du har lastet ned en slik profil, kan du laste den fra Downloads app og den vil bli installert.</string>
   <string name="support_message2">eduroamCAT app\'en har installert en profil fra %1$s</string>
-  <!--$1$s = institution name-->
+  <!-- $1$s = institution name -->
   <string name="support_message3">for å konfigurere eduroam. Om du trenger hjelp:</string>
   <string name="support_email">E-post:</string>
   <string name="support_phone">Telefon:</string>
@@ -141,12 +143,11 @@
   <string name="scad_geoip_noloc">Ingen lokasjonstjeneste er aktiv. Slå på lokasjonstjeneste og restart app\'en slik at posisjon kan finnes.</string>
   <string name="scad_geoip_no_configs_title">Ingen tilbydere med konfigurasjon i nærheten</string>
   <string name="scad_geoip_no_configs_message">Fant ingen konfigurasjoner innen %1$d KM.</string>
-  <!--$1$d = number represnting Kilometers-->
+  <!-- $1$d = number represnting Kilometers -->
   <string name="scad_geoip_success">Fant konfigurasjon. Klikk søk knappen for å liste Identitetstilbydere</string>
   <string name="eapprofileMissing_text4">Du kan også søke etter konfigurasjoner med Manuelt søk knappen under. </string>
-  <!---New Strings Release for translation-->
   <string name="scad_success">Fant konfigurasjon. Klikk søk knappen under for å liste Identitetstilbydere</string>
   <string name="manual_search_text">Søk etter institusjonsnavn </string>
   <string name="manual_search_more">List flere</string>
-  <string name="manual_search_fail">Ingen resultat</string>
+  <string name="manual_search_fail">Ingen resultater</string>
 </resources>

@@ -3,26 +3,26 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	tools:ignore="MissingTranslation" >
 
-    <string name="app_name">eduroamCAT</string>
-    <string name="advanced_menu">Fortgeschrittene Optionen</string>
-    <string name="about_menu">Über die App</string>
-    <string name="support_menu">Unterstützung bekommen</string>
-    <string name="settings_menu">Einstellungen</string>
-    <string name="title_tab1">Installation</string>
-    <string name="title_tab2">Profile</string>
-    <string name="title_tab3">Status</string>
-    <string name="title_activity_status">Status</string>
-    <string name="title_1xconfig">Status</string>
-    <string name="title_activity_eapmetadata">Konfigurationsdatei installieren</string>
-    <string name="action_settings">Einstellungen</string>
-    <string name="configureTitle">Konfigurationsoptionen</string>
-    <string name="quickConnect">Schnell Verbinden</string>
-    <string name="install">Profil installieren</string>
-    <string name="connect">Verbinden</string>
-    <string name="removeProfile">Profil entfernen</string>
-    <string name="install_button">Installieren</string>
-    <string name="discard_button">Verwerfen</string>
-    <string name="status_info">Status:</string>
+	<string name="app_name">eduroamCAT</string>
+	<string name="advanced_menu">Fortgeschrittene Optionen</string>
+	<string name="about_menu">Über die App</string>
+	<string name="support_menu">Unterstützung bekommen</string>
+	<string name="settings_menu">Einstellungen</string>
+	<string name="title_tab1">Installation</string>
+	<string name="title_tab2">Profile</string>
+	<string name="title_tab3">Status</string>
+	<string name="title_activity_status">Status</string>
+	<string name="title_1xconfig">Status</string>
+	<string name="title_activity_eapmetadata">Konfigurationsdatei installieren</string>
+	<string name="action_settings">Einstellungen</string>
+	<string name="configureTitle">Konfigurationsoptionen</string>
+	<string name="quickConnect">Schnell Verbinden</string>
+	<string name="install">Profil installieren</string>
+	<string name="connect">Verbinden</string>
+	<string name="removeProfile">Profil entfernen</string>
+	<string name="install_button">Installieren</string>
+	<string name="discard_button">Verwerfen</string>
+	<string name="status_info">Status:</string>
 	<string name="password_label">Passwort:</string>
 	<string name="username_label">Benutzername:</string>
 	<string name="currentConfig_label">Momentane Geräteeinstellung:</string>
@@ -32,9 +32,9 @@
 	<string name="debug_toggle_off">Debug Aus</string>
 	<string name="reconnect_button">Neu verbinden</string>
 	<string name="duplicate_button">Profil duplizieren</string>
-    <string name="advanced_text">**Fortgeschrittene Statusausgabe:\n</string>
+	<string name="advanced_text">**Fortgeschrittene Statusausgabe:\n</string>
 	<string name="wifilog_text">WLAN Log:</string>
-    <string name="error_with">Fehler bei</string>
+	<string name="error_with">Fehler bei</string>
 	<string name="version_menu">Versionsinformation</string>
 	<string name="profile_warning">Die Profilinstallation wird die bestehende eduroam Konfiguration ersetzen</string>
 	<string name="about_text">Diese App wurde als Teil des GN3+ OpenCall Projekts SENSE erstellt. Probleme mit der App selbst (nicht der eduroam Netzverbindung) können an playstore@eduroam.org gesendet werden.</string>
@@ -50,7 +50,6 @@
 	<string name="authMethod_text_innereapmethod">Innere EAP Methode:</string>
 	<string name="authMethod_text_outter">Äußere Identität:</string>
 	<string name="authMethod_text_server">Anmeldeserver:</string>
-	<string name="authMethod_text_certcn">CN des Zertifikats:</string>
 	<string name="authMethod_text_error1">Anmeldemethoden</string>
 	<string name="authMethod_text_error2">FEHLER - Keine Anmeldemethoden gefunden</string>
 	<string name="summary_text_title">Zusammenfassung der Konfigurationsdatei</string>
@@ -62,10 +61,10 @@
 	<string name="profileMissing_text1">Fehler im Profil:</string>
 	<string name="eapprofileMissing_title">Keine EAP/WLAN Profile gefunden</string>
 	<string name="eapprofileMissing_text1">WLAN eingeschaltet und manuell verbunden mit %1$s</string>
-    <!-- $1$s = wirless network name -->
+	<!-- $1$s = wirless network name -->
 	<string name="eapprofileMissing_text2">Bitte laden Sie ein passenden Profil herunter</string>
 	<string name="eapprofileMissing_text3">Diese bekommen Sie zum Beispiel bei Ihrer Heimatorganisation oder der eduroam CAT Webseite: %1$s</string>
-    <!-- $1$s = cat website url-->
+	<!-- $1$s = cat website url-->
 	<string name="manualChecks_title">Überprüfte Daten der Konfiguration ohne Profil</string>
 	<string name="removeProfile_title">Profil entfernen</string>
 	<string name="removeProfile_message">Sind Sie sicher, dass Sie das Profil entfernen wollen?</string>
@@ -92,10 +91,10 @@
 	<string name="status_wifi_supp_problem">Problem mit WLAN Adapter oder Supplikant</string>
 	<string name="status_wifi_disabled">WLAN ist ausgeschaltet!</string>
 	<string name="advanced_on">Fortgeschrittener Modus Ein</string>
-	<string name="advanced_off">Fortgeschrittener Modus Aus</string>
+	<string name="advanced_off">Fortgeschrittener Modus AUs</string>
 	<string name="support_message1">Die App benötigt eine Konfiguration in Form eines .eap-config Profils ihres Identitätsproviders. Nachdem Sie das Profil heruntergeladen haben, können Sie es von der Downloads app aus antippen und es wird installiert.</string>
 	<string name="support_message2">Die eduroamCAT App hat ein Profile von %1$s installiert</string>
-    <!-- $1$s = institution name -->
+	<!-- $1$s = institution name -->
 	<string name="support_message3">um eduroam zu installieren. Falls Sie Hilfe benötigen:</string>
 	<string name="support_email">E-Mail:</string>
 	<string name="support_phone">Telefon:</string>
@@ -144,13 +143,15 @@
 	<string name="scad_geoip_noloc">Keine Standortdienste verfügbar. Bitte schalten Sie Standortdienst ein und starten Sie die App neu, damit die Erkennung anhand der Position funktioniert.</string>
 	<string name="scad_geoip_no_configs_title">Keine Konfigurationen in der Nähe</string>
 	<string name="scad_geoip_no_configs_message">Innerhalb von %1$d Kilometern wurden keine Konfigurationen gefunden.</string>
-    <!-- $1$d = number represnting Kilometers -->
+	<!-- $1$d = number represnting Kilometers -->
 	<string name="scad_geoip_success">Konfigurationssuche erfolgreich. Klicken Sie auf den Knopf unten um die Liste zu sehen.</string>
 	<string name="eapprofileMissing_text4">Sie können mit dem Knopf \'Manuelle Suche\' auch selbst nach Konfigurationen suchen.</string>
-    <!-- -New Strings Release for translation-->
 	<string name="scad_success">Konfigurationssuche erfolgreich. Klicken Sie auf den Knopf unten um die Liste zu sehen.</string>
-    <string name="manual_search_text">Geben Sie für die Suche den Namen einer Organisation ein</string>
-    <string name="manual_search_more">Mehr zeigen</string>
-    <string name="manual_search_fail">Kein Ergebnis</string>
+	<string name="manual_search_text">Geben Sie für die Suche den Namen einer Organisation ein</string>
+	<string name="manual_search_more">Mehr zeigen</string>
+	<string name="manual_search_fail">Kein Ergebnis</string>
 	<string name="select_menu">Konfigurationsdatei auswàhlen</string>
-	</resources>
+	<!-- -New Strings Release for translation-->
+	<string name="authMethod_text_clientcertcn">Benutzername:</string>
+	<string name="authMethod_text_clientcertexp">Ablaufdatum:</string>
+</resources>

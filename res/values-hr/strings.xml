@@ -3,26 +3,26 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	tools:ignore="MissingTranslation" >
 
-    <string name="app_name">eduroamCAT</string>
-    <string name="advanced_menu">Napredne opcije</string>
-    <string name="about_menu">O aplikaciji</string>
-    <string name="support_menu">Podrška</string>
-    <string name="settings_menu">Postavke</string>
-    <string name="title_tab1">Instaliraj</string>
-    <string name="title_tab2">Profil</string>
-    <string name="title_tab3">Status</string>
-    <string name="title_activity_status">Status</string>
-    <string name="title_1xconfig">Status</string>
-    <string name="title_activity_eapmetadata">Instalacija konfiguracijske datoteke</string>
-    <string name="action_settings">Postavke</string>
-    <string name="configureTitle">Postavke</string>
-    <string name="quickConnect">Brzo spajanje</string>
-    <string name="install">Instaliran profil</string>
-    <string name="connect">Spajanje</string>
-    <string name="removeProfile">Micanje profila</string>
-    <string name="install_button">Instalacija</string>
-    <string name="discard_button">Odbaci</string>
-    <string name="status_info">Status:</string>
+	<string name="app_name">eduroamCAT</string>
+	<string name="advanced_menu">Napredne opcije</string>
+	<string name="about_menu">O aplikaciji</string>
+	<string name="support_menu">Podrška</string>
+	<string name="settings_menu">Postavke</string>
+	<string name="title_tab1">Instaliraj</string>
+	<string name="title_tab2">Profil</string>
+	<string name="title_tab3">Status</string>
+	<string name="title_activity_status">Status</string>
+	<string name="title_1xconfig">Status</string>
+	<string name="title_activity_eapmetadata">Instalacija konfiguracijske datoteke</string>
+	<string name="action_settings">Postavke</string>
+	<string name="configureTitle">Postavke</string>
+	<string name="quickConnect">Brzo spajanje</string>
+	<string name="install">Instaliran profil</string>
+	<string name="connect">Spajanje</string>
+	<string name="removeProfile">Micanje profila</string>
+	<string name="install_button">Instalacija</string>
+	<string name="discard_button">Odbaci</string>
+	<string name="status_info">Status:</string>
 	<string name="password_label">Lozinka:</string>
 	<string name="username_label">Korisnička oznaka:</string>
 	<string name="currentConfig_label">Trenutna konfiguracija uređaja</string>
@@ -32,9 +32,9 @@
 	<string name="debug_toggle_off">Debug OFF</string>
 	<string name="reconnect_button">Ponovno spajanje</string>
 	<string name="duplicate_button">Duplicirani profil</string>
-    <string name="advanced_text">**Napredan ispis statusa:\n</string>
+	<string name="advanced_text">**Napredan ispis statusa:\n</string>
 	<string name="wifilog_text">WiFi Log:</string>
-    <string name="error_with">Greška s</string>
+	<string name="error_with">Greška s</string>
 	<string name="version_menu">Informacije o verziji</string>
 	<string name="profile_warning">Instalacija profila će zamjeniti postojeće eduroam postavke</string>
 	<string name="about_text">Ova aplikacija je napravljena kao dio GN3+ OpenCall projekta, SENSE. Za sva pitanja molim kontaktirati playstore@eduroam.org</string>
@@ -50,7 +50,6 @@
 	<string name="authMethod_text_innereapmethod">Unutrašnji EAP tip:</string>
 	<string name="authMethod_text_outter">Vanjski identitet:</string>
 	<string name="authMethod_text_server">Autentikacijski server:</string>
-	<string name="authMethod_text_certcn">CN polje certifikata:</string>
 	<string name="authMethod_text_error1">Autentikacijske metode</string>
 	<string name="authMethod_text_error2">Greška- Nije pronađema autentikacijska metoda</string>
 	<string name="summary_text_title">Sadržaj konfiguracijske datoteke</string>
@@ -62,10 +61,10 @@
 	<string name="profileMissing_text1">Greška s profilom:</string>
 	<string name="eapprofileMissing_title">Nije pronađen EAP/WiFI profil</string>
 	<string name="eapprofileMissing_text1">WiFi ja aktivan i ručno spojen na %1$s</string>
-    <!-- $1$s = wirless network name -->
+	<!-- $1$s = wirless network name -->
 	<string name="eapprofileMissing_text2">Molimo dohvatitie odgovarajući profil.</string>
 	<string name="eapprofileMissing_text3">These can either be found at your home institutions instruction pages or at the eduroamCAT website: %1$s</string>
-    <!-- $1$s = cat website url-->
+	<!-- $1$s = cat website url-->
 	<string name="manualChecks_title">Ručna provjera konfiguracije</string>
 	<string name="removeProfile_title">Micanje profila</string>
 	<string name="removeProfile_message">Jeste li sigurni da želite maknuti profil?</string>
@@ -95,7 +94,7 @@
 	<string name="advanced_off">Napredni mod isklučen</string>
 	<string name="support_message1">eduroamCAT aplikacija zahtjeva korištenje .eap-config profila vaše institucije. Nakon što dohvatite isti pmoču opcije Dohvati, isti će se instalirati.</string>
 	<string name="support_message2">eduroamCAT aplikacija instalirat će profil s %1$s</string>
-    <!-- $1$s = institution name -->
+	<!-- $1$s = institution name -->
 	<string name="support_message3">za konfiguraciju eduroam-a. Ako trebate pomoć:</string>
 	<string name="support_email">Email:</string>
 	<string name="support_phone">Telefon:</string>
@@ -144,13 +143,15 @@
 	<string name="scad_geoip_noloc">No location service active. Please turn on Location Services and restart the app for auto discovery to work.</string>
 	<string name="scad_geoip_no_configs_title">Nema bliske konfiguracije</string>
 	<string name="scad_geoip_no_configs_message">Konfiguracija nije automatski pronađena u radius od %1$d KM.</string>
-    <!-- $1$d = number represnting Kilometers -->
+	<!-- $1$d = number represnting Kilometers -->
 	<string name="scad_geoip_success">KOnfiguracija pronađena. Odaberi tipku pretraga za pronalazak IdP-a</string>
 	<string name="eapprofileMissing_text4">You can also search for configs using the Manual Search button below. </string>
-    <!-- -New Strings Release for translation-->
 	<string name="scad_success">KOnfiguracija pronađena. Odaberi tipku pretraga za pronalazak IdP-a</string>
-    <string name="manual_search_text">Unesi naziv instituije za pretragu</string>
-    <string name="manual_search_more">učitaj još</string>
-    <string name="manual_search_fail">Bez rezulatata</string>
+	<string name="manual_search_text">Unesi naziv instituije za pretragu</string>
+	<string name="manual_search_more">učitaj još</string>
+	<string name="manual_search_fail">Bez rezulatata</string>
 	<string name="select_menu">Odaberite konfiguracijsku datoteku</string>
-	</resources>
+	<!-- -New Strings Release for translation-->
+	<string name="authMethod_text_clientcertcn">Korisnička oznaka:</string>
+	<string name="authMethod_text_clientcertexp">Korisnički podaci ističu:</string>
+</resources>
