@@ -11,6 +11,7 @@ The public repository on play: https://play.google.com/store/apps/details?id=uk.
 The application requests only the bare minimum of permissions needed to fulfill its purpose: to configure the Wi-Fi interface of Android devices, and to verify that the connection has been established correctly. The following permissions are needed:
 
 1. Location - Access Approximate Location (network-based)
+
    eduroam configuration details vary by participating organisation. The application needs to know which organisation a user belongs to to install the correct ones. One of the means to find out is by comparing the device location to the location of participating organisations, and then suggesting nearby organisations on top of a list.
    
 2. Photos/Media/Files - Read the Contents of your SD Card
