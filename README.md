@@ -16,6 +16,8 @@ The application requests only the bare minimum of permissions needed to fulfill 
    
 2. Photos/Media/Files - Read the Contents of your SD Card
 
+    The application reads the user selected config file from external storage.
+
 3. Photos/Media/Files - Modify or Delete the Contents of your SD Card
 
    The application saves the organisation that was selected by the user and the associated configuration details. It also retrieves those from file storage on startup.
