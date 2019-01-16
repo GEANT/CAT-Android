@@ -237,9 +237,12 @@ public class WifiConfigAPI18 {
 
 			//just identity for TLS
 			if (aAuth.getOuterEAPType()==13) {
-				if (userName.length()==0) userName=aAuth.getClientPrivateKeySubjectCN();
-				enterpriseConfig.setIdentity(userName);
-				debug("Using Username:"+userName);
+				if (userName!=null)
+				if (userName.length()==0) if ( aAuth.getClientPrivateKeySubjectCN() != null && aAuth.getClientPrivateKeySubjectCN().length()>0) {
+                    userName = aAuth.getClientPrivateKeySubjectCN();
+                    enterpriseConfig.setIdentity(userName);
+                    debug("Using Username:" + userName);
+                }
 			}
 	        
 	        selectedConfig.enterpriseConfig=enterpriseConfig;
