@@ -52,6 +52,7 @@ public class ViewProfiles extends Activity {
                             searchText = input.getText().toString();
                             if (searchText.length()>2) {
                                 search = searchText;
+                                if (search != null) search = search.trim();
                                 adapter.clear();
                                 scad = new SCAD(ViewProfiles.this, search);
                                 scad.execute();
