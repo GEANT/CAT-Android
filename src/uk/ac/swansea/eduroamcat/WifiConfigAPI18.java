@@ -243,6 +243,14 @@ public class WifiConfigAPI18 {
                     enterpriseConfig.setIdentity(userName);
                     debug("Using Username:" + userName);
                 }
+                else
+                {
+                    if ( aAuth.getClientPrivateKeySubjectCN() != null && aAuth.getClientPrivateKeySubjectCN().length()>0) {
+                        userName = aAuth.getClientPrivateKeySubjectCN();
+                        enterpriseConfig.setIdentity(userName);
+                        debug("Using Username:" + userName);
+                    }
+                }
 			}
 	        
 	        selectedConfig.enterpriseConfig=enterpriseConfig;

@@ -214,7 +214,7 @@ public class ConnectFragment extends Fragment implements OnClickListener
 			if (db.numberOfRowsUSER()>0)
 			{  	
 				username=db.getUser();
-				if (username == null) username = "";
+				if (username.isEmpty()) username = "";
 			}
 			else
 			{
