@@ -704,6 +704,38 @@ public class EAPMetadata extends Activity {
 		    }
 		    
 		    eduroamCAT.debug("AuthenticatoinMethod Count="+config1x.getNumberAuthenticationMethods());
+
+			//***************************************************************CredentialApplicability
+			NodeList credApplic = EAPIdP_ID.getElementsByTagName("CredentialApplicability");
+			if (credApplic.getLength()>0)
+				for(int s=0; s<credApplic.getLength(); s++)
+				{
+					Element cred = (Element) credApplic.item(s);
+					eduroamCAT.debug("Got CredentialApplicability");
+					NodeList IEEE80211 = cred.getElementsByTagName("IEEE80211");
+					if (IEEE80211.getLength()>0)
+						for(int m=0; m<IEEE80211.getLength(); m++)
+						{
+							Element IEEE80211prop = (Element) IEEE80211.item(m);
+							NodeList ssid,minRSNProto;
+                            String ssidValue="",minRSNProtoValue="";
+							ssid = IEEE80211prop.getElementsByTagName("SSID");
+							if (ssid.getLength()>0)
+                            {
+                                Element ssidElement = (Element) ssid.item(0);
+                                ssidValue=ssidElement.getTextContent();
+                            }
+                            minRSNProto = IEEE80211prop.getElementsByTagName("MinRSNProto");
+                            if (minRSNProto.getLength()>0)
+                            {
+                                Element minRSNProtoElement = (Element) minRSNProto.item(0);
+                                minRSNProtoValue = minRSNProtoElement.getTextContent();
+                            }
+							eduroamCAT.debug("Got SSID with proto:"+ssidValue+"/"+minRSNProtoValue);
+
+							//if (IEEE80211prop.getTextContent().length()>0)	config1x.setHelpdeskEmail(IEEE80211prop.getTextContent(), ssif);
+						}
+				}
 		    
 	    	//***************************************************************PROVIDER INFO
 		    NodeList providerInfo = EAPIdP_ID.getElementsByTagName("ProviderInfo");
@@ -803,7 +835,7 @@ public class EAPMetadata extends Activity {
 			   		if (tou.getTextContent().length()>0) config1x.setTermsOfUse(tou.getTextContent().trim());
 		    		eduroamCAT.debug("Got Terms of Use:"+config1x.getTermsOfUse());
 			   	}
-	    	
+
 	    	//***************************************************************HELPDESK
 	    		    	
 	    NodeList helpdeskList = providerElement.getElementsByTagName("Helpdesk");
