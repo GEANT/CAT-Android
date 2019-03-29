@@ -4,7 +4,12 @@ Due to limitations in the Android OS, the application needs to set up a screen l
 The configuration file is in a standardised file format and can be obtained from eduroam Configuration Assistant Tool deployments (such as https://cat.eduroam.org and others). 
 The tool also provides some status information on the eduroam connection.
 
-The public repository on play: https://play.google.com/store/apps/details?id=uk.ac.swansea.eduroamcat
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png"
+     alt="Get it on Google Play"
+     height="80">](https://play.google.com/store/apps/details?id=uk.ac.swansea.eduroamcat)
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+     alt="Get it on F-Droid"
+     height="80">](https://f-droid.org/packages/uk.ac.swansea.eduroamcat/)
 
 # Permissions needed by the app
 
