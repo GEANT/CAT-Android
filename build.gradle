@@ -21,14 +21,14 @@ dependencies {
 }
 
 android {
-    signingConfigs {
-        config {
-            keyAlias 'eduroamcat'
-            keyPassword 'sw@n%78%'
-            storeFile file('C:/Users/AyresGJ/workspace/SENSE-App/docs/eduroamcat')
-            storePassword 'sw@n%78%'
-        }
-    }
+//    signingConfigs {
+//        config {
+//            keyAlias 'eduroamcat'
+//            keyPassword 'sw@n%78%'
+//            storeFile file('C:/Users/AyresGJ/workspace/SENSE-App/docs/eduroamcat')
+//            storePassword 'sw@n%78%'
+//        }
+//    }
     compileSdkVersion 23
     buildToolsVersion '28.0.3'
     useLibrary 'org.apache.http.legacy'
@@ -55,11 +55,11 @@ android {
         debug.setRoot('build-types/debug')
         release.setRoot('build-types/release')
     }
-    buildTypes {
-        release {
-            signingConfig signingConfigs.config
-        }
-    }
+//    buildTypes {
+//        release {
+//            signingConfig signingConfigs.config
+//        }
+//    }
     defaultConfig {
         minSdkVersion = 18
         targetSdkVersion = 26
