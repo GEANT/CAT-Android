@@ -81,10 +81,10 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
 					String web = "";
 					if (aProfile.getHelpdeskURL()!=null) web = aProfile.getHelpdeskURL().toString();
 					supportHTML="<h2>"+getString(R.string.supportHTML_text1)+"</h2>"+
-								"<b>"+getString(R.string.supportHTML_text_email)+"</b><font color=\"blue\">" + aProfile.getSupportEmails() + "</font><br/>" +
-								"<b>"+getString(R.string.supportHTML_text_phone)+"</b><font color=\"blue\">" + aProfile.getHelpdeskPhoneNumber("") + "</font><br/>" +
-								"<b>"+getString(R.string.supportHTML_text_tou)+"</b><font color=\"blue\">" + aProfile.getTermsOfUse() + "</font><br/>" +
-								"<b>"+getString(R.string.supportHTML_text_web)+"</b><font color=\"blue\">" + web+ "</font><br/>";
+								"<b>"+getString(R.string.supportHTML_text_email)+"</b> <font color=\"blue\">" + aProfile.getSupportEmails() + "</font><br/>" +
+								"<b>"+getString(R.string.supportHTML_text_phone)+"</b> <font color=\"blue\">" + aProfile.getHelpdeskPhoneNumber("") + "</font><br/>" +
+								"<b>"+getString(R.string.supportHTML_text_tou)+"</b> <font color=\"blue\">" + aProfile.getTermsOfUse() + "</font><br/>" +
+								"<b>"+getString(R.string.supportHTML_text_web)+"</b> <font color=\"blue\">" + web+ "</font><br/>";
 				}
 				
 				String authMethods="";
@@ -171,8 +171,8 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
 				}
 			
 				summary_template = "<h1>"+getString(R.string.summary_text_title)+"</h1><br/>" +
-				"<p><b>"+getString(R.string.summary_text_provider)+"</b><font color=\"red\">" + aProfile.getDisplayName() + "</font><br/>" +
-				"<b>"+getString(R.string.summary_text_description)+"</b><font color=\"blue\">" + aProfile.getDescription() + "</font><br/>" +		
+				"<p><b>"+getString(R.string.summary_text_provider)+"</b> <font color=\"red\">" + aProfile.getDisplayName() + "</font><br/>" +
+				"<b>"+getString(R.string.summary_text_description)+"</b> <font color=\"blue\">" + aProfile.getDescription() + "</font><br/>" +
 				//"<b>IdentityProvider:</b><font color=\"blue\">" + aProfile.getEAPIdP_ID() + "</font><br/>" +
 				wifiText +
 				authMethods +
@@ -180,7 +180,7 @@ public class ConfigureFragment extends Fragment implements OnClickListener {
 			}
 			else {
 				summary_template = "<h1>" + getString(R.string.profileMissing_title) + "</h1><br/> " +
-						"<p><b>" + getString(R.string.profileMissing_text1) + "</b>" + aProfile.getError() + "<br/>" + "</p>";
+						"<p><b>" + getString(R.string.profileMissing_text1) + "</b> " + aProfile.getError() + "<br/>" + "</p>";
 			}
 		}
 		else

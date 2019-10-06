@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="MissingTranslation" >
 
-  <string name="app_name">eduroamCAT</string>
+  <string name="app_name">eduroam CAT</string>
   <string name="advanced_menu">Avanserte valg</string>
   <string name="about_menu">Om app\'en</string>
   <string name="support_menu">Få hjelp</string>
@@ -135,10 +135,10 @@
   <string name="list_all">List alle</string>
   <string name="manual_search">Manuelt søk</string>
   <string name="search">Søk</string>
-  <string name="scad_title">Konfigurasjonssøk...</string>
+  <string name="scad_title">Konfigurasjonssøk…</string>
   <string name="scad_geoip_failed">Nettverksbasert konfigurasjonssøk feilet</string>
-  <string name="scad_geoip_title">Lokalisert konfigurasjonssøk...</string>
-  <string name="scad_geoip_trying">Prøver lokalisert oppslag via nettverket...</string>
+  <string name="scad_geoip_title">Lokalisert konfigurasjonssøk…</string>
+  <string name="scad_geoip_trying">Prøver lokalisert oppslag via nettverket…</string>
   <string name="scad_geoip_insufficient">Ikke nøyaktig nok lokasjon.</string>
   <string name="scad_geoip_noloc">Ingen lokasjonstjeneste er aktiv. Slå på lokasjonstjeneste og restart app\'en slik at posisjon kan finnes.</string>
   <string name="scad_geoip_no_configs_title">Ingen tilbydere med konfigurasjon i nærheten</string>

@@ -48,7 +48,7 @@ public class ProfileAdapter extends ArrayAdapter<IdP> {
                 // Populate the data into the template view using the data object
                 firstLine.setText(aIdP.getName());
                 if (aIdP.getDistance() < 1000)
-                    secondLine.setText(getContext().getString(R.string.distance) + "=" + aIdP.getDistance() + "Km");
+                    secondLine.setText(getContext().getString(R.string.distance) + ": " + aIdP.getDistance() + " Km");
                 else secondLine.setText("");
 
                 if (aIdP.profileID.size() > 1) {

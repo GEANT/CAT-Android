@@ -3,7 +3,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	tools:ignore="MissingTranslation" >
 
-	<string name="app_name">eduroamCAT</string>
+	<string name="app_name">eduroam CAT</string>
 	<string name="advanced_menu">Napredne opcije</string>
 	<string name="about_menu">O aplikaciji</string>
 	<string name="support_menu">Podrška</string>
@@ -137,7 +137,7 @@
 	<string name="search">Pretraži</string>
 	<string name="scad_title">Pretraga postavki</string>
 	<string name="scad_geoip_failed">Pronalaženje lokacije temeljem mrežne povezanosti nije uspijelo</string>
-	<string name="scad_geoip_title">Pronalaženje konfiguracije lokacijskim sustavom...</string>
+	<string name="scad_geoip_title">Pronalaženje konfiguracije lokacijskim sustavom…</string>
 	<string name="scad_geoip_trying">Pokušaj pronalaska lokalnih postavki temeljem mrežne povezanosti</string>
 	<string name="scad_geoip_insufficient">Nedovoljna točnost lokacije</string>
 	<string name="scad_geoip_noloc">No location service active. Please turn on Location Services and restart the app for auto discovery to work.</string>
