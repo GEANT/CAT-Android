@@ -86,6 +86,7 @@ public class IdP extends AsyncTask<String, Integer, String> {
 	protected void onPostExecute(String result) {
         super.onPostExecute(result);
         //eduroamCAT.debug("RESULT="+result);
+		profileDisplay.clear();
         try {
         	JSONObject allJSON = new JSONObject(result);
 				if (allJSON.has("data")) {
