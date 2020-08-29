@@ -38,7 +38,7 @@
 	<string name="version_menu">Version Information</string>
 	<string name="profile_warning">Installing a profile will replace any existing eduroam settings</string>
 	<string name="about_text">This app was made as part of the GN3+ OpenCall Project, SENSE.  Any app specific (not eduroam connectivity) problems/bugs or comments can be submitted to playstore@eduroam.org</string>
-	<string name="wifiProfileMissing_text1">No WiFi Pofile Found</string>
+	<string name="wifiProfileMissing_text1">No WiFi Profile Found</string>
 	<string name="wifiProfileMissing_text2">Please load a profile file.</string>
 	<string name="supportHTML_text1">Support Information</string>
 	<string name="supportHTML_text_email">Email Address:</string>
