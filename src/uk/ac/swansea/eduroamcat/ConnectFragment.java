@@ -60,7 +60,7 @@ public class ConnectFragment extends Fragment implements OnClickListener
     public static void setStatus(String status)
     {
     	if (progressText!=null && status!=null) {
-			progressText.setText("Status:" + status);
+			progressText.setText("Status: " + status);
 			showCurrentState();
 //    	if (status.contains("CONNECTED"))
 //    	{
@@ -427,7 +427,7 @@ public class ConnectFragment extends Fragment implements OnClickListener
         }
         else setSSIDSpinnerVisible(false);
         isNetworkOnline();
-        //progressText.setText("Status:\n");
+        //progressText.setText("Status: \n");
         //return inflater.inflate(R.layout.fragment_connect, container, false);
         return v;
     }
@@ -441,19 +441,19 @@ public class ConnectFragment extends Fragment implements OnClickListener
             if (netInfo != null && netInfo.getState()==NetworkInfo.State.CONNECTED) {
                 status= true;
                 String sSID=eduroamCAT.wifiCon.getCurrentSSID();
-                setStatus(getString(R.string.wifi_toggle_on)+":"+eduroamCAT.state+":"+sSID);
+                setStatus(getString(R.string.wifi_toggle_on)+" : "+eduroamCAT.state+" : "+sSID);
             }else {
                 netInfo = cm.getNetworkInfo(1);
                 if(netInfo!=null && netInfo.getState()==NetworkInfo.State.CONNECTED)
                     status= true;
                 	String sSID=eduroamCAT.wifiCon.getCurrentSSID();
-                	setStatus(getString(R.string.wifi_toggle_on)+":"+eduroamCAT.state+":"+sSID);
+                	setStatus(getString(R.string.wifi_toggle_on)+" : "+eduroamCAT.state+" : "+sSID);
             }
         }catch(Exception e){
             e.printStackTrace();  
             return false;
         }
-        if (!status) setStatus(getString(R.string.wifi_toggle_off)+":"+eduroamCAT.state);
+        if (!status) setStatus(getString(R.string.wifi_toggle_off)+" : "+eduroamCAT.state);
         return status;
 
         }  

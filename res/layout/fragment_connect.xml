@@ -292,7 +292,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/username_label" />
+                    android:text="@string/username_label"
+                    android:labelFor="@id/username"/>
 
                 <EditText
                     android:id="@+id/username"
@@ -304,7 +305,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="textEmailAddress"
                     android:nextFocusDown="@+id/password"
-                    android:nextFocusForward="@+id/password" >
+                    android:nextFocusForward="@+id/password">
 
                     <requestFocus />
                 </EditText>
@@ -322,7 +323,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/password_label" />
+                    android:text="@string/password_label"
+                    android:labelFor="@id/password"/>
 
                 <EditText
                     android:id="@+id/password"
@@ -334,7 +336,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="textPassword"
                     android:nextFocusDown="@+id/connect"
-                    android:nextFocusForward="@+id/connect" />
+                    android:nextFocusForward="@+id/connect"/>
 
             </LinearLayout>
 

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="MissingTranslation" >
 
-  <string name="app_name">eduroamCAT</string>
+  <string name="app_name">eduroam CAT</string>
   <string name="advanced_menu">Опции за напреднали</string>
   <string name="about_menu">Относно приложението</string>
   <string name="support_menu">Поддръжка</string>
@@ -135,10 +135,10 @@
   <string name="list_all">Покажи всички</string>
   <string name="manual_search">Ръчно търсене</string>
   <string name="search">Търсене</string>
-  <string name="scad_title">Търсене на конфигурация ...</string>
+  <string name="scad_title">Търсене на конфигурация …</string>
   <string name="scad_geoip_failed">Търсенето на конфигурация в мрежата е неуспешно.</string>
-  <string name="scad_geoip_title">Търсене на конфигурация с локализация ...</string>
-  <string name="scad_geoip_trying">Опитва да намери местоположението, използвайки мрежа ...</string>
+  <string name="scad_geoip_title">Търсене на конфигурация с локализация …</string>
+  <string name="scad_geoip_trying">Опитва да намери местоположението, използвайки мрежа …</string>
   <string name="scad_geoip_insufficient">Недостатъчно точна локация.</string>
   <string name="scad_geoip_noloc">Няма активна услуга за локация. Моля включете Location Services и рестартирайте приложението, за да работи автоматичното откриване.</string>
   <string name="scad_geoip_no_configs_title">Няма близки конфигурации</string>

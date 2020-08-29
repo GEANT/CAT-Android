@@ -3,7 +3,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	tools:ignore="MissingTranslation" >
 
-    <string name="app_name">eduroamCAT</string>
+    <string name="app_name">eduroam CAT</string>
     <string name="advanced_menu">Napredne opcije</string>
     <string name="about_menu">O aplikaciji</string>
     <string name="support_menu">Podrška</string>
@@ -136,10 +136,10 @@
 	<string name="list_all">Prikaži sve</string>
 	<string name="manual_search">Ručna pretraga</string>
 	<string name="search">Traži</string>
-	<string name="scad_title">Pronalaženje konfiguracije...</string>
+	<string name="scad_title">Pronalaženje konfiguracije…</string>
 	<string name="scad_geoip_failed">Pronalaženje konfiguracije uz pomoć mreže je neuspešno</string>
-	<string name="scad_geoip_title">Pronalaženje konfiguracije sa lokaliazacijom...</string>
-	<string name="scad_geoip_trying">Pokušaj pronalaženja lokalizacije uz pomoć mreže...</string>
+	<string name="scad_geoip_title">Pronalaženje konfiguracije sa lokaliazacijom…</string>
+	<string name="scad_geoip_trying">Pokušaj pronalaženja lokalizacije uz pomoć mreže…</string>
 	<string name="scad_geoip_insufficient">Nedovoljno precizna informacija o lokaciji.</string>
 	<string name="scad_geoip_noloc">Deljenje lokacije nije aktivirano. Molimo vas da uključite ovu opciju i restartujete aplikaciju kako bi radilo automatsko pronalaženje vaše lokacije.</string>
 	<string name="scad_geoip_no_configs_title">Ne postoje konfiguracije u blizini</string>

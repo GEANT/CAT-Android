@@ -3,7 +3,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	tools:ignore="MissingTranslation" >
 
-	<string name="app_name">eduroamCAT</string>
+	<string name="app_name">eduroam CAT</string>
 	<string name="advanced_menu">Επιλογές για Προχωρημένους</string>
 	<string name="about_menu">Σχετικά με την εφαρμογή</string>
 	<string name="support_menu">Λήψη Υποστήριξης</string>
@@ -136,10 +136,10 @@
 	<string name="list_all">Εμφάνιση όλων</string>
 	<string name="manual_search">Χειροκίνητη αναζήτηση</string>
 	<string name="search">Αναζήτηση</string>
-	<string name="scad_title">Αναζήτηση Ρυθμίσεων...</string>
+	<string name="scad_title">Αναζήτηση Ρυθμίσεων…</string>
 	<string name="scad_geoip_failed">Αναζήτηση Ρυθμίσεων βάσει δικτύου απέτυχε</string>
-	<string name="scad_geoip_title">Αναζήτηση Ρυθμίσεων με εντοπισμό...</string>
-	<string name="scad_geoip_trying">Προσπάθεια εντοπισμού μέσω δικτύου...</string>
+	<string name="scad_geoip_title">Αναζήτηση Ρυθμίσεων με εντοπισμό…</string>
+	<string name="scad_geoip_trying">Προσπάθεια εντοπισμού μέσω δικτύου…</string>
 	<string name="scad_geoip_insufficient">Ανεπαρκής ακρίβεια τοποθεσίας.</string>
 	<string name="scad_geoip_noloc">Δεν είναι ενεργή καμία υπηρεσία τοποθεσίας. Παρακαλώ ενεργοποιήστε τις Υπηρεσίες Τοποθεσίας και επανεκκινήστε την εφαρμογή ώστε να λειτουργήσει ο αυτόματος εντοπισμός.</string>
 	<string name="scad_geoip_no_configs_title">Δεν υπάρχουν φορείς με ρυθμίσεις σε κοντινή απόσταση</string>

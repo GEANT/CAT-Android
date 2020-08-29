@@ -3,7 +3,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	tools:ignore="MissingTranslation" >
 
-	<string name="app_name">eduroamCAT</string>
+	<string name="app_name">eduroam CAT</string>
 	<string name="advanced_menu">Lisäasetukset</string>
 	<string name="about_menu">Tietoja</string>
 	<string name="support_menu">Tuki</string>
@@ -135,10 +135,10 @@
 	<string name="list_all">Näytä kaikki</string>
 	<string name="manual_search">Manuaalinen haku</string>
 	<string name="search">Haku</string>
-	<string name="scad_title">Määritysten etsintä...</string>
+	<string name="scad_title">Määritysten etsintä…</string>
 	<string name="scad_geoip_failed">Määritysten etsintä verkosta epäonnistui</string>
-	<string name="scad_geoip_title">Määritysten etsintä lokalisoinnin perusteella...</string>
-	<string name="scad_geoip_trying">Etsitään määrityksiä verkosta...</string>
+	<string name="scad_geoip_title">Määritysten etsintä lokalisoinnin perusteella…</string>
+	<string name="scad_geoip_trying">Etsitään määrityksiä verkosta…</string>
 	<string name="scad_geoip_insufficient">Paikannus on liian epätarkka.</string>
 	<string name="scad_geoip_noloc">Paikannuspalvelu ei ole päällä. Ole hyvä ja salli paikannus ja käynnistä haku sen jälkeen uudelleen.</string>
 	<string name="scad_geoip_no_configs_title">Määrityksiä ei löytynyt läheltä</string>

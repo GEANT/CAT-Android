@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="MissingTranslation" >
 
-  <string name="app_name">eduroamCAT</string>
+  <string name="app_name">eduroam CAT</string>
   <string name="advanced_menu">Options avancées</string>
   <string name="about_menu">À propos de cette application</string>
   <string name="support_menu">Obtenez de l\'aide</string>

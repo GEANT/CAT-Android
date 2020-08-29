@@ -3,7 +3,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	tools:ignore="MissingTranslation" >
 
-	<string name="app_name">eduroamCAT</string>
+	<string name="app_name">eduroam CAT</string>
 	<string name="advanced_menu">Zawwanswane</string>
 	<string name="about_menu">O programie</string>
 	<string name="support_menu">Kontakt ze wsparciem</string>
@@ -135,10 +135,10 @@
 	<string name="list_all">Pokaż wszystko</string>
 	<string name="manual_search">Wyszukanie ręczne</string>
 	<string name="search">Szukaj</string>
-	<string name="scad_title">Wyszukiwanie konfiguracji ...</string>
+	<string name="scad_title">Wyszukiwanie konfiguracji …</string>
 	<string name="scad_geoip_failed">Wyszukiwanie konfiguracji na podstawie sieci nie powiodło się</string>
-	<string name="scad_geoip_title">Wyszukiwanie konfiguracji na podstawie lokalizacji ...</string>
-	<string name="scad_geoip_trying">Próbuję wyszukania poprzez lokalizację na podstawie sieci ...</string>
+	<string name="scad_geoip_title">Wyszukiwanie konfiguracji na podstawie lokalizacji …</string>
+	<string name="scad_geoip_trying">Próbuję wyszukania poprzez lokalizację na podstawie sieci …</string>
 	<string name="scad_geoip_insufficient">Niewystarczająca dokładność lokalizacji.</string>
 	<string name="scad_geoip_noloc">Nieaktywna usługa lokalizacji. Aby skorzystać z automatycznego wyszukania włącz Usługi Lokalizacji i zrestartuj aplikację.</string>
 	<string name="scad_geoip_no_configs_title">Brak pobliskich konfiguracji</string>

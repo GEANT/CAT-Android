@@ -3,7 +3,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	tools:ignore="MissingTranslation" >
 
-	<string name="app_name">eduroamCAT</string>
+	<string name="app_name">eduroam CAT</string>
 	<string name="advanced_menu">Opciones avanzadas</string>
 	<string name="about_menu">Sobre esta aplicación</string>
 	<string name="support_menu">Recibir soporte</string>
@@ -136,10 +136,10 @@
 	<string name="list_all">Listar todo</string>
 	<string name="manual_search">Búsqueda manual</string>
 	<string name="search">Búsqueda</string>
-	<string name="scad_title">Descubrimiento de configuración...</string>
+	<string name="scad_title">Descubrimiento de configuración…</string>
 	<string name="scad_geoip_failed">Error en el descubrimiento de configuración basado en la red</string>
-	<string name="scad_geoip_title">Descubrimiento de configuración basado en la localización...</string>
-	<string name="scad_geoip_trying">Intentando consultar la localización usando la red...</string>
+	<string name="scad_geoip_title">Descubrimiento de configuración basado en la localización…</string>
+	<string name="scad_geoip_trying">Intentando consultar la localización usando la red…</string>
 	<string name="scad_geoip_insufficient">Precisión de la localización insuficiente.</string>
 	<string name="scad_geoip_noloc">No hay ningún servicio de localización activo. Por favor active los Servicios de Localización y reinicie la aplicación para que el descubrimiento automático funcione.</string>
 	<string name="scad_geoip_no_configs_title">Ninguna configuración cercana</string>

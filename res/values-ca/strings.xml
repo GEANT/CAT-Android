@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<resources xmlns:tools="http://schemas.android.com/tools">
-  <string name="app_name">eduroamCAT</string>
+<resources
+    xmlns:tools="http://schemas.android.com/tools">
+  <string name="app_name">eduroam CAT</string>
   <string name="advanced_menu">Opcions avançades</string>
   <string name="about_menu">Quant a l\'app</string>
   <string name="support_menu">Obtenir ajuda</string>
@@ -133,10 +134,10 @@
   <string name="list_all">Mostrar-los tots</string>
   <string name="manual_search">Cerca manual</string>
   <string name="search">Cerca</string>
-  <string name="scad_title">Exploració de la configuració...</string>
+  <string name="scad_title">Exploració de la configuració…</string>
   <string name="scad_geoip_failed">Ha fallat l\'exploració de la configuració per xarxa</string>
-  <string name="scad_geoip_title">Exploració de la configuració amb localització...</string>
-  <string name="scad_geoip_trying">Provant la localització per xarxa...</string>
+  <string name="scad_geoip_title">Exploració de la configuració amb localització…</string>
+  <string name="scad_geoip_trying">Provant la localització per xarxa…</string>
   <string name="scad_geoip_insufficient">Manca precissió en la localització.</string>
   <string name="scad_geoip_noloc">Cap servei de localització actiu. Sisplau activeu els serveis de localització i reinicieu la app per a que l\'exploració automàtica funcioni.</string>
   <string name="scad_geoip_no_configs_title">No hi ha configuracions properes</string>

@@ -3,7 +3,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	tools:ignore="MissingTranslation" >
 
-    <string name="app_name">eduroamCAT</string>
+    <string name="app_name">eduroam CAT</string>
     <string name="advanced_menu">Pokročilé možnosti</string>
     <string name="about_menu">O aplikaci</string>
     <string name="support_menu">Kontaktujte podporu</string>
@@ -34,7 +34,7 @@
 	<string name="duplicate_button">Duplicitní profil</string>
     <string name="advanced_text">Výpis stavu pro pokročilé:\n</string>
 	<string name="wifilog_text">WiFi log:</string>
-    <string name="error_with">Chyba... </string>
+    <string name="error_with">Chyba… </string>
 	<string name="version_menu">Informace o verzi</string>
 	<string name="profile_warning">Instalací profilu budou nahrazena veškerá existující nastavení eduroamu</string>
 	<string name="about_text">Tato aplikace byla vytvořena jako součást projektu GN3+ OpenCall, SENSE. Připomínky a problémy s aplikací jako takovou (nikoliv však problémy s připojením k síti) nám popište na playstore@eduroam.org .</string>
@@ -136,10 +136,10 @@
 	<string name="list_all">Zobrazit všechny</string>
 	<string name="manual_search">Ruční vyhledávání</string>
 	<string name="search">Vyhledávání</string>
-	<string name="scad_title">Vyhledávání konfigurace...</string>
+	<string name="scad_title">Vyhledávání konfigurace…</string>
 	<string name="scad_geoip_failed">Vyhledávání konfigurace na základě selhání sítě</string>
-	<string name="scad_geoip_title">Vyhledávání konfigurace s lokalizací...</string>
-	<string name="scad_geoip_trying">Pokus o vyhledání lokalizace pomocí sítě...</string>
+	<string name="scad_geoip_title">Vyhledávání konfigurace s lokalizací…</string>
+	<string name="scad_geoip_trying">Pokus o vyhledání lokalizace pomocí sítě…</string>
 	<string name="scad_geoip_insufficient">Nedostatečná přesnost umístění.</string>
 	<string name="scad_geoip_noloc">Služba pro vyhledávání polohy není aktivní. Prosím spusťte službu určování polohy a restartujte  aplikaci.</string>
 	<string name="scad_geoip_no_configs_title">Žádné konfigurace poblíž</string>

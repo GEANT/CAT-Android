@@ -553,7 +553,7 @@ public class WifiController
 						//start=currentConfig.enterpriseConfig.toString().indexOf("ca_cert");
 						//finish=currentConfig.enterpriseConfig.toString().indexOf("\"", start+10);
 						//if (start>0 && finish>0)
-						message+="<font color=\"black\">CA Certificate OK</font>";
+						message+="<font color=\"black\">CA Certificate is valid</font>";
 					}
 					else
 					{

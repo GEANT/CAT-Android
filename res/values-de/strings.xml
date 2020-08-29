@@ -3,7 +3,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	tools:ignore="MissingTranslation" >
 
-	<string name="app_name">eduroamCAT</string>
+	<string name="app_name">eduroam CAT</string>
 	<string name="advanced_menu">Fortgeschrittene Optionen</string>
 	<string name="about_menu">Über die App</string>
 	<string name="support_menu">Unterstützung bekommen</string>
@@ -135,10 +135,10 @@
 	<string name="list_all">Alle anzeigen</string>
 	<string name="manual_search">Manuelle Suche</string>
 	<string name="search">Suche</string>
-	<string name="scad_title">Konfigurationssuche...</string>
+	<string name="scad_title">Konfigurationssuche…</string>
 	<string name="scad_geoip_failed">Konfigurationssuche basierend auf Networkinformationen fehlgeschlagen</string>
 	<string name="scad_geoip_title">Positionsbasierte Konfigurationssuche</string>
-	<string name="scad_geoip_trying">Positionsbestimmung mit Netzwerkinformationen...</string>
+	<string name="scad_geoip_trying">Positionsbestimmung mit Netzwerkinformationen…</string>
 	<string name="scad_geoip_insufficient">Position zu ungenau.</string>
 	<string name="scad_geoip_noloc">Keine Standortdienste verfügbar. Bitte schalten Sie Standortdienst ein und starten Sie die App neu, damit die Erkennung anhand der Position funktioniert.</string>
 	<string name="scad_geoip_no_configs_title">Keine Konfigurationen in der Nähe</string>

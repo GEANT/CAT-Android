@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="MissingTranslation" >
 
-  <string name="app_name">eduroamCAT</string>
+  <string name="app_name">eduroam CAT</string>
   <string name="advanced_menu">Rozšírené nastavenia</string>
   <string name="about_menu">O aplikácii</string>
   <string name="support_menu">Kontaktovať podporu</string>
@@ -135,10 +135,10 @@
   <string name="list_all">Zobraziť všetko</string>
   <string name="manual_search">Manuálne vyhľadávanie</string>
   <string name="search">Vyhľadávanie</string>
-  <string name="scad_title">Vyhľadávanie konfigurácie...</string>
+  <string name="scad_title">Vyhľadávanie konfigurácie…</string>
   <string name="scad_geoip_failed">Vyhľadávanie konfigurácie na základe informácií o sieti zlyhalo</string>
-  <string name="scad_geoip_title">Vyhľadávanie konfigurácie na základe polohy...</string>
-  <string name="scad_geoip_trying">Určovanie polohy podľa siete...</string>
+  <string name="scad_geoip_title">Vyhľadávanie konfigurácie na základe polohy…</string>
+  <string name="scad_geoip_trying">Určovanie polohy podľa siete…</string>
   <string name="scad_geoip_insufficient">Nedostatočná presnosť určovania polohy.</string>
   <string name="scad_geoip_noloc">Služba určovania polohy nie je aktívna. Prosím, zapnite službu určovania polohy a reštartujte aplikáciu.</string>
   <string name="scad_geoip_no_configs_title">Žiadne konfigurácie nablízku</string>
