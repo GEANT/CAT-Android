@@ -64,7 +64,7 @@
 	<string name="eapprofileMissing_text1">WiFi enabled and manually connected to %1$s</string>
     <!-- $1$s = wirless network name -->
 	<string name="eapprofileMissing_text2">Please download an appropriate profile. </string>
-	<string name="eapprofileMissing_text3">These can either be found at your home institutions instruction pages or at the eduroamCAT website: %1$s</string>
+	<string name="eapprofileMissing_text3">These can either be found at your home institutions instruction pages or at the eduroam CAT website: %1$s</string>
     <!-- $1$s = cat website url-->
 	<string name="manualChecks_title">Manual Configuration Checks</string>
 	<string name="removeProfile_title">Remove Profile</string>
@@ -93,8 +93,8 @@
 	<string name="status_wifi_disabled">WiFi currently Disabled!</string>
 	<string name="advanced_on">Advanced Mode On</string>
 	<string name="advanced_off">Advanced Mode Off</string>
-	<string name="support_message1">The eduroamCAT app requires the use of a .eap-config profile from your home institution. Once you download this profile, you can load it from the Downloads app and it will install.</string>
-	<string name="support_message2">The eduroamCAT app has installed a profile from %1$s</string>
+	<string name="support_message1">The eduroam CAT app requires the use of a .eap-config profile from your home institution. Once you download this profile, you can load it from the Downloads app and it will install.</string>
+	<string name="support_message2">The eduroam CAT app has installed a profile from %1$s</string>
     <!-- $1$s = institution name -->
 	<string name="support_message3"> to configure eduroam. If you need help:</string>
 	<string name="support_email">Email:</string>
