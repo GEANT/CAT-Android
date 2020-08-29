@@ -56,12 +56,12 @@
 	<string name="summary_text_title">Configuration File Summary</string>
 	<string name="summary_text_provider">Provider Name:</string>
 	<string name="summary_text_description">Description:</string>
-	<string name="summary_text1">Wifi enabled but no wifi networks connected</string>
+	<string name="summary_text1">WiFi enabled but no WiFi networks connected</string>
 	<string name="summary_text2">Please download an appropriate profile.</string>
 	<string name="profileMissing_title">Profile Error</string>
 	<string name="profileMissing_text1">Error with Profile:</string>
 	<string name="eapprofileMissing_title">No EAP/WiFi Profiles Found</string>
-	<string name="eapprofileMissing_text1">Wifi enabled and manually connected to %1$s</string>
+	<string name="eapprofileMissing_text1">WiFi enabled and manually connected to %1$s</string>
     <!-- $1$s = wirless network name -->
 	<string name="eapprofileMissing_text2">Please download an appropriate profile. </string>
 	<string name="eapprofileMissing_text3">These can either be found at your home institutions instruction pages or at the eduroamCAT website: %1$s</string>
@@ -88,9 +88,9 @@
 	<string name="profile_install_confirm">Are you sure you want to install the profile?</string>
 	<string name="profile_install_confirm2">Are you sure you want to install profile?\nBy doing so, you agree to the following Terms of Use:\n</string>
 	<string name="profile_install_title">Install Profile</string>
-	<string name="status_wifi_supp_ok">Wifi Adapter and Supplicant OK.</string>
-	<string name="status_wifi_supp_problem">Wifi Adapter or Supplicant problem.</string>
-	<string name="status_wifi_disabled">Wifi currently Disabled!</string>
+	<string name="status_wifi_supp_ok">WiFi Adapter and Supplicant OK.</string>
+	<string name="status_wifi_supp_problem">WiFi Adapter or Supplicant problem.</string>
+	<string name="status_wifi_disabled">WiFi currently Disabled!</string>
 	<string name="advanced_on">Advanced Mode On</string>
 	<string name="advanced_off">Advanced Mode Off</string>
 	<string name="support_message1">The eduroamCAT app requires the use of a .eap-config profile from your home institution. Once you download this profile, you can load it from the Downloads app and it will install.</string>
