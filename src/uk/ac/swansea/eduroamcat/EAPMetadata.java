@@ -61,6 +61,7 @@ public class EAPMetadata extends Activity {
 	//global clietn cert value for retry
 	static NodeList clientCert;
     private static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 0;
+	private boolean configFileError = false;
 	
 	public boolean testExternalStorage()
 	{
@@ -80,8 +81,9 @@ public class EAPMetadata extends Activity {
 					this.recreate();
 				} else {
 					Toast.makeText(this, this.getString(R.string.storagePermission), Toast.LENGTH_LONG).show();
+					configFileError = true;
+					finish();
 				}
-				return;
 			}
 		}
 	}
@@ -99,7 +101,7 @@ public class EAPMetadata extends Activity {
 		setContentView(R.layout.activity_eapmetadata);
         Intent configIntent = getIntent();
         InputStream configIn = null;
-        boolean configFileError = false;
+
         String pathToDownload ="";
         eduroamCAT.debug("Got eap-config:"+configIntent.getDataString());
 
@@ -109,8 +111,6 @@ public class EAPMetadata extends Activity {
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE);
-            configFileError=true;
-			Toast.makeText(this, this.getString(R.string.storagePermission), Toast.LENGTH_LONG).show();
         }
         else configFileError=false;
 
