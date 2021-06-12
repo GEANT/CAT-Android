@@ -154,7 +154,7 @@ public class WifiConfigAPI18 {
 	        if (enterpriseConfig.getPhase2Method()==Phase2.PAP) debug("Set to PAP OK");
 
 	        /*Anon ID*/
-	        if (aAuth.getAnonID().length()>0) enterpriseConfig.setAnonymousIdentity(aAuth.getAnonID());
+	        enterpriseConfig.setAnonymousIdentity(aAuth.getAnonID());
 	        debug("Set Anon to:"+aAuth.getAnonID());
 	        
 	        /*Cert*/
